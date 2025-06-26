@@ -9,36 +9,31 @@ const ProductCarousel = () => {
       id: 1,
       name: "Red Roses",
       price: "₹50/dozen",
-      image: "/images/image1.png",
-      description: "Fresh red roses perfect for special occasions"
+      image: "/images/image1.png"
     },
     {
       id: 2,
       name: "White Lilies",
       price: "₹40/bunch",
-      image: "/images/image2.png",
-      description: "Pure white lilies for elegant arrangements"
+      image: "/images/image2.png"
     },
     {
       id: 3,
       name: "Yellow Marigolds",
       price: "₹30/kg",
-      image: "/images/image1.png",
-      description: "Bright yellow marigolds for festivals"
+      image: "/images/image1.png"
     },
     {
       id: 4,
       name: "Pink Carnations",
       price: "₹45/bunch",
-      image: "/images/image2.png",
-      description: "Soft pink carnations for gentle occasions"
+      image: "/images/image2.png"
     },
     {
       id: 5,
       name: "Orange Gerberas",
       price: "₹35/bunch",
-      image: "/images/image1.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      image: "/images/image1.png"
     }
   ];
 
@@ -67,34 +62,32 @@ const ProductCarousel = () => {
     <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-2xl bg-white">
       <div className="flex items-center justify-center h-full relative">
         {/* Left product (partially visible) */}
-        <div className="absolute left-4 z-10 opacity-50 scale-75 transition-all duration-500">
+        <div className="absolute left-4 z-10 opacity-50 scale-75 transition-all duration-700 ease-in-out transform">
           <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden">
             <img 
               src={left.image} 
               alt={left.name}
-              className="w-full h-40 object-cover"
+              className="w-full h-48 object-cover"
             />
-            <div className="p-3">
+            <div className="p-4 text-center">
               <h3 className="text-sm font-semibold text-gray-800">{left.name}</h3>
-              <p className="text-xs text-gray-600 mt-1">{left.description}</p>
-              <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-1">
+              <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
                 {left.price}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Center product (main focus) */}
-        <div className="z-20 scale-100 transition-all duration-500">
-          <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden">
+        {/* Center product (main focus with slide animation) */}
+        <div className="z-20 scale-100 transition-all duration-700 ease-in-out transform animate-pulse">
+          <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-gradient-to-r from-pink-600 to-orange-500">
             <img 
               src={center.image} 
               alt={center.name}
-              className="w-full h-52 object-cover"
+              className="w-full h-56 object-cover"
             />
-            <div className="p-4">
+            <div className="p-4 text-center">
               <h3 className="text-lg font-semibold text-gray-800">{center.name}</h3>
-              <p className="text-xs text-gray-600 mt-1">{center.description}</p>
               <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
                 {center.price}
               </p>
@@ -103,20 +96,26 @@ const ProductCarousel = () => {
         </div>
 
         {/* Right product (partially visible) */}
-        <div className="absolute right-4 z-10 opacity-50 scale-75 transition-all duration-500">
+        <div className="absolute right-4 z-10 opacity-50 scale-75 transition-all duration-700 ease-in-out transform">
           <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden">
             <img 
               src={right.image} 
               alt={right.name}
-              className="w-full h-40 object-cover"
+              className="w-full h-48 object-cover"
             />
-            <div className="p-3">
+            <div className="p-4 text-center">
               <h3 className="text-sm font-semibold text-gray-800">{right.name}</h3>
-              <p className="text-xs text-gray-600 mt-1">{right.description}</p>
-              <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-1">
+              <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
                 {right.price}
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Moving animation overlay */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="w-full h-full animate-[slide-left_3s_ease-in-out_infinite] opacity-10">
+            <div className="w-full h-full bg-gradient-to-r from-transparent via-pink-300 to-transparent"></div>
           </div>
         </div>
       </div>
@@ -138,6 +137,14 @@ const ProductCarousel = () => {
       {/* Background decoration */}
       <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-to-br from-pink-200 to-orange-200 rounded-full opacity-20 animate-pulse"></div>
       <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-orange-200 to-pink-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
+      
+      <style jsx>{`
+        @keyframes slide-left {
+          0% { transform: translateX(100%); }
+          50% { transform: translateX(-50%); }
+          100% { transform: translateX(-100%); }
+        }
+      `}</style>
     </div>
   );
 };
