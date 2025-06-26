@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 const ProductCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
 
   const products = [
     {
@@ -44,85 +44,75 @@ const ProductCarousel = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
-    }, 3000); // Change every 3 seconds
+      setTranslateX(prev => {
+        // Move left by 280px (card width + gap), reset when we've moved past all cards
+        const newTranslateX = prev - 280;
+        const maxTranslate = -280 * products.length;
+        return newTranslateX <= maxTranslate ? 0 : newTranslateX;
+      });
+    }, 3000); // Move every 3 seconds
 
     return () => clearInterval(interval);
   }, [products.length]);
 
-  const getProductAtIndex = (index: number) => {
-    return products[index % products.length];
-  };
-
-  const leftProduct = getProductAtIndex(currentIndex - 1 + products.length);
-  const centerProduct = getProductAtIndex(currentIndex);
-  const rightProduct = getProductAtIndex(currentIndex + 1);
+  // Create extended array for seamless loop
+  const extendedProducts = [...products, ...products];
 
   return (
     <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-2xl bg-white">
       <div className="flex items-center justify-center h-full relative">
-        {/* Left product (partially visible) */}
-        <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/4 opacity-50 transition-all duration-500 ease-in-out z-10">
-          <div className="w-48 h-64 bg-white rounded-xl shadow-lg overflow-hidden">
-            <img 
-              src={leftProduct.image} 
-              alt={leftProduct.name}
-              className="w-full h-40 object-cover"
-            />
-            <div className="p-3">
-              <h3 className="text-sm font-semibold text-gray-800 truncate">{leftProduct.name}</h3>
-              <p className="text-xs text-pink-600 font-medium">{leftProduct.price}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Center product (main focus) */}
-        <div className="z-20 transition-all duration-500 ease-in-out transform hover:scale-105">
-          <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden">
-            <img 
-              src={centerProduct.image} 
-              alt={centerProduct.name}
-              className="w-full h-52 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-800">{centerProduct.name}</h3>
-              <p className="text-xs text-gray-600 mt-1">{centerProduct.description}</p>
-              <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
-                {centerProduct.price}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Right product (partially visible) */}
-        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/4 opacity-50 transition-all duration-500 ease-in-out z-10">
-          <div className="w-48 h-64 bg-white rounded-xl shadow-lg overflow-hidden">
-            <img 
-              src={rightProduct.image} 
-              alt={rightProduct.name}
-              className="w-full h-40 object-cover"
-            />
-            <div className="p-3">
-              <h3 className="text-sm font-semibold text-gray-800 truncate">{rightProduct.name}</h3>
-              <p className="text-xs text-pink-600 font-medium">{rightProduct.price}</p>
-            </div>
-          </div>
+        {/* Sliding container */}
+        <div 
+          className="flex items-center space-x-8 transition-transform duration-1000 ease-in-out"
+          style={{ transform: `translateX(${translateX}px)` }}
+        >
+          {extendedProducts.map((product, index) => {
+            const isCenter = Math.floor((Math.abs(translateX) + 400) / 280) === index;
+            
+            return (
+              <div
+                key={`${product.id}-${index}`}
+                className={`flex-shrink-0 transition-all duration-500 ${
+                  isCenter 
+                    ? 'scale-110 z-20 opacity-100' 
+                    : 'scale-90 z-10 opacity-70'
+                }`}
+              >
+                <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-52 object-cover"
+                  />
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
+                    <p className="text-xs text-gray-600 mt-1">{product.description}</p>
+                    <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
+                      {product.price}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
       {/* Carousel indicators */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {products.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex 
-                ? 'bg-gradient-to-r from-pink-600 to-orange-500' 
-                : 'bg-gray-300 hover:bg-gray-400'
-            }`}
-          />
-        ))}
+        {products.map((_, index) => {
+          const currentIndex = Math.floor(Math.abs(translateX) / 280) % products.length;
+          return (
+            <button
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex 
+                  ? 'bg-gradient-to-r from-pink-600 to-orange-500' 
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+            />
+          );
+        })}
       </div>
 
       {/* Background decoration */}
