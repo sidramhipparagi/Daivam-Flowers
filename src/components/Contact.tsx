@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section className="py-20 bg-gray-900 text-white">
+    <section id="contact" className="py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8">
