@@ -36,6 +36,10 @@ const Hero = () => {
                 <span className="text-sm font-medium">Same Day Delivery</span>
               </div>
             </div>
+          </div>
+          
+          <div className="relative flex flex-col items-center space-y-6">
+            <ProductCarousel />
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
@@ -45,10 +49,6 @@ const Hero = () => {
                 View Collection
               </Link>
             </div>
-          </div>
-          
-          <div className="relative">
-            <ProductCarousel />
           </div>
         </div>
       </div>

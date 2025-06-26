@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 const ProductCarousel = () => {
-  const [translateX, setTranslateX] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const products = [
     {
@@ -44,75 +44,95 @@ const ProductCarousel = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTranslateX(prev => {
-        // Move left by 280px (card width + gap), reset when we've moved past all cards
-        const newTranslateX = prev - 280;
-        const maxTranslate = -280 * products.length;
-        return newTranslateX <= maxTranslate ? 0 : newTranslateX;
-      });
-    }, 3000); // Move every 3 seconds
+      setCurrentIndex(prev => (prev + 1) % products.length);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [products.length]);
 
-  // Create extended array for seamless loop
-  const extendedProducts = [...products, ...products];
+  const getVisibleProducts = () => {
+    const prevIndex = (currentIndex - 1 + products.length) % products.length;
+    const nextIndex = (currentIndex + 1) % products.length;
+    
+    return {
+      left: products[prevIndex],
+      center: products[currentIndex],
+      right: products[nextIndex]
+    };
+  };
+
+  const { left, center, right } = getVisibleProducts();
 
   return (
     <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-2xl bg-white">
       <div className="flex items-center justify-center h-full relative">
-        {/* Sliding container */}
-        <div 
-          className="flex items-center space-x-8 transition-transform duration-1000 ease-in-out"
-          style={{ transform: `translateX(${translateX}px)` }}
-        >
-          {extendedProducts.map((product, index) => {
-            const isCenter = Math.floor((Math.abs(translateX) + 400) / 280) === index;
-            
-            return (
-              <div
-                key={`${product.id}-${index}`}
-                className={`flex-shrink-0 transition-all duration-500 ${
-                  isCenter 
-                    ? 'scale-110 z-20 opacity-100' 
-                    : 'scale-90 z-10 opacity-70'
-                }`}
-              >
-                <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden">
-                  <img 
-                    src={product.image} 
-                    alt={product.name}
-                    className="w-full h-52 object-cover"
-                  />
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
-                    <p className="text-xs text-gray-600 mt-1">{product.description}</p>
-                    <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
-                      {product.price}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        {/* Left product (partially visible) */}
+        <div className="absolute left-4 z-10 opacity-50 scale-75 transition-all duration-500">
+          <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden">
+            <img 
+              src={left.image} 
+              alt={left.name}
+              className="w-full h-40 object-cover"
+            />
+            <div className="p-3">
+              <h3 className="text-sm font-semibold text-gray-800">{left.name}</h3>
+              <p className="text-xs text-gray-600 mt-1">{left.description}</p>
+              <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-1">
+                {left.price}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Center product (main focus) */}
+        <div className="z-20 scale-100 transition-all duration-500">
+          <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden">
+            <img 
+              src={center.image} 
+              alt={center.name}
+              className="w-full h-52 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-lg font-semibold text-gray-800">{center.name}</h3>
+              <p className="text-xs text-gray-600 mt-1">{center.description}</p>
+              <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
+                {center.price}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Right product (partially visible) */}
+        <div className="absolute right-4 z-10 opacity-50 scale-75 transition-all duration-500">
+          <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden">
+            <img 
+              src={right.image} 
+              alt={right.name}
+              className="w-full h-40 object-cover"
+            />
+            <div className="p-3">
+              <h3 className="text-sm font-semibold text-gray-800">{right.name}</h3>
+              <p className="text-xs text-gray-600 mt-1">{right.description}</p>
+              <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-1">
+                {right.price}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Carousel indicators */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {products.map((_, index) => {
-          const currentIndex = Math.floor(Math.abs(translateX) / 280) % products.length;
-          return (
-            <button
-              key={index}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex 
-                  ? 'bg-gradient-to-r from-pink-600 to-orange-500' 
-                  : 'bg-gray-300 hover:bg-gray-400'
-              }`}
-            />
-          );
-        })}
+        {products.map((_, index) => (
+          <button
+            key={index}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentIndex 
+                ? 'bg-gradient-to-r from-pink-600 to-orange-500' 
+                : 'bg-gray-300 hover:bg-gray-400'
+            }`}
+          />
+        ))}
       </div>
 
       {/* Background decoration */}
