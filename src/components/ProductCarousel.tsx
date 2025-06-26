@@ -1,8 +1,11 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 
 const ProductCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const products = [
     {
@@ -37,13 +40,55 @@ const ProductCarousel = () => {
     }
   ];
 
+  // Auto-play functionality
   useEffect(() => {
+    if (!isAutoPlaying) return;
+
     const interval = setInterval(() => {
-      setCurrentIndex(prev => (prev + 1) % products.length);
-    }, 3000);
+      if (!isTransitioning) {
+        nextSlide();
+      }
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [products.length]);
+  }, [isAutoPlaying, isTransitioning]);
+
+  const nextSlide = () => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
+    setCurrentIndex(prev => (prev + 1) % products.length);
+    
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 500);
+  };
+
+  const prevSlide = () => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
+    setCurrentIndex(prev => (prev - 1 + products.length) % products.length);
+    
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 500);
+  };
+
+  const goToSlide = (index: number) => {
+    if (isTransitioning || index === currentIndex) return;
+    
+    setIsTransitioning(true);
+    setCurrentIndex(index);
+    
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 500);
+  };
+
+  const toggleAutoPlay = () => {
+    setIsAutoPlaying(!isAutoPlaying);
+  };
 
   const getVisibleProducts = () => {
     const prevIndex = (currentIndex - 1 + products.length) % products.length;
@@ -59,10 +104,12 @@ const ProductCarousel = () => {
   const { left, center, right } = getVisibleProducts();
 
   return (
-    <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-2xl bg-white">
+    <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-2xl bg-white group">
       <div className="flex items-center justify-center h-full relative">
         {/* Left product (partially visible) */}
-        <div className="absolute left-4 z-10 opacity-50 scale-75 transition-all duration-700 ease-in-out transform">
+        <div className={`absolute left-4 z-10 opacity-50 scale-75 transition-all duration-700 ease-in-out transform ${
+          isTransitioning ? 'animate-pulse' : ''
+        }`}>
           <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden">
             <img 
               src={left.image} 
@@ -79,7 +126,9 @@ const ProductCarousel = () => {
         </div>
 
         {/* Center product (main focus with slide animation) */}
-        <div className="z-20 scale-100 transition-all duration-700 ease-in-out transform animate-pulse">
+        <div className={`z-20 scale-100 transition-all duration-700 ease-in-out transform ${
+          isTransitioning ? 'animate-pulse' : ''
+        }`}>
           <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-gradient-to-r from-pink-600 to-orange-500">
             <img 
               src={center.image} 
@@ -96,7 +145,9 @@ const ProductCarousel = () => {
         </div>
 
         {/* Right product (partially visible) */}
-        <div className="absolute right-4 z-10 opacity-50 scale-75 transition-all duration-700 ease-in-out transform">
+        <div className={`absolute right-4 z-10 opacity-50 scale-75 transition-all duration-700 ease-in-out transform ${
+          isTransitioning ? 'animate-pulse' : ''
+        }`}>
           <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden">
             <img 
               src={right.image} 
@@ -112,22 +163,55 @@ const ProductCarousel = () => {
           </div>
         </div>
 
-        {/* Moving animation overlay */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="w-full h-full animate-[slide-left_3s_ease-in-out_infinite] opacity-10">
-            <div className="w-full h-full bg-gradient-to-r from-transparent via-pink-300 to-transparent"></div>
+        {/* Continuous movement overlay */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="w-full h-full">
+            <div className="w-full h-full animate-slide-left opacity-10">
+              <div className="w-full h-full bg-gradient-to-r from-transparent via-pink-300 to-transparent"></div>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        disabled={isTransitioning}
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <ChevronLeft className="w-6 h-6 text-gray-700" />
+      </button>
+
+      <button
+        onClick={nextSlide}
+        disabled={isTransitioning}
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <ChevronRight className="w-6 h-6 text-gray-700" />
+      </button>
+
+      {/* Auto-play toggle button */}
+      <button
+        onClick={toggleAutoPlay}
+        className="absolute top-4 right-4 z-30 w-8 h-8 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110"
+      >
+        {isAutoPlaying ? (
+          <Pause className="w-4 h-4 text-gray-700" />
+        ) : (
+          <Play className="w-4 h-4 text-gray-700" />
+        )}
+      </button>
+
       {/* Carousel indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
         {products.map((_, index) => (
           <button
             key={index}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            onClick={() => goToSlide(index)}
+            disabled={isTransitioning}
+            className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
               index === currentIndex 
-                ? 'bg-gradient-to-r from-pink-600 to-orange-500' 
+                ? 'bg-gradient-to-r from-pink-600 to-orange-500 scale-125' 
                 : 'bg-gray-300 hover:bg-gray-400'
             }`}
           />
@@ -137,14 +221,6 @@ const ProductCarousel = () => {
       {/* Background decoration */}
       <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-to-br from-pink-200 to-orange-200 rounded-full opacity-20 animate-pulse"></div>
       <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-orange-200 to-pink-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
-      
-      <style jsx>{`
-        @keyframes slide-left {
-          0% { transform: translateX(100%); }
-          50% { transform: translateX(-50%); }
-          100% { transform: translateX(-100%); }
-        }
-      `}</style>
     </div>
   );
 };

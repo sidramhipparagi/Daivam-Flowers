@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '../components/Header';
 import { Card, CardContent } from '../components/ui/card';
@@ -10,10 +9,10 @@ const Collection = () => {
   const flowers = [
     {
       id: 1,
-      name: "Red Roses",
-      price: "₹50/dozen",
-      image: "/images/image1.png",
-      description: "Fresh red roses perfect for special occasions"
+      name: "Chocolate Flower Maale",
+      price: "₹30/mola",
+      image: "/images/Chocolate-maale.jpg",
+      description: "Fresh maale perfect for special occasions"
     },
     {
       id: 2,
@@ -101,9 +100,13 @@ const Collection = () => {
                       <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500">
                         {flower.price}
                       </span>
-                      <Button className="bg-gradient-to-r from-pink-600 to-pink-700 text-white hover:from-pink-700 hover:to-pink-800 transition-all duration-300">
-                        Order Now
-                      </Button>
+                      <Link 
+                        to={`/order?item=${encodeURIComponent(flower.name)}&price=${encodeURIComponent(flower.price)}`}
+                      >
+                        <Button className="bg-gradient-to-r from-pink-600 to-pink-700 text-white hover:from-pink-700 hover:to-pink-800 transition-all duration-300">
+                          Request Order
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </CardContent>

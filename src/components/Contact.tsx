@@ -1,7 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from 'lucide-react';
+import { 
+  OrderData, 
+  generateSerialNumber, 
+  getCurrentDateTime, 
+  saveOrderToJSON 
+} from '../lib/orderUtils';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    address: '',
+    requirements: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.phone || !formData.address) {
+      setSubmitMessage('Please fill in all required fields.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    const { date, time } = getCurrentDateTime();
+    const orderData: OrderData = {
+      serialNumber: generateSerialNumber(),
+      name: formData.name,
+      phone: formData.phone,
+      address: formData.address,
+      requirements: formData.requirements,
+      timestamp: time,
+      date: date
+    };
+
+    const success = await saveOrderToJSON(orderData);
+    
+    if (success) {
+      setSubmitMessage('Order request submitted successfully! We will contact you soon.');
+      setFormData({ name: '', phone: '', address: '', requirements: '' });
+    } else {
+      setSubmitMessage('Error submitting order. Please try again.');
+    }
+
+    setIsSubmitting(false);
+  };
+
   return (
     <section id="contact" className="py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
@@ -68,39 +126,67 @@ const Contact = () => {
           
           <div className="bg-gray-800 rounded-2xl p-8">
             <h4 className="text-2xl font-bold mb-6">Quick Order</h4>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-medium mb-2">Your Name</label>
+                <label className="block text-sm font-medium mb-2">Your Name *</label>
                 <input 
-                  type="text" 
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white"
                   placeholder="Enter your name"
+                  required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">Phone Number</label>
+                <label className="block text-sm font-medium mb-2">Phone Number *</label>
                 <input 
-                  type="tel" 
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white"
                   placeholder="Enter your phone number"
+                  required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">Delivery Address</label>
+                <label className="block text-sm font-medium mb-2">Delivery Address *</label>
                 <textarea 
+                  name="address"
+                  value={formData.address}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white h-24"
                   placeholder="Enter delivery address"
+                  required
                 ></textarea>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Special Requirements</label>
                 <textarea 
+                  name="requirements"
+                  value={formData.requirements}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white h-20"
                   placeholder="Any specific flower requirements?"
                 ></textarea>
               </div>
-              <button className="w-full bg-gradient-to-r from-pink-500 to-orange-500 text-white py-4 rounded-lg font-semibold hover:from-pink-600 hover:to-orange-600 transition-all duration-300 transform hover:scale-105">
-                Send Order Request
+              {submitMessage && (
+                <div className={`p-3 rounded-lg text-sm ${
+                  submitMessage.includes('successfully') 
+                    ? 'bg-green-600 text-white' 
+                    : 'bg-red-600 text-white'
+                }`}>
+                  {submitMessage}
+                </div>
+              )}
+              <button 
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-pink-500 to-orange-500 text-white py-4 rounded-lg font-semibold hover:from-pink-600 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? 'Submitting...' : 'Send Order Request'}
               </button>
             </form>
           </div>
