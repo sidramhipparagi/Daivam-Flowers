@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { Truck, Clock, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ProductCarousel from './ProductCarousel';
 
 const Hero = () => {
   return (
@@ -46,16 +48,7 @@ const Hero = () => {
           </div>
           
           <div className="relative">
-            <div className="relative z-10 bg-white rounded-2xl shadow-2xl overflow-hidden">
-              <img 
-                src="./images/image1.png" 
-                alt="Fresh flowers from K R Market" 
-                className="w-full h-96 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-            </div>
-            <div className="absolute -top-4 -left-4 w-72 h-72 bg-gradient-to-br from-pink-200 to-orange-200 rounded-full opacity-20 animate-pulse"></div>
-            <div className="absolute -bottom-4 -right-4 w-48 h-48 bg-gradient-to-br from-orange-200 to-pink-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
+            <ProductCarousel />
           </div>
         </div>
       </div>

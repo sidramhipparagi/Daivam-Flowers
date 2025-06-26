@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
 
@@ -34,7 +34,7 @@ const Header = () => {
             <img src="./logo_colour.png" alt="Daivam Flowers Logo" className="h-12" />
           </Link>
           
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Moved to right */}
           {!isMobile && (
             <nav className="hidden md:flex items-center space-x-8">
               {menuItems.map((item) => (
@@ -58,18 +58,6 @@ const Header = () => {
               ))}
             </nav>
           )}
-          
-          {/* Desktop Contact Info */}
-          <div className="hidden lg:flex items-center space-x-6 text-sm text-gray-600">
-            <div className="flex items-center space-x-1">
-              <MapPin className="w-4 h-4" />
-              <span>K R Market, Bengaluru</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <Phone className="w-4 h-4" />
-              <span>+91 97421 41080</span>
-            </div>
-          </div>
 
           {/* Mobile Menu Button */}
           {isMobile && (
@@ -106,18 +94,6 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              
-              {/* Mobile Contact Info */}
-              <div className="pt-4 border-t border-gray-200 space-y-2">
-                <div className="flex items-center space-x-2 text-sm text-gray-600 px-4">
-                  <MapPin className="w-4 h-4" />
-                  <span>K R Market, Bengaluru</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-600 px-4">
-                  <Phone className="w-4 h-4" />
-                  <span>+91 97421 41080</span>
-                </div>
-              </div>
             </nav>
           </div>
         )}
