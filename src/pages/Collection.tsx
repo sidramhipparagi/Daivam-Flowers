@@ -16,39 +16,228 @@ const Collection = () => {
     },
     {
       id: 2,
-      name: "White Lilies",
-      price: "₹40/bunch",
-      image: "/images/image2.png",
+      name: "Chendu Flowers",
+      price: "₹50/500g",
+      image: "/images/Products/Chendu-loose.png",
       description: "Pure white lilies for elegant arrangements"
     },
     {
       id: 3,
-      name: "Yellow Marigolds",
-      price: "₹30/kg",
-      image: "/images/image1.png",
+      name: "Lotus",
+      price: "₹20/1 piece",
+      image: "/images/Products/Lotus.png",
       description: "Bright yellow marigolds for festivals"
     },
     {
       id: 4,
-      name: "Pink Carnations",
-      price: "₹45/bunch",
-      image: "/images/image2.png",
+      name: "Mallige Dindu",
+      price: "₹60/1 piece",
+      image: "/images/Products/Mallige-Dindu.png",
       description: "Soft pink carnations for gentle occasions"
     },
     {
       id: 5,
-      name: "Orange Gerberas",
-      price: "₹35/bunch",
-      image: "/images/image1.png",
+      name: "Chendu Orange Maale",
+      price: "₹35/mola",
+      image: "/images/Products/Chendu-orange-maale.png",
       description: "Vibrant orange gerberas for cheerful moments"
     },
     {
       id: 6,
-      name: "Purple Orchids",
-      price: "₹80/piece",
-      image: "/images/image2.png",
+      name: "Sevanthige Rose Maale",
+      price: "₹50/mola",
+      image: "/images/Products/classic.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 7,
+      name: "Ekke Hoovu",
+      price: "₹50",
+      image: "/images/Products/ekke.png",
       description: "Exotic purple orchids for luxury arrangements"
-    }
+    },
+    {
+      id: 8,
+      name: "Sevanthige-White Rose Maale",
+      price: "₹50/mola",
+      image: "/images/Products/classic-white.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 9,
+      name: "Sevanthige Rose Maale(no paneer soppu)",
+      price: "₹50/mola",
+      image: "/images/Products/classic-nopaneer.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 10,
+      name: "Chendu-Yellow maale",
+      price: "₹40/mola",
+      image: "/images/Products/Chendu-yellow-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 11,
+      name: "Chendu Yellow",
+      price: "₹40/500g",
+      image: "/images/Products/Chendu-yellow.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 12,
+      name: "Gundu Mallige",
+      price: "₹40/100g",
+      image: "/images/Products/Gundu-mallige.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 13,
+      name: "Kanagale Maale",
+      price: "₹30/mola",
+      image: "/images/Products/kanagale-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 14,
+      name: "Kanakambara Hoovu",
+      price: "₹40/100g",
+      image: "/images/Products/Kanakambara-loose.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 15,
+      name: "Mallige Maale",
+      price: "₹50/mola",
+      image: "/images/Products/Mallige-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 16,
+      name: "Mallige Maale(no paneer soppu)",
+      price: "₹50/mola",
+      image: "/images/Products/Mallige-maale-nopaneer.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 17,
+      name: "Mixed Flowers Maale",
+      price: "₹50/mola",
+      image: "/images/Products/Mixed-flowers-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 18,
+      name: "Rose-Orange",
+      price: "₹60/500g",
+      image: "/images/Products/Rose-Orange.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 19,
+      name: "Rose",
+      price: "₹60/500g",
+      image: "/images/Products/Rose-loose.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 20,
+      name: "Rose Maale",
+      price: "₹50/mola",
+      image: "/images/Products/Rose-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 21,
+      name: "Rose Yellow",
+      price: "₹60/500g",
+      image: "/images/Products/Rose-yellow.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 22,
+      name: "Sevanthige",
+      price: "₹80/250g",
+      image: "/images/Products/Sevanthige.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 23,
+      name: "Sevanthige-White",
+      price: "₹80/250g",
+      image: "/images/Products/Sevanthige-white.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 24,
+      name: "Sevanthige Mariegold",
+      price: "₹70/250g",
+      image: "/images/Products/Sevanthige-mariegold.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 25,
+      name: "Sooji Mallige",
+      price: "₹80/250g",
+      image: "/images/Products/Sooji-mallige.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 26,
+      name: "Kadu Mallige",
+      price: "₹300/packet",
+      image: "/images/Products/Kadu-Mallige.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 27,
+      name: "Kanagale",
+      price: "₹300/packet",
+      image: "/images/Products/Kanagale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 28,
+      name: "Kanakambara Maale",
+      price: "₹50/mola",
+      image: "/images/Products/Kanakambara-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 29,
+      name: "Chendu-Yellow",
+      price: "₹50/mola",
+      image: "/images/Products/Chendu-yellow.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 30,
+      name: "Chocolate Flowers",
+      price: "₹50/mola",
+      image: "/images/Products/Chocolate-flower.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 31,
+      name: "Purple Flowers",
+      price: "₹60/250g",
+      image: "/images/Products/Purple-flowers.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 32,
+      name: "Purple White Flowers maale",
+      price: "₹60/250g",
+      image: "/images/Products/purple-white-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 33,
+      name: "Rose Lightyellow",
+      price: "₹60/250g",
+      image: "/images/Products/rose-lightyellow.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
   ];
 
   return (
