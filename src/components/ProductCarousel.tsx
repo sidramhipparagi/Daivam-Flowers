@@ -6,6 +6,7 @@ const ProductCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [direction, setDirection] = useState<'next' | 'prev'>('next');
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const products = [
@@ -57,150 +58,136 @@ const ProductCarousel = () => {
   const nextSlide = () => {
     if (isTransitioning) return;
     
+    setDirection('next');
     setIsTransitioning(true);
     setCurrentIndex(prev => (prev + 1) % products.length);
     
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 600);
+    }, 700);
   };
 
   const prevSlide = () => {
     if (isTransitioning) return;
     
+    setDirection('prev');
     setIsTransitioning(true);
     setCurrentIndex(prev => (prev - 1 + products.length) % products.length);
     
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 600);
+    }, 700);
   };
 
   const goToSlide = (index: number) => {
     if (isTransitioning || index === currentIndex) return;
     
+    setDirection(index > currentIndex ? 'next' : 'prev');
     setIsTransitioning(true);
     setCurrentIndex(index);
     
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 600);
+    }, 700);
   };
 
   const toggleAutoPlay = () => {
     setIsAutoPlaying(!isAutoPlaying);
   };
 
-  const getVisibleProducts = () => {
-    const prevIndex = (currentIndex - 1 + products.length) % products.length;
-    const nextIndex = (currentIndex + 1) % products.length;
-    const nextNextIndex = (currentIndex + 2) % products.length;
-    
-    return {
-      left: products[prevIndex],
-      center: products[currentIndex],
-      right: products[nextIndex],
-      incoming: products[nextNextIndex]
-    };
+  const getProductByIndex = (index: number) => {
+    return products[(index + products.length) % products.length];
   };
 
-  const { left, center, right, incoming } = getVisibleProducts();
+  const renderProduct = (index: number, position: 'left' | 'center' | 'right') => {
+    const product = getProductByIndex(index);
+    const isCenter = position === 'center';
+    
+    let baseClasses = 'absolute transition-all duration-700 ease-in-out transform';
+    let sizeClasses = isCenter ? 'w-64 h-80' : 'w-48 h-72';
+    let containerClasses = isCenter 
+      ? 'bg-white rounded-xl shadow-2xl overflow-hidden border-2 border-pink-200 ring-4 ring-pink-100' 
+      : 'bg-white rounded-xl shadow-lg overflow-hidden backdrop-blur-sm';
+    let imageClasses = isCenter ? 'w-full h-56 object-cover' : 'w-full h-48 object-cover';
+    let opacity = isCenter ? 'opacity-100' : 'opacity-70';
+    let scale = isCenter ? 'scale-100' : 'scale-90';
+    let zIndex = isCenter ? 'z-20' : 'z-10';
+    
+    // Position and transition classes based on state
+    let positionClasses = '';
+    
+    if (!isTransitioning) {
+      // Static positions
+      if (position === 'left') {
+        positionClasses = 'left-8 top-1/2 -translate-y-1/2';
+      } else if (position === 'center') {
+        positionClasses = 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2';
+      } else {
+        positionClasses = 'right-8 top-1/2 -translate-y-1/2';
+      }
+    } else {
+      // Transitioning positions
+      if (direction === 'next') {
+        if (position === 'left') {
+          positionClasses = '-left-64 top-1/2 -translate-y-1/2 opacity-0';
+        } else if (position === 'center') {
+          positionClasses = 'left-8 top-1/2 -translate-y-1/2 scale-90 opacity-70';
+        } else {
+          positionClasses = 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100';
+        }
+      } else {
+        if (position === 'left') {
+          positionClasses = 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100';
+        } else if (position === 'center') {
+          positionClasses = 'right-8 top-1/2 -translate-y-1/2 scale-90 opacity-70';
+        } else {
+          positionClasses = '-right-64 top-1/2 -translate-y-1/2 opacity-0';
+        }
+      }
+    }
+
+    return (
+      <div 
+        key={`${product.id}-${position}`}
+        className={`${baseClasses} ${positionClasses} ${zIndex}`}
+      >
+        <div className={`${sizeClasses} ${containerClasses} ${!isTransitioning ? opacity : ''} ${!isTransitioning ? scale : ''}`}>
+          <img 
+            src={product.image} 
+            alt={product.name}
+            className={imageClasses}
+          />
+          <div className="p-4 text-center">
+            <h3 className={`font-semibold text-gray-800 ${isCenter ? 'text-lg' : 'text-sm'}`}>
+              {product.name}
+            </h3>
+            <p className={`font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2 ${isCenter ? 'text-xl' : 'text-lg'}`}>
+              {product.price}
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-pink-50 to-orange-50 group">
-      <div className="flex items-center justify-center h-full relative">
-        {/* Left product (partially visible) - slides out */}
-        <div className={`absolute left-4 z-10 transition-all duration-600 ease-out transform ${
-          isTransitioning 
-            ? 'translate-x-[-120px] opacity-0 scale-50' 
-            : 'translate-x-0 opacity-60 scale-75'
-        }`}>
-          <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden backdrop-blur-sm">
-            <img 
-              src={left.image} 
-              alt={left.name}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4 text-center">
-              <h3 className="text-sm font-semibold text-gray-800">{left.name}</h3>
-              <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
-                {left.price}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Center product (main focus) - slides to left */}
-        <div className={`z-20 transition-all duration-600 ease-out transform ${
-          isTransitioning 
-            ? 'translate-x-[-180px] opacity-0 scale-75' 
-            : 'translate-x-0 opacity-100 scale-100'
-        }`}>
-          <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden border-2 border-gradient-to-r from-pink-400 to-orange-400 ring-4 ring-pink-100">
-            <img 
-              src={center.image} 
-              alt={center.name}
-              className="w-full h-56 object-cover"
-            />
-            <div className="p-4 text-center">
-              <h3 className="text-lg font-semibold text-gray-800">{center.name}</h3>
-              <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
-                {center.price}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Right product (slides to center) */}
-        <div className={`absolute right-4 z-10 transition-all duration-600 ease-out transform ${
-          isTransitioning 
-            ? 'translate-x-[-240px] scale-100 opacity-100 z-15' 
-            : 'translate-x-0 opacity-60 scale-75'
-        }`}>
-          <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden backdrop-blur-sm">
-            <img 
-              src={right.image} 
-              alt={right.name}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4 text-center">
-              <h3 className="text-sm font-semibold text-gray-800">{right.name}</h3>
-              <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
-                {right.price}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* New product sliding in from the right */}
+      <div className="relative h-full">
+        {/* Render visible products */}
+        {renderProduct(currentIndex - 1, 'left')}
+        {renderProduct(currentIndex, 'center')}
+        {renderProduct(currentIndex + 1, 'right')}
+        
+        {/* Render incoming product during transition */}
         {isTransitioning && (
-          <div className="absolute right-4 z-10 transition-all duration-600 ease-out transform translate-x-[300px] animate-slide-in-smooth">
-            <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden backdrop-blur-sm opacity-60 scale-75">
-              <img 
-                src={incoming.image}
-                alt={incoming.name}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 text-center">
-                <h3 className="text-sm font-semibold text-gray-800">
-                  {incoming.name}
-                </h3>
-                <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
-                  {incoming.price}
-                </p>
-              </div>
-            </div>
-          </div>
+          <>
+            {direction === 'next' && renderProduct(currentIndex + 2, 'right')}
+            {direction === 'prev' && renderProduct(currentIndex - 2, 'left')}
+          </>
         )}
 
-        {/* Subtle shimmer effect overlay */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="w-full h-full">
-            <div className="w-full h-full animate-shimmer opacity-5">
-              <div className="w-full h-full bg-gradient-to-r from-transparent via-white to-transparent"></div>
-            </div>
-          </div>
-        </div>
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-pink-50/30 via-transparent to-orange-50/30 pointer-events-none"></div>
       </div>
 
       {/* Navigation Arrows */}
