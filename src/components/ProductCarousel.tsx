@@ -9,33 +9,33 @@ const ProductCarousel = () => {
   const products = [
     {
       id: 1,
-      name: "Red Roses",
-      price: "₹50/dozen",
-      image: "/images/image1.png"
+      name: "Mallige Dindu",
+      price: "₹60/piece",
+      image: "/images/Products/Mallige-Dindu.png"
     },
     {
       id: 2,
-      name: "White Lilies",
-      price: "₹40/bunch",
-      image: "/images/image2.png"
+      name: "Sevanthige Maale",
+      price: "₹50/mola",
+      image: "/images/Products/classic.png"
     },
     {
       id: 3,
-      name: "Yellow Marigolds",
-      price: "₹30/kg",
-      image: "/images/image1.png"
+      name: "Roses",
+      price: "₹30/250gm",
+      image: "/images/Products/Rose-loose.png"
     },
     {
       id: 4,
-      name: "Pink Carnations",
-      price: "₹45/bunch",
-      image: "/images/image2.png"
+      name: "Sevanthige",
+      price: "₹80/250gm",
+      image: "/images/Products/Sevanthige.png"
     },
     {
       id: 5,
-      name: "Orange Gerberas",
-      price: "₹35/bunch",
-      image: "/images/image1.png"
+      name: "Kanakambara Maale",
+      price: "₹50/mola",
+      image: "/images/Products/Kanakambara-maale.png"
     }
   ];
 
@@ -129,8 +129,8 @@ const ProductCarousel = () => {
             onClick={() => goToSlide(index)}
             className={`transition-all duration-300 hover:scale-125 ${
               index === currentIndex 
-                ? 'w-8 h-3 bg-gradient-to-r from-pink-600 to-orange-500 rounded-full' 
-                : 'w-3 h-3 bg-white/70 hover:bg-white rounded-full'
+                ? 'w-8 h-1 bg-gradient-to-r from-pink-600 to-orange-500 rounded-full' 
+                : 'w-1 h-1 bg-white/70 hover:bg-white rounded-full'
             }`}
           />
         ))}

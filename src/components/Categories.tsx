@@ -7,28 +7,28 @@ const Categories = () => {
     {
       id: 1,
       name: "Loose Flowers",
-      image: "/images/Products/Chendu-loose.png",
+      image: "/images/posters/loose.png",
       route: "/loose-flowers",
       color: "from-pink-500 to-pink-600"
     },
     {
       id: 2,
       name: "Maale",
-      image: "/images/Products/Mallige-maale.png",
+      image: "/images/posters/maale.png",
       route: "/maale",
       color: "from-orange-500 to-orange-600"
     },
     {
       id: 3,
-      name: "Human Use",
-      image: "/images/Products/Sevanthige.png",
+      name: "Daily Elegance",
+      image: "/images/posters/human.png",
       route: "/human-use",
       color: "from-purple-500 to-purple-600"
     },
     {
       id: 4,
       name: "Hara",
-      image: "/images/Products/Lotus.png",
+      image: "/images/posters/hara.png",
       route: "/hara",
       color: "from-green-500 to-green-600"
     }

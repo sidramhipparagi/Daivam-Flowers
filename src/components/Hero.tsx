@@ -33,7 +33,7 @@ const Hero = () => {
               </div>
               <div className="flex items-center space-x-2 bg-white rounded-full px-4 py-2 shadow-sm">
                 <Clock className="w-5 h-5 text-orange-500" />
-                <span className="text-sm font-medium">Same Day Delivery</span>
+                <span className="text-sm font-medium">Order Today Get Delivered Tomorrow Morning</span>
               </div>
             </div>
           </div>

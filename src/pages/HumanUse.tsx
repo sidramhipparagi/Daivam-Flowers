@@ -57,9 +57,9 @@ const HumanUse = () => {
               <span>Back to Home</span>
             </Link>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
-              Human
+              Daily
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
-                {" "}Use
+                {" "}Elegance
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
