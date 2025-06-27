@@ -1,3 +1,4 @@
+
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -8,6 +9,10 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import OrdersAdmin from "./components/OrdersAdmin";
 import Order from "./pages/Order";
+import LooseFlowers from "./pages/LooseFlowers";
+import Maale from "./pages/Maale";
+import HumanUse from "./pages/HumanUse";
+import Hara from "./pages/Hara";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +26,10 @@ const App = () => (
           <Route path="/collection" element={<Collection />} />
           <Route path="/about" element={<About />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/loose-flowers" element={<LooseFlowers />} />
+          <Route path="/maale" element={<Maale />} />
+          <Route path="/human-use" element={<HumanUse />} />
+          <Route path="/hara" element={<Hara />} />
           <Route path="/admin82589/orders" element={<OrdersAdmin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
