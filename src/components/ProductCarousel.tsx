@@ -62,7 +62,7 @@ const ProductCarousel = () => {
     
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 800);
+    }, 600);
   };
 
   const prevSlide = () => {
@@ -73,7 +73,7 @@ const ProductCarousel = () => {
     
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 800);
+    }, 600);
   };
 
   const goToSlide = (index: number) => {
@@ -84,7 +84,7 @@ const ProductCarousel = () => {
     
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 800);
+    }, 600);
   };
 
   const toggleAutoPlay = () => {
@@ -94,24 +94,28 @@ const ProductCarousel = () => {
   const getVisibleProducts = () => {
     const prevIndex = (currentIndex - 1 + products.length) % products.length;
     const nextIndex = (currentIndex + 1) % products.length;
+    const nextNextIndex = (currentIndex + 2) % products.length;
     
     return {
       left: products[prevIndex],
       center: products[currentIndex],
-      right: products[nextIndex]
+      right: products[nextIndex],
+      incoming: products[nextNextIndex]
     };
   };
 
-  const { left, center, right } = getVisibleProducts();
+  const { left, center, right, incoming } = getVisibleProducts();
 
   return (
-    <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-2xl bg-white group">
+    <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-pink-50 to-orange-50 group">
       <div className="flex items-center justify-center h-full relative">
-        {/* Left product (partially visible) */}
-        <div className={`absolute left-4 z-10 opacity-50 scale-75 transition-all duration-800 ease-in-out transform ${
-          isTransitioning ? 'translate-x-[-100px] opacity-0' : 'translate-x-0'
+        {/* Left product (partially visible) - slides out */}
+        <div className={`absolute left-4 z-10 transition-all duration-600 ease-out transform ${
+          isTransitioning 
+            ? 'translate-x-[-120px] opacity-0 scale-50' 
+            : 'translate-x-0 opacity-60 scale-75'
         }`}>
-          <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden backdrop-blur-sm">
             <img 
               src={left.image} 
               alt={left.name}
@@ -126,11 +130,13 @@ const ProductCarousel = () => {
           </div>
         </div>
 
-        {/* Center product (main focus with slide animation) */}
-        <div className={`z-20 scale-100 transition-all duration-800 ease-in-out transform ${
-          isTransitioning ? 'translate-x-[-200px] opacity-0 scale-90' : 'translate-x-0 opacity-100 scale-100'
+        {/* Center product (main focus) - slides to left */}
+        <div className={`z-20 transition-all duration-600 ease-out transform ${
+          isTransitioning 
+            ? 'translate-x-[-180px] opacity-0 scale-75' 
+            : 'translate-x-0 opacity-100 scale-100'
         }`}>
-          <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-gradient-to-r from-pink-600 to-orange-500">
+          <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden border-2 border-gradient-to-r from-pink-400 to-orange-400 ring-4 ring-pink-100">
             <img 
               src={center.image} 
               alt={center.name}
@@ -145,11 +151,13 @@ const ProductCarousel = () => {
           </div>
         </div>
 
-        {/* Right product (partially visible) with slide-in effect */}
-        <div className={`absolute right-4 z-10 opacity-50 scale-75 transition-all duration-800 ease-in-out transform ${
-          isTransitioning ? 'translate-x-[-300px] opacity-80 scale-90' : 'translate-x-0'
+        {/* Right product (slides to center) */}
+        <div className={`absolute right-4 z-10 transition-all duration-600 ease-out transform ${
+          isTransitioning 
+            ? 'translate-x-[-240px] scale-100 opacity-100 z-15' 
+            : 'translate-x-0 opacity-60 scale-75'
         }`}>
-          <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden backdrop-blur-sm">
             <img 
               src={right.image} 
               alt={right.name}
@@ -166,30 +174,30 @@ const ProductCarousel = () => {
 
         {/* New product sliding in from the right */}
         {isTransitioning && (
-          <div className="absolute right-4 z-10 opacity-50 scale-75 transition-all duration-800 ease-in-out transform translate-x-[400px] animate-slide-in">
-            <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="absolute right-4 z-10 transition-all duration-600 ease-out transform translate-x-[300px] animate-slide-in-smooth">
+            <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden backdrop-blur-sm opacity-60 scale-75">
               <img 
-                src={products[(currentIndex + 2) % products.length].image}
-                alt={products[(currentIndex + 2) % products.length].name}
+                src={incoming.image}
+                alt={incoming.name}
                 className="w-full h-48 object-cover"
               />
               <div className="p-4 text-center">
                 <h3 className="text-sm font-semibold text-gray-800">
-                  {products[(currentIndex + 2) % products.length].name}
+                  {incoming.name}
                 </h3>
                 <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
-                  {products[(currentIndex + 2) % products.length].price}
+                  {incoming.price}
                 </p>
               </div>
             </div>
           </div>
         )}
 
-        {/* Continuous movement overlay */}
+        {/* Subtle shimmer effect overlay */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="w-full h-full">
-            <div className="w-full h-full animate-slide-left opacity-10">
-              <div className="w-full h-full bg-gradient-to-r from-transparent via-pink-300 to-transparent"></div>
+            <div className="w-full h-full animate-shimmer opacity-5">
+              <div className="w-full h-full bg-gradient-to-r from-transparent via-white to-transparent"></div>
             </div>
           </div>
         </div>
@@ -199,7 +207,7 @@ const ProductCarousel = () => {
       <button
         onClick={prevSlide}
         disabled={isTransitioning}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
       >
         <ChevronLeft className="w-6 h-6 text-gray-700" />
       </button>
@@ -207,7 +215,7 @@ const ProductCarousel = () => {
       <button
         onClick={nextSlide}
         disabled={isTransitioning}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
       >
         <ChevronRight className="w-6 h-6 text-gray-700" />
       </button>
@@ -215,7 +223,7 @@ const ProductCarousel = () => {
       {/* Auto-play toggle button */}
       <button
         onClick={toggleAutoPlay}
-        className="absolute top-4 right-4 z-30 w-8 h-8 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110"
+        className="absolute top-4 right-4 z-30 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 backdrop-blur-sm"
       >
         {isAutoPlaying ? (
           <Pause className="w-4 h-4 text-gray-700" />
@@ -225,24 +233,24 @@ const ProductCarousel = () => {
       </button>
 
       {/* Carousel indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
         {products.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             disabled={isTransitioning}
-            className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
+            className={`transition-all duration-300 hover:scale-125 ${
               index === currentIndex 
-                ? 'bg-gradient-to-r from-pink-600 to-orange-500 scale-125' 
-                : 'bg-gray-300 hover:bg-gray-400'
+                ? 'w-8 h-3 bg-gradient-to-r from-pink-600 to-orange-500 rounded-full' 
+                : 'w-3 h-3 bg-white/70 hover:bg-white rounded-full'
             }`}
           />
         ))}
       </div>
 
-      {/* Background decoration */}
-      <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-to-br from-pink-200 to-orange-200 rounded-full opacity-20 animate-pulse"></div>
-      <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-orange-200 to-pink-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
+      {/* Decorative elements */}
+      <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-pink-200 to-orange-200 rounded-full opacity-30 animate-pulse"></div>
+      <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-orange-200 to-pink-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
     </div>
   );
 };

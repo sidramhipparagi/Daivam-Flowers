@@ -103,7 +103,7 @@
   }
 }
 
-/* Custom animations for carousel */
+/* Professional carousel animations */
 @keyframes slide-left {
   0% { 
     transform: translateX(100%); 
@@ -113,14 +113,25 @@
   }
 }
 
-@keyframes slide-in {
+@keyframes slide-in-smooth {
   0% {
-    transform: translateX(400px);
+    transform: translateX(300px);
     opacity: 0;
+    scale: 0.8;
   }
   100% {
     transform: translateX(0);
-    opacity: 0.5;
+    opacity: 0.6;
+    scale: 0.75;
+  }
+}
+
+@keyframes shimmer {
+  0% { 
+    transform: translateX(-100%); 
+  }
+  100% { 
+    transform: translateX(100%); 
   }
 }
 
@@ -128,6 +139,15 @@
   animation: slide-left 3s linear infinite;
 }
 
-.animate-slide-in {
-  animation: slide-in 0.8s ease-in-out forwards;
+.animate-slide-in-smooth {
+  animation: slide-in-smooth 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-shimmer {
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+/* Custom transition durations */
+.duration-600 {
+  transition-duration: 600ms;
 }
