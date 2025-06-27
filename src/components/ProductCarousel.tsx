@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 
@@ -61,7 +62,7 @@ const ProductCarousel = () => {
     
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 500);
+    }, 800);
   };
 
   const prevSlide = () => {
@@ -72,7 +73,7 @@ const ProductCarousel = () => {
     
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 500);
+    }, 800);
   };
 
   const goToSlide = (index: number) => {
@@ -83,7 +84,7 @@ const ProductCarousel = () => {
     
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 500);
+    }, 800);
   };
 
   const toggleAutoPlay = () => {
@@ -107,8 +108,8 @@ const ProductCarousel = () => {
     <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-2xl bg-white group">
       <div className="flex items-center justify-center h-full relative">
         {/* Left product (partially visible) */}
-        <div className={`absolute left-4 z-10 opacity-50 scale-75 transition-all duration-700 ease-in-out transform ${
-          isTransitioning ? 'animate-pulse' : ''
+        <div className={`absolute left-4 z-10 opacity-50 scale-75 transition-all duration-800 ease-in-out transform ${
+          isTransitioning ? 'translate-x-[-100px] opacity-0' : 'translate-x-0'
         }`}>
           <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden">
             <img 
@@ -126,8 +127,8 @@ const ProductCarousel = () => {
         </div>
 
         {/* Center product (main focus with slide animation) */}
-        <div className={`z-20 scale-100 transition-all duration-700 ease-in-out transform ${
-          isTransitioning ? 'animate-pulse' : ''
+        <div className={`z-20 scale-100 transition-all duration-800 ease-in-out transform ${
+          isTransitioning ? 'translate-x-[-200px] opacity-0 scale-90' : 'translate-x-0 opacity-100 scale-100'
         }`}>
           <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-gradient-to-r from-pink-600 to-orange-500">
             <img 
@@ -144,9 +145,9 @@ const ProductCarousel = () => {
           </div>
         </div>
 
-        {/* Right product (partially visible) */}
-        <div className={`absolute right-4 z-10 opacity-50 scale-75 transition-all duration-700 ease-in-out transform ${
-          isTransitioning ? 'animate-pulse' : ''
+        {/* Right product (partially visible) with slide-in effect */}
+        <div className={`absolute right-4 z-10 opacity-50 scale-75 transition-all duration-800 ease-in-out transform ${
+          isTransitioning ? 'translate-x-[-300px] opacity-80 scale-90' : 'translate-x-0'
         }`}>
           <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden">
             <img 
@@ -162,6 +163,27 @@ const ProductCarousel = () => {
             </div>
           </div>
         </div>
+
+        {/* New product sliding in from the right */}
+        {isTransitioning && (
+          <div className="absolute right-4 z-10 opacity-50 scale-75 transition-all duration-800 ease-in-out transform translate-x-[400px] animate-slide-in">
+            <div className="w-48 h-72 bg-white rounded-xl shadow-lg overflow-hidden">
+              <img 
+                src={products[(currentIndex + 2) % products.length].image}
+                alt={products[(currentIndex + 2) % products.length].name}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4 text-center">
+                <h3 className="text-sm font-semibold text-gray-800">
+                  {products[(currentIndex + 2) % products.length].name}
+                </h3>
+                <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-2">
+                  {products[(currentIndex + 2) % products.length].price}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Continuous movement overlay */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
