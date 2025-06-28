@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: '/',
+  base: mode === 'production' ? '/Daivam-Flowers/' : '/',
   build: {
     outDir: "docs",
     assetsDir: "assets",
