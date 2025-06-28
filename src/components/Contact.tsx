@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from 'lucide-react';
+import { Phone, Mail, Clock, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import { 
   OrderData, 
   generateSerialNumber, 
@@ -63,6 +64,13 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
+        {/* Notification Message */}
+        <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black p-4 rounded-lg mb-8 text-center">
+          <p className="text-lg font-semibold">
+            We are currently accepting orders via WhatsApp and phone calls. Sorry for the inconvenience.
+          </p>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8">
             <div>
@@ -84,32 +92,29 @@ const Contact = () => {
               </div>
               
               <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                  <MessageCircle className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">WhatsApp</h4>
+                  <a 
+                    href="https://wa.me/919742141080?text=Hi, I would like to place an order for flowers"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-300 hover:text-green-200 transition-colors"
+                  >
+                    +91 97421 41080
+                  </a>
+                </div>
+              </div>
+              
+              <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg">Email Us</h4>
                   <p className="text-gray-300">info@daivam.in</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg">Location</h4>
-                  <p className="text-gray-300">K R Market, Bengaluru, Karnataka</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center">
-                  <Clock className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg">Delivery Hours</h4>
-                  <p className="text-gray-300">Mon - Sun: 5:00 AM - 12:00 AM</p>
                 </div>
               </div>
             </div>
