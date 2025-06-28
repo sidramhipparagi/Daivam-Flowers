@@ -265,6 +265,13 @@ const Collection = () => {
     <div className="min-h-screen">
       <Header />
       
+      {/* Notification Message */}
+      <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black p-4 text-center">
+        <p className="text-lg font-semibold">
+          We are currently accepting orders via WhatsApp and phone calls. Sorry for the inconvenience.
+        </p>
+      </div>
+      
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-pink-50 to-orange-50 py-16">
         <div className="container mx-auto px-4">
@@ -310,13 +317,15 @@ const Collection = () => {
                       <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500">
                         {flower.price}
                       </span>
-                      <Link 
-                        to={`/order?item=${encodeURIComponent(flower.name)}&price=${encodeURIComponent(flower.price)}`}
+                      <a 
+                        href={`https://wa.me/919742141080?text=Hi, I would like to order ${encodeURIComponent(flower.name)} - ${encodeURIComponent(flower.price)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <Button className="bg-gradient-to-r from-pink-600 to-pink-700 text-white hover:from-pink-700 hover:to-pink-800 transition-all duration-300">
-                          Request Order
+                          Order Now
                         </Button>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </CardContent>
