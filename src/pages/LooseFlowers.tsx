@@ -10,7 +10,7 @@ const LooseFlowers = () => {
   const looseFlowers = [
     {
       id: 1,
-      name: "Chendu Flowers",
+      name: "Chendu Flowers (Orange)",
       price: "₹50/500g",
       image: "/images/Products/Chendu-loose.png",
       description: "Pure white chendu flowers for elegant arrangements"
@@ -70,7 +70,70 @@ const LooseFlowers = () => {
       price: "₹80/250g",
       image: "/images/Products/Sooji-mallige.png",
       description: "Delicate sooji mallige flowers"
-    }
+    },
+    {
+      id: 10,
+      name: "Lotus",
+      price: "₹20/one",
+      image: "/images/Products/Lotus.png",
+      description: "Yellow sevanthige flowers"
+    },
+    {
+      id: 11,
+      name: "Ekke Hoovu",
+      price: "₹50",
+      image: "/images/Products/ekke.png",
+      description: "Exotic purple orchids for luxury arrangements"
+    },
+    {
+      id: 12,
+      name: "Chendu Yellow",
+      price: "₹40/500g",
+      image: "/images/Products/Chendu-yellow.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 13,
+      name: "Sevanthige Mariegold",
+      price: "₹70/250g",
+      image: "/images/Products/Sevanthige-mariegold.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 14,
+      name: "Kadu Mallige",
+      price: "₹300/packet",
+      image: "/images/Products/Kadu-Mallige.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 15,
+      name: "Kanagale",
+      price: "₹300/packet",
+      image: "/images/Products/Kanagale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 16,
+      name: "Chocolate Flowers",
+      price: "₹60/250gm",
+      image: "/images/Products/Chocolate-flower.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 17,
+      name: "Purple Flowers",
+      price: "₹60/250g",
+      image: "/images/Products/Purple-flowers.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 18,
+      name: "Sugandaraja Hoovu",
+      price: "₹50/500g",
+      image: "/images/Products/sugandaraja.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
   ];
 
   return (

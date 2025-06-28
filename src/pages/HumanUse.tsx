@@ -17,32 +17,46 @@ const HumanUse = () => {
     },
     {
       id: 2,
-      name: "Sevanthige Mariegold",
-      price: "₹70/250g",
-      image: "/images/Products/Sevanthige-mariegold.png",
-      description: "Marigold flowers for personal use"
+      name: "Gundu Mallige",
+      price: "₹40/100g",
+      image: "/images/Products/Gundu-mallige.png",
+      description: "Vibrant orange gerberas for cheerful moments"
     },
     {
       id: 3,
-      name: "Purple Flowers",
-      price: "₹60/250g",
-      image: "/images/Products/Purple-flowers.png",
-      description: "Beautiful purple flowers for decoration"
+      name: "Kanakambara Hoovu",
+      price: "₹40/100g",
+      image: "/images/Products/Kanakambara-loose.png",
+      description: "Vibrant orange gerberas for cheerful moments"
     },
     {
       id: 4,
-      name: "Purple White Flowers maale",
-      price: "₹60/250g",
-      image: "/images/Products/purple-white-maale.png",
-      description: "Purple and white flower combination"
+      name: "Mallige Maale",
+      price: "₹50/mola",
+      image: "/images/Products/Mallige-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
     },
     {
       id: 5,
-      name: "Rose Lightyellow",
-      price: "₹60/250g",
-      image: "/images/Products/rose-lightyellow.png",
-      description: "Light yellow roses for gentle occasions"
-    }
+      name: "Mallige Maale(no paneer soppu)",
+      price: "₹50/mola",
+      image: "/images/Products/Mallige-maale-nopaneer.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 6,
+      name: "Rose",
+      price: "₹60/500g",
+      image: "/images/Products/Rose-loose.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 28,
+      name: "Kanakambara Maale",
+      price: "₹50/mola",
+      image: "/images/Products/Kanakambara-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
   ];
 
   return (

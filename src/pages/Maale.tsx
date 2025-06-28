@@ -91,7 +91,28 @@ const Maale = () => {
       price: "₹50/mola",
       image: "/images/Products/Kanakambara-maale.png",
       description: "Traditional kanakambara maale"
-    }
+    },
+    {
+      id: 13,
+      name: "Purple Flowers Maale",
+      price: "₹100/maru",
+      image: "/images/Products/Purple-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 14,
+      name: "Sevanthige White maale",
+      price: "₹120/maru",
+      image: "/images/Products/sevanthige-white-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 15,
+      name: "Purple White Flowers maale",
+      price: "₹60/250g",
+      image: "/images/Products/purple-white-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
   ];
 
   return (

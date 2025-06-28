@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '../components/Header';
 import { Card, CardContent } from '../components/ui/card';
@@ -10,39 +9,46 @@ const Hara = () => {
   const haraFlowers = [
     {
       id: 1,
-      name: "Lotus",
-      price: "₹20/1 piece",
-      image: "/images/Products/Lotus.png",
-      description: "Sacred lotus flowers for worship"
+      name: "Kamala Hara",
+      price: "₹400/one",
+      image: "/images/hara/Kamala-hara-one.png",
+      description: "Lotus Hara for Wedding or Engagements"
     },
     {
       id: 2,
-      name: "Ekke Hoovu",
-      price: "₹50",
-      image: "/images/Products/ekke.png",
-      description: "Traditional ekke hoovu for ceremonies"
+      name: "Sugandaraja Hara",
+      price: "₹100/one",
+      image: "/images/hara/Sugandaraja-hara.png",
+      description: "Traditional Sugandaraja Hara for worship"
     },
     {
       id: 3,
-      name: "Kadu Mallige",
-      price: "₹300/packet",
-      image: "/images/Products/Kadu-Mallige.png",
-      description: "Premium kadu mallige for special occasions"
+      name: "Mallige Hara",
+      price: "₹300/one",
+      image: "/images/hara/Mallige-Rose-hara.png",
+      description: "Mallige Hara for Wedding or Engagements"
     },
     {
       id: 4,
-      name: "Kanagale",
-      price: "₹300/packet",
-      image: "/images/Products/Kanagale.png",
-      description: "Traditional kanagale flowers"
+      name: "Mallige Rose Hara",
+      price: "₹400/one",
+      image: "/images/hara/mallige-2rose.png",
+      description: "Mallige Hara for Wedding or Engagements"
     },
     {
       id: 5,
-      name: "Chocolate Flowers",
-      price: "₹50/mola",
-      image: "/images/Products/Chocolate-flower.png",
-      description: "Unique chocolate colored flowers"
-    }
+      name: "Kamala Hara (three lotus on each side)",
+      price: "₹500/one",
+      image: "/images/hara/Kamala-hara.png",
+      description: "Lotus Hara for Wedding or Engagements"
+    },
+    {
+      id: 6,
+      name: "Mallige Rose Hara (with yellow and red roses)",
+      price: "₹400/one",
+      image: "/images/hara/mallige-redyellow-rose.png",
+      description: "Mallige Rose Hara for Wedding or Engagements"
+    },
   ];
 
   return (
@@ -75,12 +81,14 @@ const Hara = () => {
             {haraFlowers.map((flower) => (
               <Card key={flower.id} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={flower.image} 
-                    alt={flower.name}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative w-full" style={{ aspectRatio: '2/3' }}>
+                    <img 
+                      src={flower.image} 
+                      alt={flower.name}
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
                 </div>
                 <CardContent className="p-6">
                   <div className="space-y-4">

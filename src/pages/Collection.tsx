@@ -16,7 +16,7 @@ const Collection = () => {
     },
     {
       id: 2,
-      name: "Chendu Flowers",
+      name: "Chendu Flowers (Orange)",
       price: "₹50/500g",
       image: "/images/Products/Chendu-loose.png",
       description: "Pure white lilies for elegant arrangements"
@@ -205,15 +205,15 @@ const Collection = () => {
     },
     {
       id: 29,
-      name: "Chendu-Yellow",
-      price: "₹50/mola",
-      image: "/images/Products/Chendu-yellow.png",
+      name: "Sevanthige Yellow maale",
+      price: "₹120/maru",
+      image: "/images/Products/sevanthige-yellow-maale.png",
       description: "Vibrant orange gerberas for cheerful moments"
     },
     {
       id: 30,
       name: "Chocolate Flowers",
-      price: "₹50/mola",
+      price: "₹60/250gm",
       image: "/images/Products/Chocolate-flower.png",
       description: "Vibrant orange gerberas for cheerful moments"
     },
@@ -236,6 +236,27 @@ const Collection = () => {
       name: "Rose Lightyellow",
       price: "₹60/250g",
       image: "/images/Products/rose-lightyellow.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 34,
+      name: "Sevanthige White maale",
+      price: "₹120/maru",
+      image: "/images/Products/sevanthige-white-maale.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 35,
+      name: "Sugandaraja Hoovu",
+      price: "₹50/500g",
+      image: "/images/Products/sugandaraja.png",
+      description: "Vibrant orange gerberas for cheerful moments"
+    },
+    {
+      id: 36,
+      name: "Purple Flowers Maale",
+      price: "₹100/maru",
+      image: "/images/Products/Purple-maale.png",
       description: "Vibrant orange gerberas for cheerful moments"
     },
   ];
