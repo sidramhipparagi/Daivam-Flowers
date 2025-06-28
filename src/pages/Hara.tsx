@@ -7,48 +7,48 @@ import { Link } from 'react-router-dom';
 
 const Hara = () => {
   const haraFlowers = [
-    {
-      id: 1,
-      name: "Kamala Hara",
-      price: "₹400/one",
-      image: "/images/hara/Kamala-hara-one.png",
-      description: "Lotus Hara for Wedding or Engagements"
-    },
-    {
-      id: 2,
-      name: "Sugandaraja Hara",
-      price: "₹100/one",
-      image: "/images/hara/Sugandaraja-hara.png",
-      description: "Traditional Sugandaraja Hara for worship"
-    },
-    {
-      id: 3,
-      name: "Mallige Hara",
-      price: "₹300/one",
-      image: "/images/hara/Mallige-Rose-hara.png",
-      description: "Mallige Hara for Wedding or Engagements"
-    },
-    {
-      id: 4,
-      name: "Mallige Rose Hara",
-      price: "₹400/one",
-      image: "/images/hara/mallige-2rose.png",
-      description: "Mallige Hara for Wedding or Engagements"
-    },
-    {
-      id: 5,
-      name: "Kamala Hara (three lotus on each side)",
-      price: "₹500/one",
-      image: "/images/hara/Kamala-hara.png",
-      description: "Lotus Hara for Wedding or Engagements"
-    },
-    {
-      id: 6,
-      name: "Mallige Rose Hara (with yellow and red roses)",
-      price: "₹400/one",
-      image: "/images/hara/mallige-redyellow-rose.png",
-      description: "Mallige Rose Hara for Wedding or Engagements"
-    },
+      {
+        "id": 1,
+        "name": "Kamala Hara",
+        "price": "₹400/one",
+        "image": "/images/hara/Kamala-hara-one.png",
+        "description": "Elegant lotus garland ideal for weddings and divine décor"
+      },
+      { 
+        "id": 2,
+        "name": "Sugandaraja Hara",
+        "price": "₹100/one",
+        "image": "/images/hara/Sugandaraja-hara.png",
+        "description": "Fragrant floral hara perfect for pooja and traditional rituals"
+      },
+      {
+        "id": 3,
+        "name": "Mallige Hara",
+        "price": "₹300/one",
+        "image": "/images/hara/Mallige-Rose-hara.png",
+        "description": "Classic jasmine garland, pure and perfect for ceremonies"
+      },
+      {
+        "id": 4,
+        "name": "Mallige Rose Hara",
+        "price": "₹400/one",
+        "image": "/images/hara/mallige-2rose.png",
+        "description": "A blend of jasmine and roses for graceful celebrations"
+      },
+      {
+        "id": 5,
+        "name": "Kamala Hara (three lotus on each side)",
+        "price": "₹500/one",
+        "image": "/images/hara/Kamala-hara.png",
+        "description": "Premium lotus hara designed for grandeur and blessings"
+      },
+      {
+        "id": 6,
+        "name": "Mallige Rose Hara (with yellow and red roses)",
+        "price": "₹400/one",
+        "image": "/images/hara/mallige-redyellow-rose.png",
+        "description": "Bright floral mix suited for engagements and poojas"
+      }  
   ];
 
   return (

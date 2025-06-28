@@ -13,49 +13,49 @@ const HumanUse = () => {
       name: "Mallige Dindu",
       price: "₹60/1 piece",
       image: "/images/Products/Mallige-Dindu.png",
-      description: "Traditional mallige dindu for hair decoration"
+      description: "Freshly packed jasmine buds ideal for garlands and hair adornment."
     },
     {
       id: 2,
       name: "Gundu Mallige",
       price: "₹40/100g",
       image: "/images/Products/Gundu-mallige.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Fragrant Gundu Mallige perfect for hair and devotion"
     },
     {
       id: 3,
       name: "Kanakambara Hoovu",
       price: "₹40/100g",
       image: "/images/Products/Kanakambara-loose.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Vibrant Kanakambara for hair adornment and rituals"
     },
     {
       id: 4,
       name: "Mallige Maale",
       price: "₹50/mola",
       image: "/images/Products/Mallige-maale.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Classic jasmine garland for devotion, bridal wear, and fragrance"
     },
     {
       id: 5,
       name: "Mallige Maale(no paneer soppu)",
       price: "₹50/mola",
       image: "/images/Products/Mallige-maale-nopaneer.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Pure jasmine garland, perfect for clean and elegant use"
     },
     {
       id: 6,
       name: "Rose",
       price: "₹60/500g",
       image: "/images/Products/Rose-loose.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Classic red roses for devotion and celebration"
     },
     {
-      id: 28,
+      id: 7,
       name: "Kanakambara Maale",
       price: "₹50/mola",
       image: "/images/Products/Kanakambara-maale.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Radiant orange Kanakambara for hair adornment and religious use"
     },
   ];
 

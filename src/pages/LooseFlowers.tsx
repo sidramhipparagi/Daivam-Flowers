@@ -13,127 +13,135 @@ const LooseFlowers = () => {
       name: "Chendu Flowers (Orange)",
       price: "₹50/500g",
       image: "/images/Products/Chendu-loose.png",
-      description: "Pure white chendu flowers for elegant arrangements"
+      description: "Bright Chendu blooms ideal for pooja and festive decor"
     },
     {
       id: 2,
       name: "Gundu Mallige",
       price: "₹40/100g",
       image: "/images/Products/Gundu-mallige.png",
-      description: "Fragrant gundu mallige flowers"
+      description: "Fragrant Gundu Mallige perfect for hair and devotion"
     },
     {
       id: 3,
       name: "Kanakambara Hoovu",
       price: "₹40/100g",
       image: "/images/Products/Kanakambara-loose.png",
-      description: "Traditional kanakambara flowers"
+      description: "Vibrant Kanakambara for hair adornment and rituals"
     },
     {
       id: 4,
       name: "Rose-Orange",
       price: "₹60/500g",
       image: "/images/Products/Rose-Orange.png",
-      description: "Fresh orange roses"
+      description: "Fresh orange roses for graceful pooja and décor"
     },
     {
       id: 5,
       name: "Rose",
       price: "₹60/500g",
       image: "/images/Products/Rose-loose.png",
-      description: "Classic red roses"
+      description: "Classic red roses for devotion and celebration"
     },
     {
       id: 6,
       name: "Rose Yellow",
       price: "₹60/500g",
       image: "/images/Products/Rose-yellow.png",
-      description: "Bright yellow roses"
+      description: "Cheerful yellow roses for puja and warm décor"
     },
     {
       id: 7,
       name: "Sevanthige",
       price: "₹80/250g",
       image: "/images/Products/Sevanthige.png",
-      description: "Premium sevanthige flowers"
+      description: "Traditional Sevanthige for temples and festivals"
     },
     {
       id: 8,
       name: "Sevanthige-White",
       price: "₹80/250g",
       image: "/images/Products/Sevanthige-white.png",
-      description: "White sevanthige flowers"
+      description: "Pure white Sevanthige for peaceful worship"
     },
     {
       id: 9,
       name: "Sooji Mallige",
       price: "₹80/250g",
       image: "/images/Products/Sooji-mallige.png",
-      description: "Delicate sooji mallige flowers"
+      description: "Soft Sooji Mallige ideal for hair and pooja"
     },
     {
       id: 10,
       name: "Lotus",
       price: "₹20/one",
       image: "/images/Products/Lotus.png",
-      description: "Yellow sevanthige flowers"
+      description: "Sacred lotus for divine rituals and serenity"
     },
     {
       id: 11,
       name: "Ekke Hoovu",
       price: "₹50",
       image: "/images/Products/ekke.png",
-      description: "Exotic purple orchids for luxury arrangements"
+      description: "Beautiful Ekke flowers for pooja and décor"
     },
     {
       id: 12,
       name: "Chendu Yellow",
       price: "₹40/500g",
       image: "/images/Products/Chendu-yellow.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Sunny yellow Chendu for vibrant rituals"
     },
     {
       id: 13,
       name: "Sevanthige Mariegold",
       price: "₹70/250g",
       image: "/images/Products/Sevanthige-mariegold.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Marigold Sevanthige for pooja and festive decor"
     },
     {
       id: 14,
       name: "Kadu Mallige",
       price: "₹300/packet",
       image: "/images/Products/Kadu-Mallige.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Elegant Kadu Mallige used in traditional garlands"
     },
     {
       id: 15,
       name: "Kanagale",
       price: "₹300/packet",
       image: "/images/Products/Kanagale.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Traditional Kanagale flowers for devotion and décor"
     },
     {
       id: 16,
       name: "Chocolate Flowers",
       price: "₹60/250gm",
       image: "/images/Products/Chocolate-flower.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Unique chocolate-toned blooms for stylish décor"
     },
     {
       id: 17,
       name: "Purple Flowers",
       price: "₹60/250g",
       image: "/images/Products/Purple-flowers.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Bold purple blossoms to enhance pooja and beauty"
     },
     {
       id: 18,
       name: "Sugandaraja Hoovu",
       price: "₹50/500g",
       image: "/images/Products/sugandaraja.png",
-      description: "Vibrant orange gerberas for cheerful moments"
+      description: "Graceful Sugandaraja blooms for beautiful garlands"
     },
+    {
+      id: 20,
+      name: "Rose Lightyellow",
+      price: "₹50/500g",
+      image: "/images/Products/rose-lightyellow.png",
+      description: "Soft light-yellow rose garland for graceful celebrations."
+    }
+    
   ];
 
   return (
