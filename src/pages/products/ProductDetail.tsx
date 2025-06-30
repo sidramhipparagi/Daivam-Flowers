@@ -1,16 +1,16 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import { Card, CardContent } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
-import { ArrowLeft, Check } from 'lucide-react';
+import { ArrowLeft, Check, Plus, Minus } from 'lucide-react';
 import { getProductById } from '../../data/products';
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const productId = id ? parseInt(id) : 0;
   const product = getProductById(productId);
+  const [quantity, setQuantity] = useState(1);
 
   if (!product) {
     return (
@@ -25,6 +25,24 @@ const ProductDetail = () => {
       </div>
     );
   }
+
+  const increaseQuantity = () => {
+    setQuantity(prev => prev + 1);
+  };
+
+  const decreaseQuantity = () => {
+    setQuantity(prev => prev > 1 ? prev - 1 : 1);
+  };
+
+  const calculateTotalPrice = () => {
+    const priceNumber = parseFloat(product.price.replace(/[₹,]/g, ''));
+    return priceNumber * quantity;
+  };
+
+  const formatWhatsAppMessage = () => {
+    const totalPrice = calculateTotalPrice();
+    return `Hi, I would like to order:\n\nProduct: ${product.name}\nQuantity: ${quantity}\nUnit Price: ${product.price}\nTotal Price: ₹${totalPrice.toLocaleString()}\n\nPlease confirm availability and delivery details.`;
+  };
 
   const getCategoryName = (category: string) => {
     switch (category) {
@@ -118,16 +136,50 @@ const ProductDetail = () => {
             {/* Product Information */}
             <div className="space-y-8">
               <div>
-                <div className="flex items-center justify-between mb-6">
-                  <span className={`text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(product.category)}`}>
-                    {product.price}
-                  </span>
+                <div className="mb-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <span className="text-lg text-gray-600">Unit Price:</span>
+                      <span className={`block text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(product.category)}`}>
+                        {product.price}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Quantity Selector */}
+                  <div className="mb-6">
+                    <label className="block text-lg font-semibold text-gray-800 mb-3">Quantity</label>
+                    <div className="flex items-center space-x-4">
+                      <button
+                        onClick={decreaseQuantity}
+                        className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors"
+                      >
+                        <Minus className="w-4 h-4" />
+                      </button>
+                      <span className="text-2xl font-semibold min-w-[3rem] text-center">{quantity}</span>
+                      <button
+                        onClick={increaseQuantity}
+                        className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors"
+                      >
+                        <Plus className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Total Price */}
+                  <div className="mb-6">
+                    <span className="text-lg text-gray-600">Total Price:</span>
+                    <span className={`block text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(product.category)}`}>
+                      ₹{calculateTotalPrice().toLocaleString()}
+                    </span>
+                  </div>
+
                   <a 
-                    href={`https://wa.me/919742141080?text=Hi, I would like to order ${encodeURIComponent(product.name)} - ${encodeURIComponent(product.price)}`}
+                    href={`https://wa.me/919742141080?text=${encodeURIComponent(formatWhatsAppMessage())}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className={`bg-gradient-to-r ${getButtonColor(product.category)} text-white transition-all duration-300 px-8 py-3 text-lg`}>
+                    <Button className={`bg-gradient-to-r ${getButtonColor(product.category)} text-white transition-all duration-300 px-8 py-3 text-lg w-full`}>
                       Order Now
                     </Button>
                   </a>

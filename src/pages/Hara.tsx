@@ -60,16 +60,9 @@ const Hara = () => {
                         <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-orange-500">
                           {flower.price}
                         </span>
-                        <a 
-                          href={`https://wa.me/919742141080?text=Hi, I would like to order ${encodeURIComponent(flower.name)} - ${encodeURIComponent(flower.price)}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <Button className="bg-gradient-to-r from-green-600 to-green-700 text-white hover:from-green-700 hover:to-green-800 transition-all duration-300">
-                            Order Now
-                          </Button>
-                        </a>
+                        <Button className="bg-gradient-to-r from-green-600 to-green-700 text-white hover:from-green-700 hover:to-green-800 transition-all duration-300">
+                          Shop Now
+                        </Button>
                       </div>
                     </div>
                   </CardContent>
