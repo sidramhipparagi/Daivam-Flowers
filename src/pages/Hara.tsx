@@ -1,55 +1,14 @@
+
 import React from 'react';
 import Header from '../components/Header';
 import { Card, CardContent } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getProductsByCategory } from '../data/products';
 
 const Hara = () => {
-  const haraFlowers = [
-      {
-        "id": 1,
-        "name": "Kamala Hara",
-        "price": "₹400/one",
-        "image": "/images/hara/Kamala-hara-one.png",
-        "description": "Elegant lotus garland ideal for weddings and divine décor"
-      },
-      { 
-        "id": 2,
-        "name": "Sugandaraja Hara",
-        "price": "₹100/one",
-        "image": "/images/hara/Sugandaraja-hara.png",
-        "description": "Fragrant floral hara perfect for pooja and traditional rituals"
-      },
-      {
-        "id": 3,
-        "name": "Mallige Hara",
-        "price": "₹300/one",
-        "image": "/images/hara/Mallige-Rose-hara.png",
-        "description": "Classic jasmine garland, pure and perfect for ceremonies"
-      },
-      {
-        "id": 4,
-        "name": "Mallige Rose Hara",
-        "price": "₹400/one",
-        "image": "/images/hara/mallige-2rose.png",
-        "description": "A blend of jasmine and roses for graceful celebrations"
-      },
-      {
-        "id": 5,
-        "name": "Kamala Hara (three lotus on each side)",
-        "price": "₹500/one",
-        "image": "/images/hara/Kamala-hara.png",
-        "description": "Premium lotus hara designed for grandeur and blessings"
-      },
-      {
-        "id": 6,
-        "name": "Mallige Rose Hara (with yellow and red roses)",
-        "price": "₹400/one",
-        "image": "/images/hara/mallige-redyellow-rose.png",
-        "description": "Bright floral mix suited for engagements and poojas"
-      }  
-  ];
+  const haraFlowers = getProductsByCategory('hara');
 
   return (
     <div className="min-h-screen">
@@ -79,40 +38,43 @@ const Hara = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {haraFlowers.map((flower) => (
-              <Card key={flower.id} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
-                <div className="relative overflow-hidden">
-                  <div className="relative w-full" style={{ aspectRatio: '2/3' }}>
-                    <img 
-                      src={flower.image} 
-                      alt={flower.name}
-                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-800">{flower.name}</h3>
-                      <p className="text-gray-600 text-sm mt-1">{flower.description}</p>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-orange-500">
-                        {flower.price}
-                      </span>
-                      <a 
-                        href={`https://wa.me/919742141080?text=Hi, I would like to order ${encodeURIComponent(flower.name)} - ${encodeURIComponent(flower.price)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Button className="bg-gradient-to-r from-green-600 to-green-700 text-white hover:from-green-700 hover:to-green-800 transition-all duration-300">
-                          Order Now
-                        </Button>
-                      </a>
+              <Link key={flower.id} to={`/product/${flower.id}`}>
+                <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden cursor-pointer">
+                  <div className="relative overflow-hidden">
+                    <div className="relative w-full" style={{ aspectRatio: '2/3' }}>
+                      <img 
+                        src={flower.image} 
+                        alt={flower.name}
+                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="text-xl font-semibold text-gray-800">{flower.name}</h3>
+                        <p className="text-gray-600 text-sm mt-1">{flower.description}</p>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-orange-500">
+                          {flower.price}
+                        </span>
+                        <a 
+                          href={`https://wa.me/919742141080?text=Hi, I would like to order ${encodeURIComponent(flower.name)} - ${encodeURIComponent(flower.price)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <Button className="bg-gradient-to-r from-green-600 to-green-700 text-white hover:from-green-700 hover:to-green-800 transition-all duration-300">
+                            Order Now
+                          </Button>
+                        </a>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
