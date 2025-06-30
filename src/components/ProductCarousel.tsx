@@ -1,43 +1,21 @@
 
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { getAllProducts } from '../data/products';
 
 const ProductCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  const products = [
-    {
-      id: 1,
-      name: "Mallige Dindu",
-      price: "₹70/piece",
-      image: "/images/Products/Mallige-Dindu.png"
-    },
-    {
-      id: 2,
-      name: "Sevanthige Maale",
-      price: "₹130/maaru",
-      image: "/images/Products/classic.png"
-    },
-    {
-      id: 3,
-      name: "Roses",
-      price: "₹30/250gm",
-      image: "/images/Products/Rose-loose.png"
-    },
-    {
-      id: 4,
-      name: "Sevanthige",
-      price: "₹80/250gm",
-      image: "/images/Products/Sevanthige.png"
-    },
-    {
-      id: 5,
-      name: "Kanakambara Maale",
-      price: "₹50/mola",
-      image: "/images/Products/Kanakambara-maale.png"
-    }
-  ];
+  // Get first 5 products from the data
+  const allProducts = getAllProducts();
+  const products = allProducts.slice(0, 5).map(product => ({
+    id: product.id,
+    name: product.name,
+    price: product.price,
+    image: product.image
+  }));
 
   // Auto-play functionality
   useEffect(() => {
@@ -75,7 +53,7 @@ const ProductCarousel = () => {
       >
         {products.map((product) => (
           <div key={product.id} className="min-w-full flex items-center justify-center p-2 sm:p-4">
-            <div className="w-full max-w-[240px] sm:max-w-[280px] h-52 sm:h-72 bg-white rounded-xl shadow-xl overflow-hidden border border-pink-200">
+            <Link to={`/product/${product.id}`} className="block w-full max-w-[240px] sm:max-w-[280px] h-52 sm:h-72 bg-white rounded-xl shadow-xl overflow-hidden border border-pink-200 hover:shadow-2xl transition-shadow duration-300">
               <img 
                 src={product.image} 
                 alt={product.name}
@@ -89,7 +67,7 @@ const ProductCarousel = () => {
                   {product.price}
                 </p>
               </div>
-            </div>
+            </Link>
           </div>
         ))}
       </div>

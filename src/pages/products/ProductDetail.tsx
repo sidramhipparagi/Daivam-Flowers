@@ -165,7 +165,7 @@ const ProductDetail = () => {
                     <div className="grid grid-cols-2 gap-3">
                       {product.usage.map((use, index) => (
                         <div key={index} className={`px-4 py-2 bg-gradient-to-r ${getCategoryColor(product.category)} bg-opacity-10 rounded-lg text-center`}>
-                          <span className={`text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(product.category)}`}>
+                          <span className="text-sm font-medium text-gray-700">
                             {use}
                           </span>
                         </div>
