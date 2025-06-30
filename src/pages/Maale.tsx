@@ -11,49 +11,49 @@ const Maale = () => {
     {
       id: 1,
       name: "Chocolate Flower Maale",
-      price: "₹30/mola",
+      price: "₹120/maaru",
       image: "/images/Chocolate-maale.jpg",
       description: "Trendy garland with earthy-toned flowers for stylish rituals"
     },
     {
       id: 2,
       name: "Chendu Orange Maale",
-      price: "₹35/mola",
+      price: "₹80/maaru",
       image: "/images/Products/Chendu-orange-maale.png",
       description: "Bright Chendu garland perfect for divine worship and events"
     },
     {
       id: 3,
       name: "Sevanthige Rose Maale",
-      price: "₹50/mola",
+      price: "₹130/maaru",
       image: "/images/Products/classic.png",
       description: "Elegant Sevanthige and rose blend for pooja and celebrations"
     },
     {
       id: 4,
       name: "Sevanthige-White Rose Maale",
-      price: "₹50/mola",
+      price: "₹130/maaru",
       image: "/images/Products/classic-white.png",
       description: "Soothing white rose and Sevanthige garland for graceful rituals"
     },
     {
       id: 5,
       name: "Sevanthige Rose Maale(without paneer soppu)",
-      price: "₹50/mola",
+      price: "₹130/maaru",
       image: "/images/Products/classic-nopaneer.png",
       description: "A clean floral mix for simple and pure offerings"
     },
     {
       id: 6,
       name: "Chendu-Yellow maale",
-      price: "₹40/mola",
+      price: "₹80/maaru",
       image: "/images/Products/Chendu-yellow-maale.png",
       description: "Vibrant yellow garland ideal for festivals and pooja décor"
     },
     {
       id: 7,
       name: "Kanagale Maale",
-      price: "₹30/mola",
+      price: "₹100/maaru",
       image: "/images/Products/kanagale-maale.png",
       description: "Traditional Kanagale strand used in temple offerings and ceremonies"
     },
@@ -74,14 +74,14 @@ const Maale = () => {
     {
       id: 10,
       name: "Mixed Flowers Maale",
-      price: "₹50/mola",
+      price: "₹120/maaru",
       image: "/images/Products/Mixed-flowers-maale.png",
       description: "Colorful garland of mixed blooms for festive and decorative charm"
     },
     {
       id: 11,
       name: "Rose Maale",
-      price: "₹50/mola",
+      price: "₹100/maaru",
       image: "/images/Products/Rose-maale.png",
       description: "Fragrant rose garland suited for weddings, pooja, and gifting"
     },
@@ -95,28 +95,28 @@ const Maale = () => {
     {
       id: 13,
       name: "Purple Flowers Maale",
-      price: "₹100/maru",
+      price: "₹120/maaru",
       image: "/images/Products/Purple-maale.png",
       description: "Bold purple garland for stylish decor and temple offerings"
     },
     {
       id: 14,
       name: "Sevanthige White maale",
-      price: "₹120/maru",
+      price: "₹130/maaru",
       image: "/images/Products/sevanthige-white-maale.png",
       description: "Peaceful white Sevanthige for serene rituals and pujas"
     },
     {
       id: 15,
       name: "Purple White Flowers maale",
-      price: "₹60/250g",
+      price: "₹120/maaru",
       image: "/images/Products/purple-white-maale.png",
       description: "Elegant dual-tone garland for modern decor and divine use"
     },
     {
       id: 19,
       name: "Sevanthige-Yellow Maale",
-      price: "₹120/maru",
+      price: "₹120/maaru",
       image: "/images/Products/sevanthige-yellow-maale.png",
       description: "Bright yellow chrysanthemum garland for vibrant occasions."
     },

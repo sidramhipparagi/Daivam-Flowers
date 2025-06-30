@@ -10,56 +10,56 @@ const Collection = () => {
     {
       id: 1,
       name: "Mallige Dindu",
-      price: "₹60/1 piece",
+      price: "₹70/1 piece",
       image: "/images/Products/Mallige-Dindu.png",
       description: "Freshly packed jasmine buds ideal for garlands and hair adornment."
     },
     {
       id: 1,
       name: "Chocolate Flower Maale",
-      price: "₹30/mola",
+      price: "₹120/maaru",
       image: "/images/Chocolate-maale.jpg",
       description: "Trendy garland with earthy-toned flowers for stylish rituals"
     },
     {
       id: 2,
       name: "Chendu Orange Maale",
-      price: "₹35/mola",
+      price: "₹80/maaru",
       image: "/images/Products/Chendu-orange-maale.png",
       description: "Bright Chendu garland perfect for divine worship and events"
     },
     {
       id: 3,
       name: "Sevanthige Rose Maale",
-      price: "₹50/mola",
+      price: "₹130/maaru",
       image: "/images/Products/classic.png",
       description: "Elegant Sevanthige and rose blend for pooja and celebrations"
     },
     {
       id: 4,
       name: "Sevanthige-White Rose Maale",
-      price: "₹50/mola",
+      price: "₹130/maaru",
       image: "/images/Products/classic-white.png",
       description: "Soothing white rose and Sevanthige garland for graceful rituals"
     },
     {
       id: 5,
       name: "Sevanthige Rose Maale(without paneer soppu)",
-      price: "₹50/mola",
+      price: "₹130/maaru",
       image: "/images/Products/classic-nopaneer.png",
       description: "A clean floral mix for simple and pure offerings"
     },
     {
       id: 6,
       name: "Chendu-Yellow maale",
-      price: "₹40/mola",
+      price: "₹80/maaru",
       image: "/images/Products/Chendu-yellow-maale.png",
       description: "Vibrant yellow garland ideal for festivals and pooja décor"
     },
     {
       id: 7,
       name: "Kanagale Maale",
-      price: "₹30/mola",
+      price: "₹100/maaru",
       image: "/images/Products/kanagale-maale.png",
       description: "Traditional Kanagale strand used in temple offerings and ceremonies"
     },
@@ -80,14 +80,14 @@ const Collection = () => {
     {
       id: 10,
       name: "Mixed Flowers Maale",
-      price: "₹50/mola",
+      price: "₹130/maaru",
       image: "/images/Products/Mixed-flowers-maale.png",
       description: "Colorful garland of mixed blooms for festive and decorative charm"
     },
     {
       id: 11,
       name: "Rose Maale",
-      price: "₹50/mola",
+      price: "₹130/maaru",
       image: "/images/Products/Rose-maale.png",
       description: "Fragrant rose garland suited for weddings, pooja, and gifting"
     },
@@ -115,49 +115,49 @@ const Collection = () => {
     {
       id: 15,
       name: "Purple White Flowers maale",
-      price: "₹60/250g",
+      price: "₹100/maaru",
       image: "/images/Products/purple-white-maale.png",
       description: "Elegant dual-tone garland for modern decor and divine use"
     },
     {
       id: 1,
       name: "Chendu Flowers (Orange)",
-      price: "₹50/500g",
+      price: "₹25/250g",
       image: "/images/Products/Chendu-loose.png",
       description: "Bright Chendu blooms ideal for pooja and festive decor"
     },
     {
       id: 2,
       name: "Gundu Mallige",
-      price: "₹40/100g",
+      price: "₹50/100g",
       image: "/images/Products/Gundu-mallige.png",
       description: "Fragrant Gundu Mallige perfect for hair and devotion"
     },
     {
       id: 3,
       name: "Kanakambara Hoovu",
-      price: "₹40/100g",
+      price: "₹50/100g",
       image: "/images/Products/Kanakambara-loose.png",
       description: "Vibrant Kanakambara for hair adornment and rituals"
     },
     {
       id: 4,
       name: "Rose-Orange",
-      price: "₹60/500g",
+      price: "₹30/250g",
       image: "/images/Products/Rose-Orange.png",
       description: "Fresh orange roses for graceful pooja and décor"
     },
     {
       id: 5,
       name: "Rose",
-      price: "₹60/500g",
+      price: "₹30/250g",
       image: "/images/Products/Rose-loose.png",
       description: "Classic red roses for devotion and celebration"
     },
     {
       id: 6,
       name: "Rose Yellow",
-      price: "₹60/500g",
+      price: "₹30/250g",
       image: "/images/Products/Rose-yellow.png",
       description: "Cheerful yellow roses for puja and warm décor"
     },
@@ -178,14 +178,14 @@ const Collection = () => {
     {
       id: 9,
       name: "Sooji Mallige",
-      price: "₹80/250g",
+      price: "₹50/100g",
       image: "/images/Products/Sooji-mallige.png",
       description: "Soft Sooji Mallige ideal for hair and pooja"
     },
     {
       id: 10,
       name: "Lotus",
-      price: "₹20/one",
+      price: "₹15/one",
       image: "/images/Products/Lotus.png",
       description: "Sacred lotus for divine rituals and serenity"
     },
@@ -213,35 +213,35 @@ const Collection = () => {
     {
       id: 14,
       name: "Kadu Mallige",
-      price: "₹300/packet",
+      price: "₹250/packet",
       image: "/images/Products/Kadu-Mallige.png",
       description: "Elegant Kadu Mallige used in traditional garlands"
     },
     {
       id: 15,
       name: "Kanagale",
-      price: "₹300/packet",
+      price: "₹250/packet",
       image: "/images/Products/Kanagale.png",
       description: "Traditional Kanagale flowers for devotion and décor"
     },
     {
       id: 16,
       name: "Chocolate Flowers",
-      price: "₹60/250gm",
+      price: "₹70/250gm",
       image: "/images/Products/Chocolate-flower.png",
       description: "Unique chocolate-toned blooms for stylish décor"
     },
     {
       id: 17,
       name: "Purple Flowers",
-      price: "₹60/250g",
+      price: "₹80/250g",
       image: "/images/Products/Purple-flowers.png",
       description: "Bold purple blossoms to enhance pooja and beauty"
     },
     {
       id: 18,
       name: "Sugandaraja Hoovu",
-      price: "₹50/500g",
+      price: "₹25/250g",
       image: "/images/Products/sugandaraja.png",
       description: "Graceful Sugandaraja blooms for beautiful garlands"
     },
@@ -255,7 +255,7 @@ const Collection = () => {
     {
       id: 20,
       name: "Rose Lightyellow",
-      price: "₹50/500g",
+      price: "₹25/250g",
       image: "/images/Products/rose-lightyellow.png",
       description: "Soft light-yellow rose garland for graceful celebrations."
     }

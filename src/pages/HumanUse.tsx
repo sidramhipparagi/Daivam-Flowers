@@ -11,21 +11,21 @@ const HumanUse = () => {
     {
       id: 1,
       name: "Mallige Dindu",
-      price: "₹60/1 piece",
+      price: "₹70/1 piece",
       image: "/images/Products/Mallige-Dindu.png",
       description: "Freshly packed jasmine buds ideal for garlands and hair adornment."
     },
     {
       id: 2,
       name: "Gundu Mallige",
-      price: "₹40/100g",
+      price: "₹50/100g",
       image: "/images/Products/Gundu-mallige.png",
       description: "Fragrant Gundu Mallige perfect for hair and devotion"
     },
     {
       id: 3,
       name: "Kanakambara Hoovu",
-      price: "₹40/100g",
+      price: "₹50/100g",
       image: "/images/Products/Kanakambara-loose.png",
       description: "Vibrant Kanakambara for hair adornment and rituals"
     },
@@ -46,7 +46,7 @@ const HumanUse = () => {
     {
       id: 6,
       name: "Rose",
-      price: "₹60/500g",
+      price: "₹30/250g",
       image: "/images/Products/Rose-loose.png",
       description: "Classic red roses for devotion and celebration"
     },

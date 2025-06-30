@@ -11,14 +11,14 @@ const LooseFlowers = () => {
     {
       id: 1,
       name: "Chendu Flowers (Orange)",
-      price: "₹50/500g",
+      price: "₹25/250g",
       image: "/images/Products/Chendu-loose.png",
       description: "Bright Chendu blooms ideal for pooja and festive decor"
     },
     {
       id: 2,
       name: "Gundu Mallige",
-      price: "₹40/100g",
+      price: "₹50/100g",
       image: "/images/Products/Gundu-mallige.png",
       description: "Fragrant Gundu Mallige perfect for hair and devotion"
     },
@@ -32,21 +32,21 @@ const LooseFlowers = () => {
     {
       id: 4,
       name: "Rose-Orange",
-      price: "₹60/500g",
+      price: "₹30/250g",
       image: "/images/Products/Rose-Orange.png",
       description: "Fresh orange roses for graceful pooja and décor"
     },
     {
       id: 5,
       name: "Rose",
-      price: "₹60/500g",
+      price: "₹30/250g",
       image: "/images/Products/Rose-loose.png",
       description: "Classic red roses for devotion and celebration"
     },
     {
       id: 6,
       name: "Rose Yellow",
-      price: "₹60/500g",
+      price: "₹30/250g",
       image: "/images/Products/Rose-yellow.png",
       description: "Cheerful yellow roses for puja and warm décor"
     },
@@ -67,14 +67,14 @@ const LooseFlowers = () => {
     {
       id: 9,
       name: "Sooji Mallige",
-      price: "₹80/250g",
+      price: "₹50/100g",
       image: "/images/Products/Sooji-mallige.png",
       description: "Soft Sooji Mallige ideal for hair and pooja"
     },
     {
       id: 10,
       name: "Lotus",
-      price: "₹20/one",
+      price: "₹15/one",
       image: "/images/Products/Lotus.png",
       description: "Sacred lotus for divine rituals and serenity"
     },
@@ -88,7 +88,7 @@ const LooseFlowers = () => {
     {
       id: 12,
       name: "Chendu Yellow",
-      price: "₹40/500g",
+      price: "₹25/250g",
       image: "/images/Products/Chendu-yellow.png",
       description: "Sunny yellow Chendu for vibrant rituals"
     },
@@ -102,42 +102,42 @@ const LooseFlowers = () => {
     {
       id: 14,
       name: "Kadu Mallige",
-      price: "₹300/packet",
+      price: "₹250/packet",
       image: "/images/Products/Kadu-Mallige.png",
       description: "Elegant Kadu Mallige used in traditional garlands"
     },
     {
       id: 15,
       name: "Kanagale",
-      price: "₹300/packet",
+      price: "₹250/packet",
       image: "/images/Products/Kanagale.png",
       description: "Traditional Kanagale flowers for devotion and décor"
     },
     {
       id: 16,
       name: "Chocolate Flowers",
-      price: "₹60/250gm",
+      price: "₹70/250g",
       image: "/images/Products/Chocolate-flower.png",
       description: "Unique chocolate-toned blooms for stylish décor"
     },
     {
       id: 17,
       name: "Purple Flowers",
-      price: "₹60/250g",
+      price: "₹80/250g",
       image: "/images/Products/Purple-flowers.png",
       description: "Bold purple blossoms to enhance pooja and beauty"
     },
     {
       id: 18,
       name: "Sugandaraja Hoovu",
-      price: "₹50/500g",
+      price: "₹25/250g",
       image: "/images/Products/sugandaraja.png",
       description: "Graceful Sugandaraja blooms for beautiful garlands"
     },
     {
       id: 20,
       name: "Rose Lightyellow",
-      price: "₹50/500g",
+      price: "₹25/250g",
       image: "/images/Products/rose-lightyellow.png",
       description: "Soft light-yellow rose garland for graceful celebrations."
     }
