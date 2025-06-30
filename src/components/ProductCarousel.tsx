@@ -10,13 +10,13 @@ const ProductCarousel = () => {
     {
       id: 1,
       name: "Mallige Dindu",
-      price: "₹60/piece",
+      price: "₹70/piece",
       image: "/images/Products/Mallige-Dindu.png"
     },
     {
       id: 2,
       name: "Sevanthige Maale",
-      price: "₹50/mola",
+      price: "₹130/maaru",
       image: "/images/Products/classic.png"
     },
     {
