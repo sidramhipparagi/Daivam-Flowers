@@ -68,6 +68,17 @@ export const products: Product[] = [
     usage: ["Religious offerings", "Celebrations", "Romantic occasions", "Temple decorations"]
   },
   {
+    id: 5,
+    name: "Rose",
+    price: "₹30/250g",
+    image: "/images/Products/Rose-loose.png",
+    description: "Classic red roses for devotion and celebration",
+    category: "human-use",
+    detailedDescription: "Classic red roses symbolizing love and devotion, perfect for religious ceremonies and special celebrations.",
+    features: ["Classic red color", "Symbol of devotion", "Fresh petals", "Traditional significance"],
+    usage: ["Religious offerings", "Celebrations", "Romantic occasions", "Temple decorations"]
+  },
+  {
     id: 6,
     name: "Rose Yellow",
     price: "₹30/250g",
@@ -90,12 +101,23 @@ export const products: Product[] = [
     usage: ["Temple decorations", "Religious festivals", "Cultural ceremonies", "Traditional rituals"]
   },
   {
+    id: 7,
+    name: "Sevanthige",
+    price: "₹80/250g",
+    image: "/images/Products/Sevanthige.png",
+    description: "Traditional Sevanthige for temples and festivals",
+    category: "loose-flowers",
+    detailedDescription: "Traditional Sevanthige flowers with deep cultural significance, commonly used in South Indian temples and festivals.",
+    features: ["Traditional significance", "Temple grade quality", "Rich orange color", "Cultural importance"],
+    usage: ["Temple decorations", "Religious festivals", "Cultural ceremonies", "Traditional rituals"]
+  },
+  {
     id: 8,
     name: "Sevanthige-White",
     price: "₹80/250g",
     image: "/images/Products/Sevanthige-white.png",
     description: "Pure white Sevanthige for peaceful worship",
-    category: "loose-flowers",
+    category: "human-use",
     detailedDescription: "Pure white Sevanthige flowers representing peace and purity, ideal for serene worship and meditation ceremonies.",
     features: ["Pure white color", "Symbol of peace", "Premium quality", "Spiritual significance"],
     usage: ["Peaceful worship", "Meditation ceremonies", "Pure offerings", "Spiritual rituals"]
@@ -107,6 +129,17 @@ export const products: Product[] = [
     image: "/images/Products/Sooji-mallige.png",
     description: "Soft Sooji Mallige ideal for hair and pooja",
     category: "loose-flowers",
+    detailedDescription: "Delicate Sooji Mallige flowers with soft texture and pleasant fragrance, perfect for hair decoration and pooja rituals.",
+    features: ["Soft texture", "Pleasant fragrance", "Hair-friendly", "Delicate appearance"],
+    usage: ["Hair decoration", "Pooja rituals", "Gentle ceremonies", "Personal adornment"]
+  },
+  {
+    id: 9,
+    name: "Sooji Mallige",
+    price: "₹50/100g",
+    image: "/images/Products/Sooji-mallige.png",
+    description: "Soft Sooji Mallige ideal for hair and pooja",
+    category: "human-use",
     detailedDescription: "Delicate Sooji Mallige flowers with soft texture and pleasant fragrance, perfect for hair decoration and pooja rituals.",
     features: ["Soft texture", "Pleasant fragrance", "Hair-friendly", "Delicate appearance"],
     usage: ["Hair decoration", "Pooja rituals", "Gentle ceremonies", "Personal adornment"]
@@ -312,12 +345,34 @@ export const products: Product[] = [
     usage: ["Devotional practices", "Bridal ceremonies", "Traditional occasions", "Fragrant rituals"]
   },
   {
+    id: 28,
+    name: "Mallige Maale",
+    price: "₹50/mola",
+    image: "/images/Products/Mallige-maale.png",
+    description: "Classic jasmine garland for devotion, bridal wear, and fragrance",
+    category: "human-use",
+    detailedDescription: "Classic jasmine garland with intense fragrance, perfect for devotional practices, bridal ceremonies, and traditional occasions.",
+    features: ["Classic jasmine", "Intense fragrance", "Bridal suitable", "Devotional use"],
+    usage: ["Devotional practices", "Bridal ceremonies", "Traditional occasions", "Fragrant rituals"]
+  },
+  {
     id: 29,
     name: "Mallige Maale(without paneer soppu)",
     price: "₹50/mola",
     image: "/images/Products/Mallige-maale-nopaneer.png",
     description: "Pure jasmine garland, perfect for clean and elegant use",
     category: "maale",
+    detailedDescription: "Pure jasmine garland without paneer soppu, offering clean elegance and authentic fragrance for special occasions.",
+    features: ["Pure jasmine", "Clean elegance", "Authentic fragrance", "Special occasions"],
+    usage: ["Clean ceremonies", "Elegant occasions", "Pure worship", "Authentic rituals"]
+  },
+  {
+    id: 29,
+    name: "Mallige Maale(without paneer soppu)",
+    price: "₹50/mola",
+    image: "/images/Products/Mallige-maale-nopaneer.png",
+    description: "Pure jasmine garland, perfect for clean and elegant use",
+    category: "human-use",
     detailedDescription: "Pure jasmine garland without paneer soppu, offering clean elegance and authentic fragrance for special occasions.",
     features: ["Pure jasmine", "Clean elegance", "Authentic fragrance", "Special occasions"],
     usage: ["Clean ceremonies", "Elegant occasions", "Pure worship", "Authentic rituals"]
@@ -351,6 +406,17 @@ export const products: Product[] = [
     image: "/images/Products/Kanakambara-maale.png",
     description: "Radiant orange Kanakambara for hair adornment and religious use",
     category: "maale",
+    detailedDescription: "Beautiful orange Kanakambara garland perfect for traditional hair adornment and religious ceremonies with its radiant color.",
+    features: ["Radiant orange", "Hair adornment", "Religious use", "Traditional beauty"],
+    usage: ["Hair decoration", "Religious ceremonies", "Traditional adornment", "Cultural events"]
+  },
+  {
+    id: 32,
+    name: "Kanakambara Maale",
+    price: "₹50/mola",
+    image: "/images/Products/Kanakambara-maale.png",
+    description: "Radiant orange Kanakambara for hair adornment and religious use",
+    category: "human-use",
     detailedDescription: "Beautiful orange Kanakambara garland perfect for traditional hair adornment and religious ceremonies with its radiant color.",
     features: ["Radiant orange", "Hair adornment", "Religious use", "Traditional beauty"],
     usage: ["Hair decoration", "Religious ceremonies", "Traditional adornment", "Cultural events"]
@@ -411,6 +477,28 @@ export const products: Product[] = [
     detailedDescription: "Premium jasmine buds carefully selected and packed fresh daily, perfect for creating beautiful garlands and elegant hair adornments.",
     features: ["Fresh daily packing", "Premium jasmine", "Garland suitable", "Hair friendly"],
     usage: ["Garland making", "Hair adornment", "Personal decoration", "Traditional styling"]
+  },
+  {
+    id: 2,
+    name: "Gundu Mallige",
+    price: "₹50/100g",
+    image: "/images/Products/Gundu-mallige.png",
+    description: "Fragrant Gundu Mallige perfect for hair and devotion",
+    category: "human-use",
+    detailedDescription: "Premium quality Gundu Mallige flowers known for their intense fragrance and traditional significance in South Indian culture.",
+    features: ["Intense natural fragrance", "Perfect for hair decoration", "Traditional significance", "Fresh daily supply"],
+    usage: ["Hair adornment", "Religious ceremonies", "Wedding decorations", "Traditional rituals"]
+  },
+  {
+    id: 3,
+    name: "Kanakambara Hoovu",
+    price: "₹40/100g",
+    image: "/images/Products/Kanakambara-loose.png",
+    description: "Vibrant Kanakambara for hair adornment and rituals",
+    category: "human-use",
+    detailedDescription: "Beautiful orange Kanakambara flowers, traditionally used in South Indian ceremonies and hair decoration.",
+    features: ["Bright orange petals", "Traditional significance", "Long-lasting freshness", "Premium quality"],
+    usage: ["Hair decoration", "Temple offerings", "Cultural ceremonies", "Festive decorations"]
   },
 
   // Hara Collection
