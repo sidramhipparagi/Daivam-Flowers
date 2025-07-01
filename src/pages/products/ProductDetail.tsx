@@ -26,6 +26,11 @@ const ProductDetail = () => {
     );
   }
 
+  // Debug logging
+  console.log('Product ID:', productId);
+  console.log('Product category:', product.category);
+  console.log('Product name:', product.name);
+
   const increaseQuantity = () => {
     setQuantity(prev => prev + 1);
   };
@@ -45,22 +50,28 @@ const ProductDetail = () => {
   };
 
   const getCategoryName = (category: string) => {
+    console.log('Getting category name for:', category);
     switch (category) {
       case 'loose-flowers': return 'Loose Flowers';
       case 'maale': return 'Maale';
       case 'human-use': return 'Daily Elegance';
       case 'hara': return 'Hara';
-      default: return 'Products';
+      default: 
+        console.log('Unknown category, defaulting to Products:', category);
+        return 'Products';
     }
   };
 
   const getCategoryRoute = (category: string) => {
+    console.log('Getting category route for:', category);
     switch (category) {
       case 'loose-flowers': return '/loose-flowers';
       case 'maale': return '/maale';
       case 'human-use': return '/human-use';
       case 'hara': return '/hara';
-      default: return '/collection';
+      default: 
+        console.log('Unknown category route, defaulting to collection:', category);
+        return '/collection';
     }
   };
 
