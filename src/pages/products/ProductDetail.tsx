@@ -85,6 +85,16 @@ const ProductDetail = () => {
     }
   };
 
+  const getCategoryLinkColor = (category: string) => {
+    switch (category) {
+      case 'loose-flowers': return 'text-pink-600 hover:text-pink-700';
+      case 'maale': return 'text-orange-600 hover:text-orange-700';
+      case 'human-use': return 'text-purple-600 hover:text-purple-700';
+      case 'hara': return 'text-green-600 hover:text-green-700';
+      default: return 'text-pink-600 hover:text-pink-700';
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -100,7 +110,7 @@ const ProductDetail = () => {
       <section className={`relative bg-gradient-to-br ${product.category === 'loose-flowers' ? 'from-pink-50 to-orange-50' : product.category === 'maale' ? 'from-orange-50 to-pink-50' : product.category === 'human-use' ? 'from-purple-50 to-pink-50' : 'from-green-50 to-orange-50'} py-16`}>
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4">
-            <Link to={getCategoryRoute(product.category)} className={`inline-flex items-center space-x-2 ${product.category === 'loose-flowers' ? 'text-pink-600 hover:text-pink-700' : product.category === 'maale' ? 'text-orange-600 hover:text-orange-700' : product.category === 'human-use' ? 'text-purple-600 hover:text-purple-700' : 'text-green-600 hover:text-green-700'} transition-colors mb-4`}>
+            <Link to={getCategoryRoute(product.category)} className={`inline-flex items-center space-x-2 ${getCategoryLinkColor(product.category)} transition-colors mb-4`}>
               <ArrowLeft className="w-4 h-4" />
               <span>Back to {getCategoryName(product.category)}</span>
             </Link>
