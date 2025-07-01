@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../components/Header';
@@ -114,11 +113,6 @@ const ProductDetail = () => {
               <ArrowLeft className="w-4 h-4" />
               <span>Back to {getCategoryName(product.category)}</span>
             </Link>
-            <div className="inline-block px-4 py-2 bg-white rounded-full shadow-sm mb-4">
-              <span className={`text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(product.category)}`}>
-                {getCategoryName(product.category)}
-              </span>
-            </div>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
               {product.name}
             </h1>
