@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../components/Header';
@@ -200,7 +201,7 @@ const ProductDetail = () => {
                     <ul className="space-y-3">
                       {product.features.map((feature, index) => (
                         <li key={index} className="flex items-center space-x-3">
-                          <Check className={`w-5 h-5 text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(product.category)} flex-shrink-0`} />
+                          <Check className={`w-5 h-5 text-green-600 flex-shrink-0`} />
                           <span className="text-gray-700">{feature}</span>
                         </li>
                       ))}
@@ -216,8 +217,8 @@ const ProductDetail = () => {
                     <h3 className="text-xl font-semibold text-gray-800 mb-4">Perfect For</h3>
                     <div className="grid grid-cols-2 gap-3">
                       {product.usage.map((use, index) => (
-                        <div key={index} className={`px-4 py-2 bg-gradient-to-r ${getCategoryColor(product.category)} bg-opacity-10 rounded-lg text-center`}>
-                          <span className="text-sm font-medium text-gray-700">
+                        <div key={index} className={`px-4 py-2 bg-gray-100 rounded-lg text-center`}>
+                          <span className="text-sm font-medium text-gray-800">
                             {use}
                           </span>
                         </div>
