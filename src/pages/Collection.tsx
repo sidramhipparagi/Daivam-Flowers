@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '../components/Header';
 import { Card, CardContent } from '../components/ui/card';
@@ -8,6 +7,11 @@ import { Link } from 'react-router-dom';
 import { products } from '../data/products';
 
 const Collection = () => {
+  // Filter out duplicate products by name, keeping the first occurrence
+  const uniqueProducts = products.filter((product, index, self) => 
+    index === self.findIndex(p => p.name === product.name)
+  );
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -44,7 +48,7 @@ const Collection = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((flower) => (
+            {uniqueProducts.map((flower) => (
               <Link key={flower.id} to={`/product/${flower.id}`}>
                 <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden cursor-pointer">
                   <div className="relative overflow-hidden">
