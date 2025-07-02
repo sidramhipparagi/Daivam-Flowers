@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../components/Header';
@@ -26,10 +27,8 @@ const ProductDetail = () => {
     );
   }
 
-  // Debug logging
-  console.log('Product ID:', productId);
-  console.log('Product category:', product.category);
-  console.log('Product name:', product.name);
+  // Use the first category for styling and navigation
+  const primaryCategory = product.category[0];
 
   const increaseQuantity = () => {
     setQuantity(prev => prev + 1);
@@ -50,28 +49,22 @@ const ProductDetail = () => {
   };
 
   const getCategoryName = (category: string) => {
-    console.log('Getting category name for:', category);
     switch (category) {
       case 'loose-flowers': return 'Loose Flowers';
       case 'maale': return 'Maale';
       case 'human-use': return 'Daily Elegance';
       case 'hara': return 'Hara';
-      default: 
-        console.log('Unknown category, defaulting to Products:', category);
-        return 'Products';
+      default: return 'Products';
     }
   };
 
   const getCategoryRoute = (category: string) => {
-    console.log('Getting category route for:', category);
     switch (category) {
       case 'loose-flowers': return '/loose-flowers';
       case 'maale': return '/maale';
       case 'human-use': return '/human-use';
       case 'hara': return '/hara';
-      default: 
-        console.log('Unknown category route, defaulting to collection:', category);
-        return '/collection';
+      default: return '/collection';
     }
   };
 
@@ -117,12 +110,12 @@ const ProductDetail = () => {
       </div>
       
       {/* Hero Section */}
-      <section className={`relative bg-gradient-to-br ${product.category === 'loose-flowers' ? 'from-pink-50 to-orange-50' : product.category === 'maale' ? 'from-orange-50 to-pink-50' : product.category === 'human-use' ? 'from-purple-50 to-pink-50' : 'from-green-50 to-orange-50'} py-16`}>
+      <section className={`relative bg-gradient-to-br ${primaryCategory === 'loose-flowers' ? 'from-pink-50 to-orange-50' : primaryCategory === 'maale' ? 'from-orange-50 to-pink-50' : primaryCategory === 'human-use' ? 'from-purple-50 to-pink-50' : 'from-green-50 to-orange-50'} py-16`}>
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4">
-            <Link to={getCategoryRoute(product.category)} className={`inline-flex items-center space-x-2 ${getCategoryLinkColor(product.category)} transition-colors mb-4`}>
+            <Link to={getCategoryRoute(primaryCategory)} className={`inline-flex items-center space-x-2 ${getCategoryLinkColor(primaryCategory)} transition-colors mb-4`}>
               <ArrowLeft className="w-4 h-4" />
-              <span>Back to {getCategoryName(product.category)}</span>
+              <span>Back to {getCategoryName(primaryCategory)}</span>
             </Link>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
               {product.name}
@@ -156,7 +149,7 @@ const ProductDetail = () => {
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <span className="text-lg text-gray-600">Unit Price:</span>
-                      <span className={`block text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(product.category)}`}>
+                      <span className={`block text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(primaryCategory)}`}>
                         {product.price}
                       </span>
                     </div>
@@ -185,7 +178,7 @@ const ProductDetail = () => {
                   {/* Total Price */}
                   <div className="mb-6">
                     <span className="text-lg text-gray-600">Total Price:</span>
-                    <span className={`block text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(product.category)}`}>
+                    <span className={`block text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(primaryCategory)}`}>
                       ₹{calculateTotalPrice().toLocaleString()}
                     </span>
                   </div>
@@ -195,7 +188,7 @@ const ProductDetail = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className={`bg-gradient-to-r ${getButtonColor(product.category)} text-white transition-all duration-300 px-8 py-3 text-lg w-full`}>
+                    <Button className={`bg-gradient-to-r ${getButtonColor(primaryCategory)} text-white transition-all duration-300 px-8 py-3 text-lg w-full`}>
                       Order Now
                     </Button>
                   </a>
