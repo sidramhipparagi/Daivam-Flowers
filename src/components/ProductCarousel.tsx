@@ -1,21 +1,26 @@
-
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getAllProducts } from '../data/products';
+import { getProductById } from '../data/products';
 
-const ProductCarousel = () => {
+interface ProductCarouselProps {
+  productIds?: number[];
+}
+
+const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Get first 5 products from the data
-  const allProducts = getAllProducts();
-  const products = allProducts.slice(0, 5).map(product => ({
-    id: product.id,
-    name: product.name,
-    price: product.price,
-    image: product.image
-  }));
+  // Get specific products by their IDs
+  const products = productIds
+    .map(id => getProductById(id))
+    .filter(product => product !== undefined)
+    .map(product => ({
+      id: product!.id,
+      name: product!.name,
+      price: product!.price,
+      image: product!.image
+    }));
 
   // Auto-play functionality
   useEffect(() => {

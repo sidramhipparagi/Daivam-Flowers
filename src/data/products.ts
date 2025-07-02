@@ -85,7 +85,7 @@ export const products: Product[] = [
     price: "₹80/250g",
     image: "/images/Products/Sevanthige.png",
     description: "Traditional Sevanthige for temples and festivals",
-    category: ["loose-flowers"],
+    category: ["loose-flowers", "human-use"],
     detailedDescription: "Traditional Sevanthige flowers with deep cultural significance, commonly used in South Indian temples and festivals.",
     features: ["Traditional significance", "Temple grade quality", "Rich orange color", "Cultural importance"],
     usage: ["Temple decorations", "Religious festivals", "Cultural ceremonies", "Traditional rituals"]
@@ -96,7 +96,7 @@ export const products: Product[] = [
     price: "₹80/250g",
     image: "/images/Products/Sevanthige-white.png",
     description: "Pure white Sevanthige for peaceful worship",
-    category: ["human-use"],
+    category: ["loose-flowers"],
     detailedDescription: "Pure white Sevanthige flowers representing peace and purity, ideal for serene worship and meditation ceremonies.",
     features: ["Pure white color", "Symbol of peace", "Premium quality", "Spiritual significance"],
     usage: ["Peaceful worship", "Meditation ceremonies", "Pure offerings", "Spiritual rituals"]
