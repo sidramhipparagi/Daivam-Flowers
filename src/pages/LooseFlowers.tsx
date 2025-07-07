@@ -55,9 +55,27 @@ const LooseFlowers = () => {
                         <p className="text-gray-600 text-sm mt-1">{flower.description}</p>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500">
-                          {flower.price}
-                        </span>
+                        <div className="flex flex-col">
+                          {flower.salePrice ? (
+                            <div className="flex items-center space-x-2">
+                              <span className="text-lg text-gray-400 line-through">
+                                {flower.price}
+                              </span>
+                              <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500">
+                                {flower.salePrice}
+                              </span>
+                            </div>
+                          ) : (
+                            <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500">
+                              {flower.price}
+                            </span>
+                          )}
+                          {flower.salePrice && (
+                            <span className="bg-red-100 text-red-600 px-2 py-1 rounded-full text-xs font-semibold w-fit">
+                              SALE
+                            </span>
+                          )}
+                        </div>
                         <Button className="bg-gradient-to-r from-pink-600 to-pink-700 text-white hover:from-pink-700 hover:to-pink-800 transition-all duration-300">
                           Shop Now
                         </Button>
