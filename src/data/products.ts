@@ -1,8 +1,8 @@
-
 export interface Product {
   id: number;
   name: string;
   price: string;
+  salePrice?: string; // Optional sale price
   image: string;
   description: string;
   category: ('loose-flowers' | 'maale' | 'human-use' | 'hara')[];
@@ -16,7 +16,8 @@ export const products: Product[] = [
   {
     id: 1,
     name: "Chendu Flowers (Orange)",
-    price: "₹25/250g",
+    price: "₹30/250g",
+    salePrice: "₹25/250g",
     image: "/images/Products/Chendu-loose.png",
     description: "Bright Chendu blooms ideal for pooja and festive decor",
     category: ["loose-flowers"],
@@ -27,7 +28,8 @@ export const products: Product[] = [
   {
     id: 2,
     name: "Gundu Mallige",
-    price: "₹50/100g",
+    price: "₹60/100g",
+    salePrice: "₹50/100g",
     image: "/images/Products/Gundu-mallige.png",
     description: "Fragrant Gundu Mallige perfect for hair and devotion",
     category: ["loose-flowers", "human-use"],
@@ -38,7 +40,8 @@ export const products: Product[] = [
   {
     id: 3,
     name: "Kanakambara Hoovu",
-    price: "₹40/100g",
+    price: "₹50/100g",
+    salePrice: "₹40/100g",
     image: "/images/Products/Kanakambara-loose.png",
     description: "Vibrant Kanakambara for hair adornment and rituals",
     category: ["loose-flowers", "human-use"],
@@ -405,7 +408,8 @@ export const products: Product[] = [
   {
     id: 37,
     name: "Mallige Dindu",
-    price: "₹70/1 piece",
+    price: "₹80/1 piece",
+    salePrice: "₹70/1 piece",
     image: "/images/Products/Mallige-Dindu.png",
     description: "Freshly packed jasmine buds ideal for garlands and hair adornment.",
     category: ["human-use"],

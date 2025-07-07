@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../components/Header';
@@ -39,13 +38,15 @@ const ProductDetail = () => {
   };
 
   const calculateTotalPrice = () => {
-    const priceNumber = parseFloat(product.price.replace(/[₹,]/g, ''));
+    const priceToUse = product.salePrice || product.price;
+    const priceNumber = parseFloat(priceToUse.replace(/[₹,]/g, ''));
     return priceNumber * quantity;
   };
 
   const formatWhatsAppMessage = () => {
     const totalPrice = calculateTotalPrice();
-    return `Hi, I would like to order:\n\nProduct: ${product.name}\nQuantity: ${quantity}\nUnit Price: ${product.price}\nTotal Price: ₹${totalPrice.toLocaleString()}\n\nPlease confirm availability and delivery details.`;
+    const unitPrice = product.salePrice || product.price;
+    return `Hi, I would like to order:\n\nProduct: ${product.name}\nQuantity: ${quantity}\nUnit Price: ${unitPrice}\nTotal Price: ₹${totalPrice.toLocaleString()}\n\nPlease confirm availability and delivery details.`;
   };
 
   const getCategoryName = (category: string) => {
@@ -148,10 +149,22 @@ const ProductDetail = () => {
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <span className="text-lg text-gray-600">Unit Price:</span>
-                      <span className={`block text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(primaryCategory)}`}>
-                        {product.price}
-                      </span>
+                      <span className="text-lg text-gray-600">Price:</span>
+                      <div className="flex items-center space-x-3">
+                        {product.salePrice && (
+                          <span className="text-2xl font-bold text-gray-400 line-through">
+                            {product.price}
+                          </span>
+                        )}
+                        <span className={`text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(primaryCategory)}`}>
+                          {product.salePrice || product.price}
+                        </span>
+                        {product.salePrice && (
+                          <span className="bg-red-100 text-red-600 px-2 py-1 rounded-full text-sm font-semibold">
+                            SALE
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
 

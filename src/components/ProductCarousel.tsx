@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -19,6 +20,7 @@ const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouse
       id: product!.id,
       name: product!.name,
       price: product!.price,
+      salePrice: product!.salePrice,
       image: product!.image
     }));
 
@@ -68,9 +70,27 @@ const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouse
                 <h3 className="font-semibold text-gray-800 text-sm sm:text-lg truncate">
                   {product.name}
                 </h3>
-                <p className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 mt-1 sm:mt-2 text-base sm:text-xl">
-                  {product.price}
-                </p>
+                <div className="mt-1 sm:mt-2 flex flex-col items-center">
+                  {product.salePrice ? (
+                    <div className="flex items-center space-x-2">
+                      <span className="text-xs sm:text-sm text-gray-400 line-through">
+                        {product.price}
+                      </span>
+                      <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 text-base sm:text-xl">
+                        {product.salePrice}
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 text-base sm:text-xl">
+                      {product.price}
+                    </span>
+                  )}
+                  {product.salePrice && (
+                    <span className="bg-red-100 text-red-600 px-1 py-0.5 rounded-full text-xs font-semibold">
+                      SALE
+                    </span>
+                  )}
+                </div>
               </div>
             </Link>
           </div>
