@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -74,11 +73,6 @@ const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouse
                   <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 text-base sm:text-xl">
                     {product.salePrice || product.price}
                   </span>
-                  {product.salePrice && (
-                    <span className="bg-red-100 text-red-600 px-1 py-0.5 rounded-full text-xs font-semibold">
-                      SALE
-                    </span>
-                  )}
                 </div>
               </div>
             </Link>
