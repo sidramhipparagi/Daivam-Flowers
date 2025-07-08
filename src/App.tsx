@@ -4,13 +4,17 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import useScrollToTop from "./hooks/useScrollToTop";
-import useVisitorTracker from "./hooks/useVisitorTracker";
+
+// Components
+import Layout from "./components/Layout";
+import ErrorBoundary from "./components/ErrorBoundary";
+// import ProtectedRoute from "./components/ProtectedRoute"; // No longer needed
+
+// Pages
 import Index from "./pages/Index";
 import Collection from "./pages/Collection";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
-import OrdersAdmin from "./components/OrdersAdmin";
-import VisitorLogsAdmin from "./components/VisitorLogsAdmin";
 import Order from "./pages/Order";
 import LooseFlowers from "./pages/LooseFlowers";
 import Maale from "./pages/Maale";
@@ -18,28 +22,43 @@ import HumanUse from "./pages/HumanUse";
 import Hara from "./pages/Hara";
 import ProductDetail from "./pages/products/ProductDetail";
 
+// Admin Components (removed)
+// import OrdersAdmin from "./components/OrdersAdmin";
+// import VisitorLogsAdmin from "./components/VisitorLogsAdmin";
+
 const queryClient = new QueryClient();
 
 const AppRoutes = () => {
   useScrollToTop();
-  useVisitorTracker(); // Track visitors automatically
   
   return (
-    <Routes>
-      <Route path="/" element={<Index />} />
-      <Route path="/collection" element={<Collection />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/order" element={<Order />} />
-      <Route path="/loose-flowers" element={<LooseFlowers />} />
-      <Route path="/maale" element={<Maale />} />
-      <Route path="/human-use" element={<HumanUse />} />
-      <Route path="/hara" element={<Hara />} />
-      <Route path="/product/:id" element={<ProductDetail />} />
-      <Route path="/admin82589/orders" element={<OrdersAdmin />} />
-      <Route path="/admin82589/visitors" element={<VisitorLogsAdmin />} />
-      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <ErrorBoundary>
+      <Routes>
+        {/* Public Routes with Layout */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Index />} />
+          <Route path="collection" element={<Collection />} />
+          <Route path="about" element={<About />} />
+          <Route path="order" element={<Order />} />
+          <Route path="loose-flowers" element={<LooseFlowers />} />
+          <Route path="maale" element={<Maale />} />
+          <Route path="human-use" element={<HumanUse />} />
+          <Route path="hara" element={<Hara />} />
+          <Route path="product/:id" element={<ProductDetail />} />
+        </Route>
+
+        {/* Protected Admin Routes (removed) */}
+        {/*
+        <Route path="/admin82589" element={<ProtectedRoute />}>
+          <Route path="orders" element={<OrdersAdmin />} />
+          <Route path="visitors" element={<VisitorLogsAdmin />} />
+        </Route>
+        */}
+
+        {/* 404 Route */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </ErrorBoundary>
   );
 };
 

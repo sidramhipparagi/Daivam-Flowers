@@ -24,11 +24,15 @@ export default defineConfig(({ mode }) => ({
     mode === 'development' &&
     componentTagger(),
     {
-      name: 'copy-cname',
+      name: 'copy-files',
       writeBundle() {
         // Copy CNAME file to docs directory
         if (fs.existsSync('CNAME')) {
           fs.copyFileSync('CNAME', 'docs/CNAME');
+        }
+        // Copy 404.html for GitHub Pages client-side routing
+        if (fs.existsSync('public/404.html')) {
+          fs.copyFileSync('public/404.html', 'docs/404.html');
         }
       }
     }

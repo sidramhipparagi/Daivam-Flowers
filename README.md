@@ -1,138 +1,86 @@
-# Welcome to your Lovable project
 
-## Project info
 
-**URL**: <https://lovable.dev/projects/fa930e7e-280c-4eaa-b1d0-453834ec2c93>
+# Welcome to My Project
 
-## How can I edit this code?
+## Overview
 
-There are several ways of editing your application.
+This is a modern web application built with cutting-edge technologies focused on performance, developer experience, and clean UI/UX.
 
-**Use Lovable**
+## Project Setup
 
-Simply visit the Lovable Project and start prompting.
+To run this project locally, follow the steps below:
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+Ensure you have **Node.js** and **npm** installed. Using `nvm` is recommended for version management.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Steps
 
-The only requirement is having Node.js & npm installed - install with nvm
+1. **Clone the repository**
 
-Follow these steps:
+   ```bash
+   git clone <YOUR_GIT_URL>
+   ```
 
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Navigate to the project directory**
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+   ```bash
+   cd <YOUR_PROJECT_NAME>
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. **Install dependencies**
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+   ```bash
+   npm install
+   ```
 
-**Edit a file directly in GitHub**
+4. **Start the development server**
 
-* Navigate to the desired file(s).
-* Click the "Edit" button (pencil icon) at the top right of the file view.
-* Make your changes and commit the changes.
+   ```bash
+   npm run dev
+   ```
 
-**Use GitHub Codespaces**
+   This starts the dev server with hot reloading and instant preview.
 
-* Navigate to the main page of your repository.
-* Click on the "Code" button (green button) near the top right.
-* Select the "Codespaces" tab.
-* Click on "New codespace" to launch a new Codespace environment.
-* Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+## Technologies Used
 
 This project is built with:
 
-* Vite
-* TypeScript
-* React
-* shadcn-ui
-* Tailwind CSS
+* **Vite** – Lightning-fast build tool
+* **React** – Component-based UI library
+* **TypeScript** – Strongly typed JavaScript
+* **Tailwind CSS** – Utility-first CSS framework
+* **shadcn/ui** – Accessible and beautifully designed UI components
 
-## How can I deploy this project?
+## Deployment
 
-Simply open Lovable and click on Share -> Publish.
+You can deploy this project using any modern platform like:
 
-## Can I connect a custom domain to my Lovable project?
+* **Vercel**
+* **Netlify**
+* **Render**
+* **GitHub Pages**
 
-Yes, you can!
+Just build the project using:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```bash
+npm run build
+```
 
-Read more here: Setting up a custom domain
+Then deploy the contents of the `dist/` directory.
 
-## About
+## Custom Domain
 
-No description, website, or topics provided.
+If hosting on a platform like Vercel or Netlify, you can connect a custom domain through their respective dashboards.
 
-### Resources
+## Contributors
 
-Readme
+* **Sidram Hipparagi** – [@sidramhipparagi](https://github.com/sidramhipparagi)
 
-### Uh oh!
+## License
 
-There was an error while loading. Please reload this page.
-
-Activity
-
-### Stars
-
-**0** stars
-
-### Watchers
-
-**0** watching
-
-### Forks
-
-**0** forks
-
-Report repository
-
-## Releases
-
-No releases published
-
-## Packages0
-
-No packages published
-
-## Contributors2
-
-* @sidramhipparagi **sidramhipparagi** Sidram Hipparagi
-* @lovable-dev[bot] **lovable-dev\[bot\]**
-
-## Languages
-
-* TypeScript 98.4%
-* Other 1.6%
-
-## Footer
-
-© 2025 GitHub, Inc.
-
-### Footer navigation
-
-* Terms
-* Privacy
-* Security
-* Status
-* Docs
-* Contact
-* Manage cookies
-* Do not share my personal information
+This project is open-source and available under the MIT License.
 
 ---
 
-**Latest Update**: Mobile responsiveness improvements and 2:3 aspect ratio for Hara product cards have been implemented. The site is now fully optimized for mobile devices.
-
-**Deployment Status**: Fixed GitHub Actions workflow to handle concurrent deployments properly. Last updated: 2025-01-07
+Let me know if you’d like a badge section, installation GIF, or custom branding added!

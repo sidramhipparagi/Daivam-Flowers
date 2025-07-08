@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/Header';
+
 import { Card, CardContent } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { ArrowLeft } from 'lucide-react';
@@ -13,9 +13,7 @@ const Collection = () => {
   );
 
   return (
-    <div className="min-h-screen">
-      <Header />
-      
+    <>
       {/* Notification Message */}
       <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black p-4 text-center">
         <p className="text-lg font-semibold">
@@ -88,7 +86,7 @@ const Collection = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

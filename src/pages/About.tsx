@@ -1,14 +1,13 @@
 
 import React from 'react';
-import Header from '../components/Header';
+
 import { MapPin, Star, Clock, Users, Award, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
 const About = () => {
   return (
-    <div className="min-h-screen">
-      <Header />
+    <>
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-pink-50 to-orange-50 py-16">
@@ -145,7 +144,7 @@ const About = () => {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

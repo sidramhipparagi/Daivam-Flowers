@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import Header from '../../components/Header';
 import { Card, CardContent } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
 import { ArrowLeft, Check, Plus, Minus } from 'lucide-react';
@@ -14,14 +13,11 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <div className="min-h-screen">
-        <Header />
-        <div className="container mx-auto px-4 py-16 text-center">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">Product Not Found</h1>
-          <Link to="/collection" className="text-pink-600 hover:text-pink-700">
-            Back to Collection
-          </Link>
-        </div>
+      <div className="container mx-auto px-4 py-16 text-center">
+        <h1 className="text-2xl font-bold text-gray-800 mb-4">Product Not Found</h1>
+        <Link to="/collection" className="text-pink-600 hover:text-pink-700">
+          Back to Collection
+        </Link>
       </div>
     );
   }
@@ -100,9 +96,7 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      <Header />
-      
+    <>
       {/* Notification Message */}
       <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black p-4 text-center">
         <p className="text-lg font-semibold">
@@ -265,7 +259,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

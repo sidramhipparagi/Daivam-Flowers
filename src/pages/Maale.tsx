@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Header from '../components/Header';
+
 import { Card, CardContent } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { ArrowLeft } from 'lucide-react';
@@ -11,8 +11,7 @@ const Maale = () => {
   const maaleFlowers = getProductsByCategory('maale');
 
   return (
-    <div className="min-h-screen">
-      <Header />
+    <>
       
       <section className="relative bg-gradient-to-br from-orange-50 to-pink-50 py-16">
         <div className="container mx-auto px-4">
@@ -77,7 +76,7 @@ const Maale = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

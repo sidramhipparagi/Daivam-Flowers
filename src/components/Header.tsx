@@ -43,7 +43,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <img src="./logo_colour.png" alt="Daivam Flowers Logo" className="h-12" />
+            <img src="/logo_colour.png" alt="Daivam Flowers Logo" className="h-12" />
           </Link>
           
           {/* Desktop Navigation */}

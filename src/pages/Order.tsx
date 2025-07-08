@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { ArrowLeft, Plus, Minus, Phone, Mail, MapPin, Clock, Instagram, Facebook } from 'lucide-react';
-import Header from '../components/Header';
+
 import { 
   OrderData, 
   generateSerialNumber, 
@@ -118,8 +118,7 @@ const Order = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      <Header />
+    <>
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-pink-50 to-orange-50 py-16">
@@ -326,7 +325,7 @@ const Order = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 
