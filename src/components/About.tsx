@@ -41,7 +41,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800">Quick Delivery</h4>
-                  <p className="text-sm text-gray-600">Same day delivery available</p>
+                  <p className="text-sm text-gray-600">Order Today Get Delivered Tomorrow Morning</p>
                 </div>
               </div>
             </div>
