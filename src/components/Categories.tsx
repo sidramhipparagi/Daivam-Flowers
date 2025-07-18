@@ -69,7 +69,7 @@ const Categories = () => {
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className={`text-lg font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r ${category.color}`}>
+                  <h3 className={`${category.name === 'Premium Collection' ? 'text-base' : 'text-lg'} font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r ${category.color}`}>
                     {category.name}
                   </h3>
                 </div>
