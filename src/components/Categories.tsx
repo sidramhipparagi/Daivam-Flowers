@@ -31,6 +31,13 @@ const Categories = () => {
       image: "/images/posters/hara.png",
       route: "/hara",
       color: "from-green-500 to-green-600"
+    },
+    {
+      id: 5,
+      name: "Premium Collection",
+      image: "/images/Products/Mixed-flowers-maale.png",
+      route: "/premium",
+      color: "from-purple-600 to-pink-500"
     }
   ];
 
@@ -46,7 +53,7 @@ const Categories = () => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
           {categories.map((category) => (
             <Link
               key={category.id}
