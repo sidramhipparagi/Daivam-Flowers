@@ -40,6 +40,9 @@ const ProductDetail = () => {
   };
 
   const formatWhatsAppMessage = () => {
+    if (product.isEnquiryOnly) {
+      return `Hi, I would like to enquire about ${product.name}. Please provide details on availability, pricing, and customization options.`;
+    }
     const totalPrice = calculateTotalPrice();
     const unitPrice = product.salePrice || product.price;
     return `Hi, I would like to order:\n\nProduct: ${product.name}\nQuantity: ${quantity}\nUnit Price: ${unitPrice}\nTotal Price: ₹${totalPrice.toLocaleString()}\n\nPlease confirm availability and delivery details.`;
@@ -51,6 +54,7 @@ const ProductDetail = () => {
       case 'maale': return 'Maale';
       case 'human-use': return 'Daily Elegance';
       case 'hara': return 'Hara';
+      case 'premium': return 'Premium Collection';
       default: return 'Products';
     }
   };
@@ -61,6 +65,7 @@ const ProductDetail = () => {
       case 'maale': return '/maale';
       case 'human-use': return '/human-use';
       case 'hara': return '/hara';
+      case 'premium': return '/premium';
       default: return '/collection';
     }
   };
@@ -71,6 +76,7 @@ const ProductDetail = () => {
       case 'maale': return 'from-orange-600 to-pink-500';
       case 'human-use': return 'from-purple-600 to-pink-500';
       case 'hara': return 'from-green-600 to-orange-500';
+      case 'premium': return 'from-purple-600 to-pink-500';
       default: return 'from-pink-600 to-orange-500';
     }
   };
@@ -81,6 +87,7 @@ const ProductDetail = () => {
       case 'maale': return 'from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800';
       case 'human-use': return 'from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800';
       case 'hara': return 'from-green-600 to-green-700 hover:from-green-700 hover:to-green-800';
+      case 'premium': return 'from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800';
       default: return 'from-pink-600 to-pink-700 hover:from-pink-700 hover:to-pink-800';
     }
   };
@@ -91,6 +98,7 @@ const ProductDetail = () => {
       case 'maale': return 'text-orange-600 hover:text-orange-700';
       case 'human-use': return 'text-purple-600 hover:text-purple-700';
       case 'hara': return 'text-green-600 hover:text-green-700';
+      case 'premium': return 'text-purple-600 hover:text-purple-700';
       default: return 'text-pink-600 hover:text-pink-700';
     }
   };
@@ -105,7 +113,7 @@ const ProductDetail = () => {
       </div>
       
       {/* Hero Section */}
-      <section className={`relative bg-gradient-to-br ${primaryCategory === 'loose-flowers' ? 'from-pink-50 to-orange-50' : primaryCategory === 'maale' ? 'from-orange-50 to-pink-50' : primaryCategory === 'human-use' ? 'from-purple-50 to-pink-50' : 'from-green-50 to-orange-50'} py-16`}>
+      <section className={`relative bg-gradient-to-br ${primaryCategory === 'loose-flowers' ? 'from-pink-50 to-orange-50' : primaryCategory === 'maale' ? 'from-orange-50 to-pink-50' : primaryCategory === 'human-use' ? 'from-purple-50 to-pink-50' : primaryCategory === 'premium' ? 'from-purple-50 to-pink-50' : 'from-green-50 to-orange-50'} py-16`}>
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4">
             <Link to={getCategoryRoute(primaryCategory)} className={`inline-flex items-center space-x-2 ${getCategoryLinkColor(primaryCategory)} transition-colors mb-4`}>
@@ -162,33 +170,46 @@ const ProductDetail = () => {
                     </div>
                   </div>
 
-                  {/* Quantity Selector */}
-                  <div className="mb-6">
-                    <label className="block text-lg font-semibold text-gray-800 mb-3">Quantity</label>
-                    <div className="flex items-center space-x-4">
-                      <button
-                        onClick={decreaseQuantity}
-                        className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors"
-                      >
-                        <Minus className="w-4 h-4" />
-                      </button>
-                      <span className="text-2xl font-semibold min-w-[3rem] text-center">{quantity}</span>
-                      <button
-                        onClick={increaseQuantity}
-                        className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors"
-                      >
-                        <Plus className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
+                  {/* Quantity Selector - Only show for non-enquiry products */}
+                  {!product.isEnquiryOnly && (
+                    <>
+                      <div className="mb-6">
+                        <label className="block text-lg font-semibold text-gray-800 mb-3">Quantity</label>
+                        <div className="flex items-center space-x-4">
+                          <button
+                            onClick={decreaseQuantity}
+                            className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors"
+                          >
+                            <Minus className="w-4 h-4" />
+                          </button>
+                          <span className="text-2xl font-semibold min-w-[3rem] text-center">{quantity}</span>
+                          <button
+                            onClick={increaseQuantity}
+                            className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors"
+                          >
+                            <Plus className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
 
-                  {/* Total Price */}
-                  <div className="mb-6">
-                    <span className="text-lg text-gray-600">Total Price:</span>
-                    <span className={`block text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(primaryCategory)}`}>
-                      ₹{calculateTotalPrice().toLocaleString()}
-                    </span>
-                  </div>
+                      {/* Total Price */}
+                      <div className="mb-6">
+                        <span className="text-lg text-gray-600">Total Price:</span>
+                        <span className={`block text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(primaryCategory)}`}>
+                          ₹{calculateTotalPrice().toLocaleString()}
+                        </span>
+                      </div>
+                    </>
+                  )}
+
+                  {/* Enquiry note for premium products */}
+                  {product.isEnquiryOnly && (
+                    <div className="mb-6 p-4 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg">
+                      <p className="text-purple-800 font-medium text-center">
+                        🌟 This is a premium product available on enquiry basis with custom pricing and personalization options
+                      </p>
+                    </div>
+                  )}
 
                   <a 
                     href={`https://wa.me/919742141080?text=${encodeURIComponent(formatWhatsAppMessage())}`}
@@ -196,7 +217,7 @@ const ProductDetail = () => {
                     rel="noopener noreferrer"
                   >
                     <Button className={`bg-gradient-to-r ${getButtonColor(primaryCategory)} text-white transition-all duration-300 px-8 py-3 text-lg w-full`}>
-                      Order Now
+                      {product.isEnquiryOnly ? 'Enquire Now' : 'Order Now'}
                     </Button>
                   </a>
                 </div>

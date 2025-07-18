@@ -5,10 +5,11 @@ export interface Product {
   salePrice?: string; // Optional sale price
   image: string;
   description: string;
-  category: ('loose-flowers' | 'maale' | 'human-use' | 'hara')[];
+  category: ('loose-flowers' | 'maale' | 'human-use' | 'hara' | 'premium')[];
   detailedDescription?: string;
   features?: string[];
   usage?: string[];
+  isEnquiryOnly?: boolean; // For premium products that require enquiry
 }
 
 export const products: Product[] = [
@@ -522,6 +523,80 @@ export const products: Product[] = [
     detailedDescription: "Vibrant hara combining jasmine with yellow and red roses, creating a bright and joyful garland perfect for engagements and pooja ceremonies.",
     features: ["Bright floral mix", "Yellow red roses", "Engagement suitable", "Pooja ready"],
     usage: ["Engagement ceremonies", "Pooja rituals", "Bright celebrations", "Joyful occasions"]
+  },
+
+  // Premium Collection (Enquiry Only)
+  {
+    id: 44,
+    name: "Royal Wedding Garland",
+    price: "Contact for Quote",
+    image: "/images/Products/Mallige-maale.png",
+    description: "Luxurious wedding garland with premium flowers for grand ceremonies",
+    category: ["premium"],
+    isEnquiryOnly: true,
+    detailedDescription: "Exquisite royal wedding garland crafted with the finest premium flowers, designed for grand wedding ceremonies and luxury events. Each piece is custom-made to perfection.",
+    features: ["Premium flower selection", "Custom craftsmanship", "Grand ceremony design", "Luxury finish"],
+    usage: ["Royal weddings", "Grand ceremonies", "Luxury events", "Premium celebrations"]
+  },
+  {
+    id: 45,
+    name: "Temple Special Hara",
+    price: "Contact for Quote",
+    image: "/images/hara/Kamala-hara.png",
+    description: "Sacred temple hara with rare flowers for divine worship",
+    category: ["premium"],
+    isEnquiryOnly: true,
+    detailedDescription: "Sacred temple hara featuring rare and premium flowers specially selected for divine worship and temple ceremonies. Crafted with traditional techniques.",
+    features: ["Rare flower varieties", "Sacred significance", "Traditional craft", "Divine quality"],
+    usage: ["Temple ceremonies", "Divine worship", "Sacred rituals", "Religious festivals"]
+  },
+  {
+    id: 46,
+    name: "Bridal Crown Garland",
+    price: "Contact for Quote", 
+    image: "/images/Products/Kanakambara-maale.png",
+    description: "Elegant bridal crown with exotic flowers for special occasions",
+    category: ["premium"],
+    isEnquiryOnly: true,
+    detailedDescription: "Elegant bridal crown garland featuring exotic flowers and intricate designs, perfect for creating unforgettable moments on special occasions.",
+    features: ["Exotic flowers", "Intricate design", "Bridal elegance", "Special craftsmanship"],
+    usage: ["Bridal ceremonies", "Special occasions", "Elegant events", "Premium weddings"]
+  },
+  {
+    id: 47,
+    name: "Corporate Event Decoration",
+    price: "Contact for Quote",
+    image: "/images/Products/Mixed-flowers-maale.png", 
+    description: "Professional floral arrangements for corporate events and functions",
+    category: ["premium"],
+    isEnquiryOnly: true,
+    detailedDescription: "Professional-grade floral arrangements designed for corporate events, conferences, and business functions with contemporary styling and premium appeal.",
+    features: ["Professional design", "Contemporary styling", "Corporate appeal", "Premium quality"],
+    usage: ["Corporate events", "Business functions", "Professional ceremonies", "Conference decorations"]
+  },
+  {
+    id: 48,
+    name: "Festival Special Collection",
+    price: "Contact for Quote",
+    image: "/images/Products/Purple-maale.png",
+    description: "Exclusive festival collection with seasonal flowers and custom designs",
+    category: ["premium"],
+    isEnquiryOnly: true,
+    detailedDescription: "Exclusive festival collection featuring seasonal flowers and custom designs tailored for specific festival celebrations and cultural events.",
+    features: ["Seasonal flowers", "Custom designs", "Festival exclusive", "Cultural significance"],
+    usage: ["Festival celebrations", "Cultural events", "Seasonal ceremonies", "Traditional festivals"]
+  },
+  {
+    id: 49,
+    name: "Luxury Home Decoration",
+    price: "Contact for Quote",
+    image: "/images/Products/Rose-maale.png",
+    description: "Premium home decoration with imported flowers and artistic arrangements",
+    category: ["premium"],
+    isEnquiryOnly: true,
+    detailedDescription: "Luxury home decoration service featuring imported flowers and artistic arrangements designed to transform your living spaces into elegant sanctuaries.",
+    features: ["Imported flowers", "Artistic arrangements", "Luxury appeal", "Home transformation"],
+    usage: ["Luxury homes", "Artistic decoration", "Special occasions", "Premium interiors"]
   }
 ];
 

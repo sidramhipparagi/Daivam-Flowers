@@ -20,6 +20,7 @@ import LooseFlowers from "./pages/LooseFlowers";
 import Maale from "./pages/Maale";
 import HumanUse from "./pages/HumanUse";
 import Hara from "./pages/Hara";
+import Premium from "./pages/Premium";
 import ProductDetail from "./pages/products/ProductDetail";
 
 // Admin Components (removed)
@@ -44,6 +45,7 @@ const AppRoutes = () => {
           <Route path="maale" element={<Maale />} />
           <Route path="human-use" element={<HumanUse />} />
           <Route path="hara" element={<Hara />} />
+          <Route path="premium" element={<Premium />} />
           <Route path="product/:id" element={<ProductDetail />} />
         </Route>
 
