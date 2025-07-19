@@ -14,28 +14,28 @@ const Categories = () => {
     {
       id: 2,
       name: "Maale",
-      image: "/images/posters/maale.png",
+      image: "/images/posters/maale1.png",
       route: "/maale",
       color: "from-orange-500 to-orange-600"
     },
     {
       id: 3,
       name: "Daily Elegance",
-      image: "/images/posters/human.png",
+      image: "/images/posters/human1.png",
       route: "/human-use",
       color: "from-purple-500 to-purple-600"
     },
     {
       id: 4,
       name: "Hara",
-      image: "/images/posters/hara.png",
+      image: "/images/posters/hara2.png",
       route: "/hara",
       color: "from-green-500 to-green-600"
     },
     {
       id: 5,
       name: "Premium Collection",
-      image: "/images/Products/Mixed-flowers-maale.png",
+      image: "/images/posters/premium.png",
       route: "/premium",
       color: "from-purple-600 to-pink-500"
     }
