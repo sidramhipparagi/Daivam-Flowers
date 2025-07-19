@@ -265,9 +265,9 @@ const ProductDetail = () => {
               )}
 
               {/* Contact Info */}
-              <Card className="border-2 border-gray-100 bg-gradient-to-br from-gray-50 to-white">
+              <Card className="bg-gradient-to-r from-purple-100 to-pink-100 p-4 rounded-lg max-w-2xl mx-auto">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Need Help?</h3>
+                  <h3 className="text-xl font-semibold text-purple-800 font-medium">Need Help?</h3>
                   <p className="text-gray-600 mb-4">Contact us directly for custom orders or bulk requirements.</p>
                   <div className="space-y-2">
                     <p className="text-gray-700">📞 <strong>Call:</strong> +91 97421 41080</p>
