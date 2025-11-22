@@ -72,7 +72,7 @@ const WhatsAppReviews = () => {
                 key={review.id}
                 className="flex-shrink-0 w-[400px] snap-center"
               >
-                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden h-full">
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden h-full flex flex-col">
                   {/* Header */}
                   <div className="p-6 border-b" style={{ borderColor: '#FDF3F5' }}>
                     <div className="flex items-center space-x-4">
@@ -95,7 +95,7 @@ const WhatsAppReviews = () => {
                   </div>
 
                   {/* Review Content */}
-                  <div className="p-6 relative">
+                  <div className="p-6 relative flex-1">
                     <Quote className="absolute top-4 left-4 w-10 h-10 opacity-10" style={{ color: '#FE003D' }} />
                     <p className="text-gray-700 leading-relaxed relative z-10 text-base">
                       {review.message}
@@ -103,7 +103,7 @@ const WhatsAppReviews = () => {
                   </div>
 
                   {/* Bottom Accent */}
-                  <div className="h-1" style={{ backgroundColor: '#FE003D' }}></div>
+                  <div className="h-1 mt-auto" style={{ backgroundColor: '#FE003D' }}></div>
                 </div>
               </div>
             ))}
