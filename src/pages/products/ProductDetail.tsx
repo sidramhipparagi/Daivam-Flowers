@@ -106,8 +106,8 @@ const ProductDetail = () => {
   return (
     <>
       {/* Notification Message */}
-      <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black p-4 text-center">
-        <p className="text-lg font-semibold">
+      <div className="bg-white/10 backdrop-blur-md p-4 text-center border border-white/20">
+        <p className="text-lg font-semibold text-gray-600">
           We are currently accepting orders via WhatsApp and phone calls. Sorry for the inconvenience.
         </p>
       </div>

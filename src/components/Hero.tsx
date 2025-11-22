@@ -47,7 +47,7 @@ const Hero = () => {
                 className="px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
                 style={{ backgroundColor: '#770737' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#FE003D'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
               >
                 View Collection
               </Link>
