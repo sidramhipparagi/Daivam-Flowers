@@ -15,9 +15,13 @@ const Collection = () => {
   return (
     <>
       {/* Notification Message */}
-      <div className="bg-white/10 backdrop-blur-md p-4 text-center border border-white/20">
-        <p className="text-lg font-semibold text-gray-600">
-          We are currently accepting orders via WhatsApp and phone calls. Sorry for the inconvenience.
+      <div className="bg-gradient-to-r from-pink-50 to-orange-50 border-l-4 border-pink-500 p-4 text-center">
+        <p className="text-base font-medium text-gray-700">
+          We are currently accepting orders via{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 font-semibold">
+            WhatsApp and phone calls
+          </span>
+          . Sorry for the inconvenience.
         </p>
       </div>
       
