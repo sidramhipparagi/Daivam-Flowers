@@ -60,7 +60,7 @@ const Categories = () => {
               to={category.route}
               className="group hover:scale-105 transition-transform duration-300"
             >
-              <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-brand-primary rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div className="aspect-square overflow-hidden">
                   <img 
                     src={category.image} 
@@ -69,7 +69,7 @@ const Categories = () => {
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className={`${category.name === 'Premium Collection' ? 'text-base' : 'text-lg'} font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r ${category.color}`}>
+                  <h3 className={`${category.name === 'Premium Collection' ? 'text-base' : 'text-lg'} font-semibold text-center text-white group-hover:text-brand-accent transition-colors duration-300`}>
                     {category.name}
                   </h3>
                 </div>
