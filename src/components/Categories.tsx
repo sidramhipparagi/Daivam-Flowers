@@ -42,12 +42,12 @@ const Categories = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-16" style={{ backgroundColor: '#FDF3F5' }}>
+      <div className="container mx-auto px-12">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4" style={{ color: '#770737' }}>
             Explore Our Different
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500">
+            <span style={{ color: '#FE003D' }}>
               {" "}Categories
             </span>
           </h2>

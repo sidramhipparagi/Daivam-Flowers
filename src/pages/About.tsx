@@ -11,7 +11,7 @@ const About = () => {
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-pink-50 to-orange-50 py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-12">
           <div className="text-center space-y-4">
             <Link to="/" className="inline-flex items-center space-x-2 text-pink-600 hover:text-pink-700 transition-colors mb-4">
               <ArrowLeft className="w-4 h-4" />
@@ -32,7 +32,7 @@ const About = () => {
 
       {/* Our Story Section */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-gray-800">Our Story</h2>
@@ -57,7 +57,7 @@ const About = () => {
 
       {/* Values Section */}
       <section className="py-20 bg-gradient-to-br from-pink-50 to-orange-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-12">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Values</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">

@@ -13,7 +13,7 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <div className="container mx-auto px-4 py-16 text-center">
+      <div className="container mx-auto px-12 py-16 text-center">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">Product Not Found</h1>
         <Link to="/collection" className="text-pink-600 hover:text-pink-700">
           Back to Collection
@@ -114,7 +114,7 @@ const ProductDetail = () => {
       
       {/* Hero Section */}
       <section className={`relative bg-gradient-to-br ${primaryCategory === 'loose-flowers' ? 'from-pink-50 to-orange-50' : primaryCategory === 'maale' ? 'from-orange-50 to-pink-50' : primaryCategory === 'human-use' ? 'from-purple-50 to-pink-50' : primaryCategory === 'premium' ? 'from-purple-50 to-pink-50' : 'from-green-50 to-orange-50'} py-16`}>
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-12">
           <div className="text-center space-y-4">
             <Link to={getCategoryRoute(primaryCategory)} className={`inline-flex items-center space-x-2 ${getCategoryLinkColor(primaryCategory)} transition-colors mb-4`}>
               <ArrowLeft className="w-4 h-4" />
@@ -132,7 +132,7 @@ const ProductDetail = () => {
 
       {/* Product Details */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-12">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Product Image */}
             <div className="relative">

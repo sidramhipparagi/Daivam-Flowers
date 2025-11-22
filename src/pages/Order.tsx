@@ -122,7 +122,7 @@ const Order = () => {
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-pink-50 to-orange-50 py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-12">
           <div className="text-center space-y-4">
             <Link to="/collection" className="inline-flex items-center space-x-2 text-pink-600 hover:text-pink-700 transition-colors mb-4">
               <ArrowLeft className="w-4 h-4" />
@@ -143,7 +143,7 @@ const Order = () => {
 
       {/* Order Form Section */}
       <section className="py-20 bg-gray-900 text-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-12">
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div>

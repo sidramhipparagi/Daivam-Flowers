@@ -1,16 +1,16 @@
 
 import React from 'react';
-import { MapPin, Truck, Clock, Star } from 'lucide-react';
+import { Truck, Clock, Star } from 'lucide-react';
 
 const About = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-pink-50 to-orange-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20" style={{ backgroundColor: '#FDF3F5' }}>
+      <div className="container mx-auto px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3 className="text-4xl font-bold text-gray-800 mb-6">
+            <h3 className="text-4xl font-bold mb-6" style={{ color: '#770737' }}>
               Directly from 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500">
+              <span style={{ color: '#FE003D' }}>
                 {" "}K R Market
               </span>
             </h3>
@@ -48,18 +48,21 @@ const About = () => {
           </div>
           
           <div className="relative">
+            <div 
+              className="absolute inset-0 pointer-events-none z-10"
+              style={{
+                background: `linear-gradient(to right, #FDF3F5 0%, transparent 10%, transparent 90%, #FDF3F5 100%),
+                             linear-gradient(to bottom, #FDF3F5 0%, transparent 15%, transparent 85%, #FDF3F5 100%)`
+              }}
+            ></div>
             <img 
-              src="./images/image2.png" 
+              src="./images/image3.png" 
               alt="K R Market Bengaluru" 
-              className="rounded-2xl shadow-2xl w-full h-96 object-cover"
+              className="w-full h-96 object-cover relative z-0"
+              style={{
+                backgroundColor: '#F8E8E8'
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
-            <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg p-4">
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-5 h-5 text-pink-600" />
-                <span className="font-semibold text-gray-800">K R Market, Bengaluru</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>

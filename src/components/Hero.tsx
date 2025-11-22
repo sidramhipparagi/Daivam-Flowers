@@ -6,14 +6,14 @@ import ProductCarousel from './ProductCarousel';
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-br from-pink-50 to-orange-50 py-20">
-      <div className="container mx-auto px-4">
+    <section className="relative py-20" style={{ backgroundColor: '#FDF3F5' }}>
+      <div className="container mx-auto px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
+              <h2 className="text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#770737' }}>
                 Fresh Flowers
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500">
+                <span style={{ color: '#FE003D' }}>
                   {" "}Delivered
                 </span>
               </h2>
@@ -44,7 +44,10 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
                 to="/collection"
-                className="bg-gradient-to-r from-pink-600 to-pink-700 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-pink-700 hover:to-pink-800 transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
+                className="px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
+                style={{ backgroundColor: '#770737' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#FE003D'}
               >
                 View Collection
               </Link>

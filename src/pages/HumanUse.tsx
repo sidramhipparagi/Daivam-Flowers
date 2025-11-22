@@ -14,7 +14,7 @@ const HumanUse = () => {
     <>
       
       <section className="relative bg-gradient-to-br from-purple-50 to-pink-50 py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-12">
           <div className="text-center space-y-4">
             <Link to="/" className="inline-flex items-center space-x-2 text-purple-600 hover:text-purple-700 transition-colors mb-4">
               <ArrowLeft className="w-4 h-4" />
@@ -34,7 +34,7 @@ const HumanUse = () => {
       </section>
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-12">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {humanUseFlowers.map((flower) => (
               <Link key={flower.id} to={`/product/${flower.id}`}>

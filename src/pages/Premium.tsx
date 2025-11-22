@@ -16,7 +16,7 @@ const Premium = () => {
     <>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-purple-50 to-pink-50 py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-12">
           <div className="text-center space-y-4">
             <Link to="/" className="inline-flex items-center space-x-2 text-purple-600 hover:text-purple-700 transition-colors mb-4">
               <ArrowLeft className="w-4 h-4" />
@@ -42,7 +42,7 @@ const Premium = () => {
 
       {/* Products Grid */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-12">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {premiumFlowers.map((flower) => (
               <Link key={flower.id} to={`/product/${flower.id}`}>
@@ -107,7 +107,7 @@ const Premium = () => {
 
       {/* Contact Information */}
       <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-12">
           <Card className="max-w-2xl mx-auto border-2 border-purple-200 bg-white/80 backdrop-blur-sm">
             <CardContent className="p-8 text-center">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Ready to Create Something Special?</h2>
