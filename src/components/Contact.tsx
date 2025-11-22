@@ -7,9 +7,13 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-12">
         {/* Notification Message */}
-        <div className="bg-white/10 backdrop-blur-md text-white p-4 rounded-lg mb-8 text-center border border-white/20">
-          <p className="text-lg font-semibold">
-            We are currently accepting orders via WhatsApp and phone calls. Sorry for the inconvenience.
+        <div className="bg-gradient-to-r from-pink-500/20 to-orange-500/20 border-l-4 border-pink-400 p-4 rounded-lg mb-8 text-center backdrop-blur-sm">
+          <p className="text-base font-medium text-white">
+            We are currently accepting orders via{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-orange-300 font-semibold">
+              WhatsApp and phone calls
+            </span>
+            . Sorry for the inconvenience.
           </p>
         </div>
 
