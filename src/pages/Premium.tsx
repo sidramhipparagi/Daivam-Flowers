@@ -120,17 +120,28 @@ const Premium = () => {
                   href="https://wa.me/919742141080?text=Hi, I'm interested in your premium flower collection. Please provide more details."
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="inline-block"
                 >
-                  <Button className="bg-green-600 hover:bg-green-700 text-white w-full sm:w-auto">
-                    <MessageCircle className="w-4 h-4 mr-2" />
+                  <button 
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
+                    style={{ backgroundColor: '#25D366' }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
+                  >
+                    <MessageCircle className="w-5 h-5" />
                     WhatsApp Enquiry
-                  </Button>
+                  </button>
                 </a>
-                <a href="tel:+919742141080">
-                  <Button className="bg-brand-primary hover:bg-brand-accent text-brand-foreground w-full sm:w-auto">
-                    <Phone className="w-4 h-4 mr-2" />
+                <a href="tel:+919742141080" className="inline-block">
+                  <button 
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
+                    style={{ backgroundColor: '#770737' }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
+                  >
+                    <Phone className="w-5 h-5" />
                     Call Now
-                  </Button>
+                  </button>
                 </a>
               </div>
             </CardContent>

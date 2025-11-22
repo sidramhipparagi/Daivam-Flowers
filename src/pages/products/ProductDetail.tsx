@@ -188,10 +188,16 @@ const ProductDetail = () => {
                     href={`https://wa.me/919742141080?text=${encodeURIComponent(formatWhatsAppMessage())}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="block w-full"
                   >
-                    <Button className="bg-brand-primary text-brand-foreground hover:bg-brand-accent transition-all duration-300 px-8 py-3 text-lg w-full">
+                    <button 
+                      className="w-full px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
+                      style={{ backgroundColor: '#770737' }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
+                    >
                       {product.isEnquiryOnly ? 'Enquire Now' : 'Order Now'}
-                    </Button>
+                    </button>
                   </a>
                 </div>
                 
