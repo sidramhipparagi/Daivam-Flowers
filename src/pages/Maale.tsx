@@ -64,14 +64,12 @@ const Maale = () => {
                             </span>
                           )}
                         </div>
-                        <button 
-                          className="px-6 py-3 rounded-lg font-semibold text-base text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
+                        <Button 
+                          className="btn-brand-hover"
                           style={{ backgroundColor: '#770737' }}
-                          onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
-                          onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
                         >
                           Shop Now
-                        </button>
+                        </Button>
                       </div>
                     </div>
                   </CardContent>

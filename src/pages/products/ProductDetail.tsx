@@ -190,14 +190,13 @@ const ProductDetail = () => {
                     rel="noopener noreferrer"
                     className="block w-full"
                   >
-                    <button 
-                      className="w-full px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    <Button 
+                      className="w-full btn-brand-hover"
                       style={{ backgroundColor: '#770737' }}
-                      onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
-                      onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
+                      size="lg"
                     >
                       {product.isEnquiryOnly ? 'Enquire Now' : 'Order Now'}
-                    </button>
+                    </Button>
                   </a>
                 </div>
                 

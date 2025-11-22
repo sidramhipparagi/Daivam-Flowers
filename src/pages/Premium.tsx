@@ -122,26 +122,24 @@ const Premium = () => {
                   rel="noopener noreferrer"
                   className="inline-block"
                 >
-                  <button 
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
+                  <Button 
+                    className="btn-brand-hover inline-flex items-center gap-2"
                     style={{ backgroundColor: '#25D366' }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
+                    size="lg"
                   >
                     <MessageCircle className="w-5 h-5" />
                     WhatsApp Enquiry
-                  </button>
+                  </Button>
                 </a>
                 <a href="tel:+919742141080" className="inline-block">
-                  <button 
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
+                  <Button 
+                    className="btn-brand-hover inline-flex items-center gap-2"
                     style={{ backgroundColor: '#770737' }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
+                    size="lg"
                   >
                     <Phone className="w-5 h-5" />
                     Call Now
-                  </button>
+                  </Button>
                 </a>
               </div>
             </CardContent>
