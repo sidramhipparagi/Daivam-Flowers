@@ -1,6 +1,5 @@
 import React from 'react';
-import { MessageCircle, Star } from 'lucide-react';
-import { Card } from './ui/card';
+import { MessageCircle, Star, Quote } from 'lucide-react';
 
 interface Review {
   id: number;
@@ -9,6 +8,7 @@ interface Review {
   message: string;
   rating: number;
   initial: string;
+  color: string;
 }
 
 const reviews: Review[] = [
@@ -16,119 +16,141 @@ const reviews: Review[] = [
     id: 1,
     name: "Priya Sharma",
     date: "2 days ago",
-    message: "Absolutely loved the fresh flowers! The mallige maale was perfect for our pooja. Delivery was on time and flowers were so fresh. Highly recommend! 🌸",
+    message: "Absolutely loved the fresh flowers! The mallige maale was perfect for our pooja. Delivery was on time and flowers were so fresh.",
     rating: 5,
-    initial: "P"
+    initial: "P",
+    color: "from-pink-500 to-orange-500"
   },
   {
     id: 2,
     name: "Rajesh Kumar",
     date: "1 week ago",
-    message: "Best quality flowers in Bangalore! I've been ordering from them for the past 6 months. Always fresh from KR Market. Great service! 👍",
+    message: "Best quality flowers in Bangalore! I've been ordering from them for the past 6 months. Always fresh from KR Market. Great service!",
     rating: 5,
-    initial: "R"
+    initial: "R",
+    color: "from-orange-500 to-pink-500"
   },
   {
     id: 3,
     name: "Lakshmi Devi",
     date: "3 days ago",
-    message: "The hara collection is beautiful. I order daily for temple and they never disappoint. Price is also very reasonable. Thank you! 🙏",
+    message: "The hara collection is beautiful. I order daily for temple and they never disappoint. Price is also very reasonable. Thank you!",
     rating: 5,
-    initial: "L"
+    initial: "L",
+    color: "from-pink-600 to-orange-400"
   },
   {
     id: 4,
     name: "Arun Bhat",
     date: "5 days ago",
-    message: "Ordered for my sister's wedding. The premium collection was stunning! Everyone asked where we got such beautiful flowers. Will definitely order again! 💐",
+    message: "Ordered for my sister's wedding. The premium collection was stunning! Everyone asked where we got such beautiful flowers.",
     rating: 5,
-    initial: "A"
+    initial: "A",
+    color: "from-orange-600 to-pink-400"
   },
   {
     id: 5,
     name: "Meena Iyer",
     date: "1 week ago",
-    message: "Very happy with the loose flowers quality. Perfect for rangoli and decoration. Fresh and fragrant. Good service! 🌺",
+    message: "Very happy with the loose flowers quality. Perfect for rangoli and decoration. Fresh and fragrant. Good service!",
     rating: 5,
-    initial: "M"
+    initial: "M",
+    color: "from-pink-500 to-orange-600"
   },
   {
     id: 6,
     name: "Suresh Reddy",
     date: "4 days ago",
-    message: "Excellent quality maale flowers! Used for special occasion and got many compliments. Will order again. Keep up the good work! ✨",
+    message: "Excellent quality maale flowers! Used for special occasion and got many compliments. Will order again. Keep up the good work!",
     rating: 5,
-    initial: "S"
+    initial: "S",
+    color: "from-orange-500 to-pink-600"
   }
 ];
 
 const WhatsAppReviews = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-green-50 via-white to-pink-50">
+    <section className="py-20 bg-gradient-to-br from-pink-50 via-white to-orange-50 overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full mb-4 shadow-lg">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl mb-4 shadow-lg">
             <MessageCircle className="w-8 h-8 text-white" />
           </div>
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            What Our Customers Say
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+            What Our{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500">
+              Customers Say
+            </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Real reviews from our happy customers on WhatsApp
+            Real reviews from our happy customers via WhatsApp
           </p>
         </div>
 
-        {/* Reviews Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {reviews.map((review) => (
-            <Card 
-              key={review.id}
-              className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white border-2 border-green-100 overflow-hidden"
-            >
-              {/* WhatsApp Chat Header */}
-              <div className="bg-gradient-to-r from-green-500 to-green-600 p-4 flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center font-bold text-green-600">
-                  {review.initial}
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-white">{review.name}</h3>
-                  <p className="text-xs text-green-100">{review.date}</p>
-                </div>
-              </div>
-
-              {/* Chat Bubble */}
-              <div className="p-6 bg-gradient-to-br from-gray-50 to-white min-h-[180px] flex flex-col">
-                {/* Rating Stars */}
-                <div className="flex space-x-1 mb-3">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className="w-4 h-4 fill-yellow-400 text-yellow-400" 
-                    />
-                  ))}
-                </div>
-
-                {/* Message Bubble */}
-                <div className="bg-white rounded-lg rounded-tl-none p-4 shadow-md border border-gray-100 flex-1 relative">
-                  <p className="text-gray-700 leading-relaxed text-sm">
-                    {review.message}
-                  </p>
-                  {/* WhatsApp-style tail */}
-                  <div className="absolute -top-2 left-0 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-white border-b-8 border-b-white"></div>
-                </div>
-
-                {/* WhatsApp checkmark */}
-                <div className="flex justify-end mt-2">
-                  <div className="flex items-center space-x-1">
-                    <svg className="w-4 h-4 text-blue-500" viewBox="0 0 16 15" fill="none">
-                      <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.483a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.891 7.769a.366.366 0 0 0-.515.006l-.423.433a.364.364 0 0 0 .006.514l3.258 3.185c.143.14.368.14.511 0l6.672-8.047a.365.365 0 0 0-.063-.512z" fill="currentColor"/>
-                    </svg>
+        {/* Horizontal Scrolling Reviews */}
+        <div className="relative">
+          {/* Gradient Overlays for scroll hint */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-pink-50 via-pink-50/50 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-orange-50 via-orange-50/50 to-transparent z-10 pointer-events-none"></div>
+          
+          <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory scroll-smooth px-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            {reviews.map((review) => (
+              <div 
+                key={review.id}
+                className="flex-shrink-0 w-[400px] group snap-center"
+              >
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-pink-100 overflow-hidden h-full">
+                  {/* Header with WhatsApp Style */}
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 border-b border-green-100">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${review.color} flex items-center justify-center font-bold text-white text-lg shadow-md`}>
+                        {review.initial}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-800 text-lg">{review.name}</h3>
+                        <p className="text-xs text-gray-500 flex items-center space-x-1">
+                          <MessageCircle className="w-3 h-3" />
+                          <span>{review.date}</span>
+                        </p>
+                      </div>
+                      {/* WhatsApp checkmark */}
+                      <svg className="w-5 h-5 text-green-600" viewBox="0 0 16 15" fill="none">
+                        <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.483a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.891 7.769a.366.366 0 0 0-.515.006l-.423.433a.364.364 0 0 0 .006.514l3.258 3.185c.143.14.368.14.511 0l6.672-8.047a.365.365 0 0 0-.063-.512z" fill="currentColor"/>
+                      </svg>
+                    </div>
+                    
+                    {/* Rating Stars */}
+                    <div className="flex items-center space-x-1">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star 
+                          key={i} 
+                          className="w-4 h-4 fill-yellow-500 text-yellow-500" 
+                        />
+                      ))}
+                      <span className="ml-2 text-sm font-semibold text-gray-700">5.0</span>
+                    </div>
                   </div>
+
+                  {/* Review Content */}
+                  <div className="p-6 relative">
+                    <Quote className="absolute top-4 left-4 w-8 h-8 text-pink-200" />
+                    <p className="text-gray-700 leading-relaxed relative z-10 pl-6">
+                      {review.message}
+                    </p>
+                  </div>
+
+                  {/* Bottom Accent */}
+                  <div className={`h-1 bg-gradient-to-r ${review.color}`}></div>
                 </div>
               </div>
-            </Card>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="text-center mt-8">
+          <p className="text-sm text-gray-500 mb-6">← Scroll to see more reviews →</p>
         </div>
 
         {/* CTA */}
