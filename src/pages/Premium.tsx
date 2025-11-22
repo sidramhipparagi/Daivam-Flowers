@@ -120,28 +120,25 @@ const Premium = () => {
                   href="https://wa.me/919742141080?text=Hi, I'm interested in your premium flower collection. Please provide more details."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block"
                 >
-                  <button 
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
-                    style={{ backgroundColor: '#25D366' }}
+                  <Button 
+                    className="bg-green-600 hover:bg-green-600 text-white w-full sm:w-auto transition-all duration-300"
                     onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
                     onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
                   >
-                    <MessageCircle className="w-5 h-5" />
+                    <MessageCircle className="w-4 h-4 mr-2" />
                     WhatsApp Enquiry
-                  </button>
+                  </Button>
                 </a>
-                <a href="tel:+919742141080" className="inline-block">
-                  <button 
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
-                    style={{ backgroundColor: '#770737' }}
+                <a href="tel:+919742141080">
+                  <Button 
+                    className="bg-brand-primary hover:bg-brand-primary text-white w-full sm:w-auto transition-all duration-300"
                     onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
                     onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
                   >
-                    <Phone className="w-5 h-5" />
+                    <Phone className="w-4 h-4 mr-2" />
                     Call Now
-                  </button>
+                  </Button>
                 </a>
               </div>
             </CardContent>
