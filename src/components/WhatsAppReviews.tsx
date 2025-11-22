@@ -49,89 +49,73 @@ const reviews: Review[] = [
 
 const WhatsAppReviews = () => {
   return (
-    <section className="py-20" style={{ backgroundColor: '#FDF3F5' }}>
-      <div className="container mx-auto px-6 md:px-12">
+    <section className="py-24 bg-brand-background">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4" style={{ color: '#770737' }}>
+        <div className="text-center mb-20">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-brand-primary">
             What Our
-            <span style={{ color: '#FE003D' }}>
-              {" "}Customers Say
-            </span>
+            <span className="text-brand-accent"> Customers Say</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Real reviews from our happy customers via WhatsApp
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
+            Authentic reviews from our valued customers
           </p>
         </div>
 
-        {/* Horizontal Scrolling Reviews */}
-        <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scroll-smooth px-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-            {reviews.map((review) => (
-              <div 
-                key={review.id}
-                className="flex-shrink-0 w-[400px] snap-center"
-              >
-                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden h-full flex flex-col">
-                  {/* Header */}
-                  <div className="p-6 border-b" style={{ borderColor: '#FDF3F5' }}>
-                    <div className="flex items-center space-x-4">
-                      <div 
-                        className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-white text-xl shadow-md"
-                        style={{ backgroundColor: '#770737' }}
-                      >
-                        {review.initial}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-lg" style={{ color: '#770737' }}>
-                          {review.name}
-                        </h3>
-                        <div className="flex items-center space-x-2 mt-1">
-                          <MessageCircle className="w-4 h-4" style={{ color: '#FE003D' }} />
-                          <span className="text-sm text-gray-500">WhatsApp Customer</span>
-                        </div>
+        {/* Reviews Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {reviews.map((review) => (
+            <div 
+              key={review.id}
+              className="group"
+            >
+              <div className="relative bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden h-full flex flex-col border border-border/50">
+                {/* Top Accent Bar */}
+                <div className="h-1.5 bg-gradient-to-r from-brand-primary to-brand-accent transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+                
+                {/* Content */}
+                <div className="p-8 flex-1 flex flex-col">
+                  {/* Quote Icon */}
+                  <div className="mb-6">
+                    <Quote className="w-10 h-10 text-brand-accent/20" />
+                  </div>
+                  
+                  {/* Review Text */}
+                  <p className="text-foreground/80 leading-relaxed text-base mb-8 flex-1">
+                    "{review.message}"
+                  </p>
+                  
+                  {/* Author Info */}
+                  <div className="flex items-center gap-4 pt-6 border-t border-border/30">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center font-bold text-white text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      {review.initial}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-brand-primary text-base">
+                        {review.name}
+                      </h3>
+                      <div className="flex items-center gap-2 mt-1">
+                        <MessageCircle className="w-3.5 h-3.5 text-brand-accent" />
+                        <span className="text-xs text-muted-foreground font-medium">Verified Customer</span>
                       </div>
                     </div>
                   </div>
-
-                  {/* Review Content */}
-                  <div className="p-6 relative flex-1">
-                    <Quote className="absolute top-4 left-4 w-10 h-10 opacity-10" style={{ color: '#FE003D' }} />
-                    <p className="text-gray-700 leading-relaxed relative z-10 text-base">
-                      {review.message}
-                    </p>
-                  </div>
-
-                  {/* Bottom Accent */}
-                  <div className="h-1 mt-auto" style={{ backgroundColor: '#FE003D' }}></div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="text-center mt-8">
-          <p className="text-sm text-gray-500">← Scroll to see more reviews →</p>
+            </div>
+          ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-16">
           <a
             href="https://wa.me/919742141080"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-            style={{ backgroundColor: '#770737' }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#FE003D';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#770737';
-            }}
+            className="inline-flex items-center gap-3 bg-brand-primary text-white px-10 py-5 rounded-full font-bold shadow-xl hover:shadow-2xl hover:bg-brand-accent transition-all duration-300 transform hover:scale-105 text-base"
           >
             <MessageCircle className="w-5 h-5" />
-            <span>Share Your Experience on WhatsApp</span>
+            <span>Share Your Experience</span>
           </a>
         </div>
       </div>
