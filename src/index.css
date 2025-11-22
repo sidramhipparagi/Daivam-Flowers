@@ -119,3 +119,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .btn-brand-hover {
+    transition: color 0.3s ease;
+  }
+  
+  .btn-brand-hover:hover {
+    color: hsl(var(--brand-accent));
+  }
+}
