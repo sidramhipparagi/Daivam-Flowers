@@ -15,24 +15,24 @@ const Premium = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-50 to-pink-50 py-16">
+      <section className="relative bg-brand-background py-16">
         <div className="container mx-auto px-12">
           <div className="text-center space-y-4">
-            <Link to="/" className="inline-flex items-center space-x-2 text-purple-600 hover:text-purple-700 transition-colors mb-4">
+            <Link to="/" className="inline-flex items-center space-x-2 text-brand-primary hover:text-brand-accent transition-colors mb-4">
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Home</span>
             </Link>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
               Premium
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
+              <span className="text-brand-primary">
                 {" "}Collection
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Exclusive premium flowers and custom arrangements for your special occasions
             </p>
-            <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-4 rounded-lg max-w-2xl mx-auto">
-              <p className="text-purple-800 font-medium">
+            <div className="bg-brand-primary/10 p-4 rounded-lg max-w-2xl mx-auto border border-brand-primary/20">
+              <p className="text-brand-primary font-medium">
                 🌟 All premium products are available on enquiry basis with custom pricing and personalization options
               </p>
             </div>
@@ -56,7 +56,7 @@ const Premium = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <div className="absolute top-4 right-4">
-                        <span className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                        <span className="bg-brand-accent text-brand-foreground px-3 py-1 rounded-full text-xs font-semibold">
                           PREMIUM
                         </span>
                       </div>
@@ -70,7 +70,7 @@ const Premium = () => {
                       </div>
                       <div className="flex items-center justify-between">
                         <div className="flex flex-col">
-                          <span className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
+                          <span className="text-lg font-bold text-brand-primary">
                             Contact for Quote
                           </span>
                           <span className="text-sm text-gray-500">
@@ -90,7 +90,7 @@ const Premium = () => {
                           <a 
                             href="tel:+919742141080"
                             onClick={(e) => e.stopPropagation()}
-                            className="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors"
+                            className="p-2 bg-brand-accent hover:bg-brand-primary text-white rounded-full transition-colors"
                           >
                             <Phone className="w-4 h-4" />
                           </a>
@@ -106,9 +106,9 @@ const Premium = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
+      <section className="py-16 bg-brand-background">
         <div className="container mx-auto px-12">
-          <Card className="max-w-2xl mx-auto border-2 border-purple-200 bg-white/80 backdrop-blur-sm">
+          <Card className="max-w-2xl mx-auto border-2 border-brand-primary/20 bg-white/80 backdrop-blur-sm">
             <CardContent className="p-8 text-center">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Ready to Create Something Special?</h2>
               <p className="text-gray-600 mb-6">
@@ -121,13 +121,13 @@ const Premium = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white w-full sm:w-auto">
+                  <Button className="bg-green-600 hover:bg-green-700 text-white w-full sm:w-auto">
                     <MessageCircle className="w-4 h-4 mr-2" />
                     WhatsApp Enquiry
                   </Button>
                 </a>
                 <a href="tel:+919742141080">
-                  <Button className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white w-full sm:w-auto">
+                  <Button className="bg-brand-primary hover:bg-brand-accent text-brand-foreground w-full sm:w-auto">
                     <Phone className="w-4 h-4 mr-2" />
                     Call Now
                   </Button>

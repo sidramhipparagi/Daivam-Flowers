@@ -70,46 +70,15 @@ const ProductDetail = () => {
     }
   };
 
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case 'loose-flowers': return 'from-pink-600 to-orange-500';
-      case 'maale': return 'from-orange-600 to-pink-500';
-      case 'human-use': return 'from-purple-600 to-pink-500';
-      case 'hara': return 'from-green-600 to-orange-500';
-      case 'premium': return 'from-purple-600 to-pink-500';
-      default: return 'from-pink-600 to-orange-500';
-    }
-  };
-
-  const getButtonColor = (category: string) => {
-    switch (category) {
-      case 'loose-flowers': return 'from-pink-600 to-pink-700 hover:from-pink-700 hover:to-pink-800';
-      case 'maale': return 'from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800';
-      case 'human-use': return 'from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800';
-      case 'hara': return 'from-green-600 to-green-700 hover:from-green-700 hover:to-green-800';
-      case 'premium': return 'from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800';
-      default: return 'from-pink-600 to-pink-700 hover:from-pink-700 hover:to-pink-800';
-    }
-  };
-
-  const getCategoryLinkColor = (category: string) => {
-    switch (category) {
-      case 'loose-flowers': return 'text-pink-600 hover:text-pink-700';
-      case 'maale': return 'text-orange-600 hover:text-orange-700';
-      case 'human-use': return 'text-purple-600 hover:text-purple-700';
-      case 'hara': return 'text-green-600 hover:text-green-700';
-      case 'premium': return 'text-purple-600 hover:text-purple-700';
-      default: return 'text-pink-600 hover:text-pink-700';
-    }
-  };
+  // All pages now use unified brand colors
 
   return (
     <>
       {/* Notification Message */}
-      <div className="bg-gradient-to-r from-pink-50 to-orange-50 border-l-4 border-pink-500 p-4 text-center">
+      <div className="bg-brand-background border-l-4 border-brand-accent p-4 text-center">
         <p className="text-base font-medium text-gray-700">
           We are currently accepting orders via{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 font-semibold">
+          <span className="text-brand-primary font-semibold">
             WhatsApp and phone calls
           </span>
           . Sorry for the inconvenience.
@@ -117,10 +86,10 @@ const ProductDetail = () => {
       </div>
       
       {/* Hero Section */}
-      <section className={`relative bg-gradient-to-br ${primaryCategory === 'loose-flowers' ? 'from-pink-50 to-orange-50' : primaryCategory === 'maale' ? 'from-orange-50 to-pink-50' : primaryCategory === 'human-use' ? 'from-purple-50 to-pink-50' : primaryCategory === 'premium' ? 'from-purple-50 to-pink-50' : 'from-green-50 to-orange-50'} py-16`}>
+      <section className="relative bg-brand-background py-16">
         <div className="container mx-auto px-12">
           <div className="text-center space-y-4">
-            <Link to={getCategoryRoute(primaryCategory)} className={`inline-flex items-center space-x-2 ${getCategoryLinkColor(primaryCategory)} transition-colors mb-4`}>
+            <Link to={getCategoryRoute(primaryCategory)} className="inline-flex items-center space-x-2 text-brand-primary hover:text-brand-accent transition-colors mb-4">
               <ArrowLeft className="w-4 h-4" />
               <span>Back to {getCategoryName(primaryCategory)}</span>
             </Link>
@@ -162,11 +131,11 @@ const ProductDetail = () => {
                             {product.price}
                           </span>
                         )}
-                        <span className={`text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(primaryCategory)}`}>
+                        <span className="text-3xl font-bold text-brand-primary">
                           {product.salePrice || product.price}
                         </span>
                         {product.salePrice && (
-                          <span className="bg-red-100 text-red-600 px-2 py-1 rounded-full text-sm font-semibold">
+                          <span className="bg-brand-accent/10 text-brand-accent px-2 py-1 rounded-full text-sm font-semibold">
                             SALE
                           </span>
                         )}
@@ -199,7 +168,7 @@ const ProductDetail = () => {
                       {/* Total Price */}
                       <div className="mb-6">
                         <span className="text-lg text-gray-600">Total Price:</span>
-                        <span className={`block text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${getCategoryColor(primaryCategory)}`}>
+                        <span className="block text-4xl font-bold text-brand-primary">
                           ₹{calculateTotalPrice().toLocaleString()}
                         </span>
                       </div>
@@ -208,8 +177,8 @@ const ProductDetail = () => {
 
                   {/* Enquiry note for premium products */}
                   {product.isEnquiryOnly && (
-                    <div className="mb-6 p-4 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg">
-                      <p className="text-purple-800 font-medium text-center">
+                    <div className="mb-6 p-4 bg-brand-primary/10 rounded-lg border border-brand-primary/20">
+                      <p className="text-brand-primary font-medium text-center">
                         🌟 This is a premium product available on enquiry basis with custom pricing and personalization options
                       </p>
                     </div>
@@ -220,7 +189,7 @@ const ProductDetail = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className={`bg-gradient-to-r ${getButtonColor(primaryCategory)} text-white transition-all duration-300 px-8 py-3 text-lg w-full`}>
+                    <Button className="bg-brand-primary text-brand-foreground hover:bg-brand-accent transition-all duration-300 px-8 py-3 text-lg w-full">
                       {product.isEnquiryOnly ? 'Enquire Now' : 'Order Now'}
                     </Button>
                   </a>
@@ -269,9 +238,9 @@ const ProductDetail = () => {
               )}
 
               {/* Contact Info */}
-              <Card className="bg-gradient-to-r from-purple-100 to-pink-100 p-4 rounded-lg max-w-2xl mx-auto">
+              <Card className="bg-brand-background p-4 rounded-lg max-w-2xl mx-auto border-2 border-brand-primary/20">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-purple-800 font-medium">Need Help?</h3>
+                  <h3 className="text-xl font-semibold text-brand-primary font-medium">Need Help?</h3>
                   <p className="text-gray-600 mb-4">Contact us directly for custom orders or bulk requirements.</p>
                   <div className="space-y-2">
                     <p className="text-gray-700">📞 <strong>Call:</strong> +91 97421 41080</p>

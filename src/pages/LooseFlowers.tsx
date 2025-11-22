@@ -13,16 +13,16 @@ const LooseFlowers = () => {
   return (
     <>
       
-      <section className="relative bg-gradient-to-br from-pink-50 to-orange-50 py-16">
+      <section className="relative bg-brand-background py-16">
         <div className="container mx-auto px-12">
           <div className="text-center space-y-4">
-            <Link to="/" className="inline-flex items-center space-x-2 text-pink-600 hover:text-pink-700 transition-colors mb-4">
+            <Link to="/" className="inline-flex items-center space-x-2 text-brand-primary hover:text-brand-accent transition-colors mb-4">
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Home</span>
             </Link>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
               Loose
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500">
+              <span className="text-brand-primary">
                 {" "}Flowers
               </span>
             </h1>
@@ -55,16 +55,16 @@ const LooseFlowers = () => {
                       </div>
                       <div className="flex items-center justify-between">
                         <div className="flex flex-col">
-                          <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500">
+                          <span className="text-2xl font-bold text-brand-primary">
                             {flower.salePrice || flower.price}
                           </span>
                           {flower.salePrice && (
-                            <span className="bg-red-100 text-red-600 px-2 py-1 rounded-full text-xs font-semibold w-fit">
+                            <span className="bg-brand-accent/10 text-brand-accent px-2 py-1 rounded-full text-xs font-semibold w-fit">
                               SALE
                             </span>
                           )}
                         </div>
-                        <Button className="bg-gradient-to-r from-pink-600 to-pink-700 text-white hover:from-pink-700 hover:to-pink-800 transition-all duration-300">
+                        <Button className="bg-brand-primary text-brand-foreground hover:bg-brand-accent transition-all duration-300">
                           Shop Now
                         </Button>
                       </div>
