@@ -62,48 +62,55 @@ const WhatsAppReviews = () => {
           </p>
         </div>
 
-        {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {reviews.map((review) => (
-            <div 
-              key={review.id}
-              className="group"
-            >
-              <div className="relative bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden h-full flex flex-col border border-border/50">
-                {/* Top Accent Bar */}
-                <div className="h-1.5 bg-gradient-to-r from-brand-primary to-brand-accent transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
-                
-                {/* Content */}
-                <div className="p-8 flex-1 flex flex-col">
-                  {/* Quote Icon */}
-                  <div className="mb-6">
-                    <Quote className="w-10 h-10 text-brand-accent/20" />
-                  </div>
+        {/* Horizontal Scrolling Reviews */}
+        <div className="relative">
+          <div className="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth px-4 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            {reviews.map((review) => (
+              <div 
+                key={review.id}
+                className="flex-shrink-0 w-[420px] snap-center group"
+              >
+                <div className="relative bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden h-full flex flex-col border border-border/50">
+                  {/* Top Accent Bar */}
+                  <div className="h-1.5 bg-brand-accent transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
                   
-                  {/* Review Text */}
-                  <p className="text-foreground/80 leading-relaxed text-base mb-8 flex-1">
-                    "{review.message}"
-                  </p>
-                  
-                  {/* Author Info */}
-                  <div className="flex items-center gap-4 pt-6 border-t border-border/30">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center font-bold text-white text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      {review.initial}
+                  {/* Content */}
+                  <div className="p-8 flex-1 flex flex-col">
+                    {/* Quote Icon */}
+                    <div className="mb-6">
+                      <Quote className="w-10 h-10 text-brand-accent/20" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-bold text-brand-primary text-base">
-                        {review.name}
-                      </h3>
-                      <div className="flex items-center gap-2 mt-1">
-                        <MessageCircle className="w-3.5 h-3.5 text-brand-accent" />
-                        <span className="text-xs text-muted-foreground font-medium">Verified Customer</span>
+                    
+                    {/* Review Text */}
+                    <p className="text-foreground/80 leading-relaxed text-base mb-8 flex-1">
+                      "{review.message}"
+                    </p>
+                    
+                    {/* Author Info */}
+                    <div className="flex items-center gap-4 pt-6 border-t border-border/30">
+                      <div className="w-12 h-12 rounded-full bg-brand-primary flex items-center justify-center font-bold text-white text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        {review.initial}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-brand-primary text-base">
+                          {review.name}
+                        </h3>
+                        <div className="flex items-center gap-2 mt-1">
+                          <MessageCircle className="w-3.5 h-3.5 text-brand-accent" />
+                          <span className="text-xs text-muted-foreground font-medium">Verified Customer</span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          
+          {/* Scroll Indicator */}
+          <div className="text-center mt-6">
+            <p className="text-sm text-muted-foreground">← Scroll to see more reviews →</p>
+          </div>
         </div>
 
         {/* CTA */}
