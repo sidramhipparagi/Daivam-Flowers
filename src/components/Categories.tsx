@@ -42,34 +42,41 @@ const Categories = () => {
   ];
 
   return (
-    <section className="py-16" style={{ backgroundColor: '#FDF3F5' }}>
-      <div className="container mx-auto px-12">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4" style={{ color: '#770737' }}>
-            Explore Our Different
-            <span style={{ color: '#FE003D' }}>
-              {" "}Categories
-            </span>
+    <section className="py-20 bg-brand-background">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-3 text-brand-primary">
+            Explore Our
+            <span className="text-brand-accent"> Collections</span>
           </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4">
+            Discover our curated selection of premium flowers for every occasion
+          </p>
         </div>
         
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8">
           {categories.map((category) => (
             <Link
               key={category.id}
               to={category.route}
-              className="group hover:scale-105 transition-transform duration-300"
+              className="group"
             >
-              <div className="bg-brand-primary rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div className="aspect-square overflow-hidden">
+              <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                {/* Image Container with Overlay */}
+                <div className="aspect-square overflow-hidden relative">
                   <img 
                     src={category.image} 
                     alt={category.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/90 via-brand-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                <div className="p-4">
-                  <h3 className={`${category.name === 'Premium Collection' ? 'text-base' : 'text-lg'} font-semibold text-center text-white group-hover:text-brand-accent transition-colors duration-300`}>
+                
+                {/* Content Container */}
+                <div className="relative p-5 bg-brand-primary">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  <h3 className={`${category.name === 'Premium Collection' ? 'text-base' : 'text-lg'} font-bold text-center text-white group-hover:text-brand-accent transition-colors duration-300`}>
                     {category.name}
                   </h3>
                 </div>
