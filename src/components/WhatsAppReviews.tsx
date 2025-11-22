@@ -70,10 +70,7 @@ const WhatsAppReviews = () => {
                 key={review.id}
                 className="flex-shrink-0 w-[420px] snap-center group"
               >
-                <div className="relative bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden h-full flex flex-col border border-border/50">
-                  {/* Top Accent Bar */}
-                  <div className="h-1.5 bg-brand-accent transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
-                  
+                <div className="relative bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden h-full flex flex-col">
                   {/* Content */}
                   <div className="p-8 flex-1 flex flex-col">
                     {/* Quote Icon */}
@@ -82,22 +79,25 @@ const WhatsAppReviews = () => {
                     </div>
                     
                     {/* Review Text */}
-                    <p className="text-foreground/80 leading-relaxed text-base mb-8 flex-1">
+                    <p className="text-foreground/80 leading-relaxed text-base mb-6 flex-1">
                       "{review.message}"
                     </p>
                     
+                    {/* Accent Divider Line */}
+                    <div className="w-16 h-1 bg-brand-accent mb-6 rounded-full" />
+                    
                     {/* Author Info */}
-                    <div className="flex items-center gap-4 pt-6 border-t border-border/30">
-                      <div className="w-12 h-12 rounded-full bg-brand-primary flex items-center justify-center font-bold text-white text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-full bg-brand-primary flex items-center justify-center font-bold text-white text-xl shadow-md group-hover:scale-110 transition-transform duration-300">
                         {review.initial}
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-bold text-brand-primary text-base">
+                        <h3 className="font-bold text-brand-primary text-lg">
                           {review.name}
                         </h3>
-                        <div className="flex items-center gap-2 mt-1">
-                          <MessageCircle className="w-3.5 h-3.5 text-brand-accent" />
-                          <span className="text-xs text-muted-foreground font-medium">Verified Customer</span>
+                        <div className="flex items-center gap-2 mt-1.5">
+                          <MessageCircle className="w-4 h-4 text-brand-accent" />
+                          <span className="text-sm text-muted-foreground font-medium">Verified Customer</span>
                         </div>
                       </div>
                     </div>
