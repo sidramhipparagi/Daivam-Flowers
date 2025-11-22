@@ -119,7 +119,14 @@ const WhatsAppReviews = () => {
             href="https://wa.me/919742141080"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-brand-primary text-white px-10 py-5 rounded-full font-bold shadow-xl hover:shadow-2xl hover:bg-brand-accent transition-all duration-300 transform hover:scale-105 text-base"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
+            style={{ backgroundColor: '#770737' }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#FE003D';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'white';
+            }}
           >
             <MessageCircle className="w-5 h-5" />
             <span>Share Your Experience</span>
