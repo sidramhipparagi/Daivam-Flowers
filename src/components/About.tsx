@@ -8,9 +8,9 @@ const About = () => {
       <div className="container mx-auto px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3 className="text-4xl font-bold mb-6" style={{ color: '#770737' }}>
+            <h3 className="text-4xl lg:text-5xl font-bold mb-4 text-brand-primary">
               Directly from 
-              <span style={{ color: '#FE003D' }}>
+              <span style={{ color: '#FE003D', fontWeight: 500 }}>
                 {" "}K R Market
               </span>
             </h3>
@@ -25,9 +25,30 @@ const About = () => {
             </p>
             
             <div className="grid sm:grid-cols-2 gap-4 pt-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
-                  <Star className="w-5 h-5 text-pink-600" />
+              <div 
+                className="flex items-center space-x-3 p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-2 group"
+                onMouseEnter={(e) => {
+                  const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                  if (iconContainer) {
+                    iconContainer.style.background = '#770737';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                  if (iconContainer) {
+                    iconContainer.style.background = 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))';
+                  }
+                }}
+              >
+                <div 
+                  className="icon-container flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 flex-shrink-0"
+                  style={{ 
+                    background: 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))',
+                    minWidth: '3rem',
+                    minHeight: '3rem'
+                  }}
+                >
+                  <Star className="w-6 h-6 transition-colors duration-300" style={{ color: '#FE003D' }} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800">Premium Quality</h4>
@@ -35,9 +56,30 @@ const About = () => {
                 </div>
               </div>
               
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-orange-600" />
+              <div 
+                className="flex items-center space-x-3 p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-2 group"
+                onMouseEnter={(e) => {
+                  const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                  if (iconContainer) {
+                    iconContainer.style.background = '#770737';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                  if (iconContainer) {
+                    iconContainer.style.background = 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))';
+                  }
+                }}
+              >
+                <div 
+                  className="icon-container flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 flex-shrink-0"
+                  style={{ 
+                    background: 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))',
+                    minWidth: '3rem',
+                    minHeight: '3rem'
+                  }}
+                >
+                  <Clock className="w-6 h-6 transition-colors duration-300" style={{ color: '#FE003D' }} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800">Quick Delivery</h4>

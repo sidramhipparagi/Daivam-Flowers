@@ -47,7 +47,7 @@ const Categories = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-3 text-brand-primary">
             Explore Our
-            <span className="text-brand-accent"> Collections</span>
+            <span className="text-brand-accent" style={{ fontWeight: 500 }}> Collections</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4">
             Discover our curated selection of premium flowers for every occasion

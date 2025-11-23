@@ -20,7 +20,19 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
+				sans: ['AfacadFlux', 'system-ui', 'sans-serif'],
+			},
+			fontSize: {
+				'xs': ['0.875rem', { lineHeight: '1.5' }],      // 14px -> 14px (minimal increase)
+				'sm': ['1rem', { lineHeight: '1.5' }],          // 14px -> 16px
+				'base': ['1.125rem', { lineHeight: '1.75' }],    // 16px -> 18px
+				'lg': ['1.25rem', { lineHeight: '1.75' }],      // 18px -> 20px
+				'xl': ['1.5rem', { lineHeight: '2' }],           // 20px -> 24px
+				'2xl': ['2rem', { lineHeight: '2.25' }],         // 24px -> 32px
+				'3xl': ['2.5rem', { lineHeight: '2.5' }],        // 30px -> 40px
+				'4xl': ['3rem', { lineHeight: '1.1' }],          // 36px -> 48px
+				'5xl': ['3.75rem', { lineHeight: '1.1' }],       // 48px -> 60px
+				'6xl': ['4.5rem', { lineHeight: '1.1' }],        // 60px -> 72px
 			},
 			colors: {
 				brand: {

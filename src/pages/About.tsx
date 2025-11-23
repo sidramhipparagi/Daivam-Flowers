@@ -17,11 +17,9 @@ const About = () => {
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Home</span>
             </Link>
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-brand-primary">
               About
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500">
-                {" "}Daivam Flowers
-              </span>
+              <span className="text-brand-accent"> Daivam Flowers</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Your trusted partner for fresh, beautiful flowers from the heart of K R Market, Bengaluru
@@ -66,9 +64,28 @@ const About = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center mb-6">
-                <Star className="w-8 h-8 text-white" />
+            <div 
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+              onMouseEnter={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = '#770737';
+                }
+              }}
+              onMouseLeave={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))';
+                }
+              }}
+            >
+              <div 
+                className="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-all duration-300"
+                style={{ 
+                  background: 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))'
+                }}
+              >
+                <Star className="w-8 h-8 transition-colors duration-300" style={{ color: '#FE003D' }} />
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Premium Quality</h3>
               <p className="text-gray-600">
@@ -76,9 +93,28 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center mb-6">
-                <Clock className="w-8 h-8 text-white" />
+            <div 
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+              onMouseEnter={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = '#770737';
+                }
+              }}
+              onMouseLeave={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))';
+                }
+              }}
+            >
+              <div 
+                className="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-all duration-300"
+                style={{ 
+                  background: 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))'
+                }}
+              >
+                <Clock className="w-8 h-8 transition-colors duration-300" style={{ color: '#FE003D' }} />
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Timely Delivery</h3>
               <p className="text-gray-600">
@@ -86,9 +122,28 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center mb-6">
-                <Heart className="w-8 h-8 text-white" />
+            <div 
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+              onMouseEnter={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = '#770737';
+                }
+              }}
+              onMouseLeave={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))';
+                }
+              }}
+            >
+              <div 
+                className="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-all duration-300"
+                style={{ 
+                  background: 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))'
+                }}
+              >
+                <Heart className="w-8 h-8 transition-colors duration-300" style={{ color: '#FE003D' }} />
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Personal Touch</h3>
               <p className="text-gray-600">
@@ -96,9 +151,28 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center mb-6">
-                <Users className="w-8 h-8 text-white" />
+            <div 
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+              onMouseEnter={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = '#770737';
+                }
+              }}
+              onMouseLeave={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))';
+                }
+              }}
+            >
+              <div 
+                className="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-all duration-300"
+                style={{ 
+                  background: 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))'
+                }}
+              >
+                <Users className="w-8 h-8 transition-colors duration-300" style={{ color: '#FE003D' }} />
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Community Focus</h3>
               <p className="text-gray-600">
@@ -106,9 +180,28 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center mb-6">
-                <Award className="w-8 h-8 text-white" />
+            <div 
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+              onMouseEnter={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = '#770737';
+                }
+              }}
+              onMouseLeave={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))';
+                }
+              }}
+            >
+              <div 
+                className="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-all duration-300"
+                style={{ 
+                  background: 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))'
+                }}
+              >
+                <Award className="w-8 h-8 transition-colors duration-300" style={{ color: '#FE003D' }} />
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Trusted Service</h3>
               <p className="text-gray-600">
@@ -116,9 +209,28 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center mb-6">
-                <MapPin className="w-8 h-8 text-white" />
+            <div 
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+              onMouseEnter={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = '#770737';
+                }
+              }}
+              onMouseLeave={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))';
+                }
+              }}
+            >
+              <div 
+                className="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-all duration-300"
+                style={{ 
+                  background: 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))'
+                }}
+              >
+                <MapPin className="w-8 h-8 transition-colors duration-300" style={{ color: '#FE003D' }} />
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Local Expertise</h3>
               <p className="text-gray-600">
@@ -138,7 +250,10 @@ const About = () => {
           </p>
           <Link 
             to="/collection" 
-            className="inline-block bg-gradient-to-r from-pink-500 to-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:from-pink-600 hover:to-orange-600 transition-all duration-300 transform hover:scale-105"
+            className="inline-block px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
+            style={{ backgroundColor: '#770737' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
           >
             View Our Collection
           </Link>

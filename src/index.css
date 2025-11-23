@@ -11,11 +11,44 @@
   --brand-background: #FDF3F5 (Light pink background)
 */
 
+/* Font Face Declarations */
+@font-face {
+  font-family: 'AfacadFlux';
+  src: url('/AfacadFlux-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AfacadFlux';
+  src: url('/AfacadFlux-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AfacadFlux';
+  src: url('/AfacadFlux-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AfacadFlux';
+  src: url('/AfacadFlux-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     /* Brand Colors - EDIT THESE TO CHANGE SITE-WIDE COLORS */
     --brand-primary: 327 88% 24%;        /* #770737 - Dark theme color */
-    --brand-accent: 346 99% 50%;         /* #FE003D - Light red accent */
+    --brand-accent: 346 100% 50%;         /* #FE003D - Light red accent */
     --brand-background: 347 60% 97%;     /* #FDF3F5 - Light background */
     --brand-foreground: 0 0% 100%;       /* White text on brand colors */
     
@@ -68,7 +101,7 @@
 
   .dark {
     --brand-primary: 327 88% 24%;        /* Same brand colors in dark mode */
-    --brand-accent: 346 99% 50%;
+    --brand-accent: 346 100% 50%;
     --brand-background: 327 88% 10%;     /* Darker version for dark mode */
     --brand-foreground: 0 0% 100%;
     
@@ -113,10 +146,51 @@
 @layer base {
   * {
     @apply border-border;
+    font-family: 'AfacadFlux', sans-serif;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'AfacadFlux', sans-serif;
+    font-weight: 400; /* Regular font as default */
+    font-size: 18px; /* Increased base font size from 16px to 18px */
+  }
+
+  /* Medium font for all headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'AfacadFlux', sans-serif;
+    font-weight: 500; /* Medium font */
+  }
+
+  /* Increased heading sizes */
+  h1 { font-size: 3.5rem; } /* Increased from default */
+  h2 { font-size: 3rem; } /* Increased from default */
+  h3 { font-size: 2.5rem; } /* Increased from default */
+  h4 { font-size: 2rem; } /* Increased from default */
+  h5 { font-size: 1.75rem; } /* Increased from default */
+  h6 { font-size: 1.5rem; } /* Increased from default */
+
+  /* Regular font for all text elements */
+  p, span, div, li, td, th, label {
+    font-family: 'AfacadFlux', sans-serif;
+    font-weight: 400; /* Regular font */
+  }
+
+  /* Increased paragraph and text sizes */
+  p {
+    font-size: 1.125rem; /* 18px - increased from 16px */
+    line-height: 1.75;
+  }
+
+  /* Medium font for buttons and links */
+  button, 
+  a,
+  .btn,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    font-family: 'AfacadFlux', sans-serif;
+    font-weight: 500; /* Medium font for all buttons and links */
   }
 }
 
@@ -127,5 +201,23 @@
   
   .btn-brand-hover:hover {
     color: hsl(var(--brand-accent));
+  }
+
+  /* Infinite horizontal scroll animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 1rem));
+    }
+  }
+
+  .scroll-container {
+    animation: scroll 60s linear infinite;
+  }
+
+  .scroll-container:hover {
+    animation-play-state: paused;
   }
 }

@@ -13,7 +13,7 @@ const Hero = () => {
             <div className="space-y-4">
               <h2 className="text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#770737' }}>
                 Fresh Flowers
-                <span style={{ color: '#FE003D' }}>
+                <span style={{ color: '#FE003D', fontWeight: 500 }}>
                   {" "}Delivered
                 </span>
               </h2>

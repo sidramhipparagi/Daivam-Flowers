@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Quote } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 interface Review {
   id: number;
@@ -48,6 +48,9 @@ const reviews: Review[] = [
 ];
 
 const WhatsAppReviews = () => {
+  // Duplicate reviews for seamless infinite loop
+  const duplicatedReviews = [...reviews, ...reviews];
+
   return (
     <section className="py-24 bg-brand-background">
       <div className="container mx-auto px-6 lg:px-12">
@@ -55,7 +58,7 @@ const WhatsAppReviews = () => {
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-brand-primary">
             What Our
-            <span className="text-brand-accent"> Customers Say</span>
+            <span className="text-brand-accent" style={{ fontWeight: 500 }}> Customers Say</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
             Authentic reviews from our valued customers
@@ -63,53 +66,39 @@ const WhatsAppReviews = () => {
         </div>
 
         {/* Horizontal Scrolling Reviews */}
-        <div className="relative">
-          <div className="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth px-4 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-            {reviews.map((review) => (
+        <div className="relative overflow-hidden">
+          <div 
+            className="flex gap-8 pb-8 scroll-container"
+            style={{
+              width: 'max-content'
+            }}
+          >
+            {duplicatedReviews.map((review, index) => (
               <div 
-                key={review.id}
-                className="flex-shrink-0 w-[420px] snap-center group"
+                key={`${review.id}-${index}`}
+                className="flex-shrink-0 w-[520px]"
               >
-                <div className="relative bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden h-full flex flex-col">
+                <div className="relative bg-white rounded-[40px] border overflow-hidden h-[260px] flex flex-col" style={{ borderColor: '#FE003D', borderWidth: '2px' }}>
                   {/* Content */}
                   <div className="p-8 flex-1 flex flex-col">
-                    {/* Quote Icon */}
-                    <div className="mb-6">
-                      <Quote className="w-10 h-10 text-brand-accent/20" />
+                    {/* Review Text */}
+                    <div className="flex-1 flex items-center justify-center">
+                      <p className="text-foreground/80 leading-relaxed text-base text-center">
+                        "{review.message}"
+                      </p>
                     </div>
                     
-                    {/* Review Text */}
-                    <p className="text-foreground/80 leading-relaxed text-base mb-6 flex-1">
-                      "{review.message}"
-                    </p>
-                    
-                    {/* Accent Divider Line */}
-                    <div className="w-16 h-1 bg-brand-accent mb-6 rounded-full" />
-                    
                     {/* Author Info */}
-                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-full bg-brand-primary flex items-center justify-center font-bold text-white text-xl shadow-md group-hover:scale-110 transition-transform duration-300">
-                        {review.initial}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-bold text-brand-primary text-lg">
-                          {review.name}
-                        </h3>
-                        <div className="flex items-center gap-2 mt-1.5">
-                          <MessageCircle className="w-4 h-4 text-brand-accent" />
-                          <span className="text-sm text-muted-foreground font-medium">Verified Customer</span>
-                        </div>
-                      </div>
+                    <div className="flex items-center justify-center gap-3 mt-auto">
+                      <MessageCircle className="w-5 h-5" style={{ color: '#25D366' }} />
+                      <h3 className="font-bold text-brand-primary text-lg">
+                        {review.name}
+                      </h3>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-          
-          {/* Scroll Indicator */}
-          <div className="text-center mt-6">
-            <p className="text-sm text-muted-foreground">← Scroll to see more reviews →</p>
           </div>
         </div>
 
@@ -119,7 +108,7 @@ const WhatsAppReviews = () => {
             href="https://wa.me/919742141080"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-lg text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
             style={{ backgroundColor: '#770737' }}
             onMouseEnter={(e) => {
               e.currentTarget.style.color = '#FE003D';

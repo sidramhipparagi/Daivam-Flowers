@@ -66,11 +66,11 @@ const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouse
                   alt={product.name}
                   className="w-full h-32 sm:h-48 object-cover"
                 />
-                <div className="p-2 sm:p-4 text-center">
-                  <h3 className="font-semibold text-gray-800 text-sm sm:text-lg truncate">
+                <div className="px-2 sm:px-4 pt-2 sm:pt-3 pb-0 text-center">
+                  <h3 className="font-semibold text-gray-800 text-sm sm:text-lg truncate mb-0">
                     {product.name}
                   </h3>
-                  <div className="mt-1 sm:mt-2 flex flex-col items-center">
+                  <div className="flex flex-col items-center">
                     <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 text-base sm:text-xl">
                       {product.salePrice || product.price}
                     </span>

@@ -126,10 +126,10 @@ const Header = () => {
                 }}
               >
                 <DropdownMenu open={isProductsDropdownOpen} onOpenChange={setIsProductsDropdownOpen}>
-                  <DropdownMenuTrigger className="relative flex items-center space-x-1 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-600 hover:to-orange-500 font-medium transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-gradient-to-r before:from-pink-600 before:to-orange-500 before:transition-all before:duration-300 hover:before:w-full outline-none" style={{ color: '#FE000B' }}>
-                  <span>Products</span>
-                  <ChevronDown className="w-4 h-4" style={{ color: '#FE003D' }} />
-                </DropdownMenuTrigger>
+                  <DropdownMenuTrigger className="relative flex items-center space-x-1 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-600 hover:to-orange-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-gradient-to-r before:from-pink-600 before:to-orange-500 before:transition-all before:duration-300 hover:before:w-full outline-none" style={{ color: '#FE000B' }}>
+                    <span>Products</span>
+                    <ChevronDown className="w-4 h-4" style={{ color: '#FE003D' }} />
+                  </DropdownMenuTrigger>
                 <DropdownMenuContent 
                   className="w-48 bg-white border border-gray-200 shadow-lg z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 duration-300"
                   onMouseEnter={() => {

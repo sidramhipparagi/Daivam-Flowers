@@ -30,8 +30,8 @@ const Services = () => {
     <section className="py-20" style={{ backgroundColor: '#FDF3F5' }}>
       <div className="container mx-auto px-12">
         <div className="text-center mb-16">
-          <h3 className="text-4xl font-bold mb-4" style={{ color: '#770737' }}>Our Services</h3>
-          <p className="text-xl max-w-2xl mx-auto" style={{ color: '#FE003D' }}>
+          <h3 className="text-4xl lg:text-5xl font-bold mb-4 text-brand-primary">Our Services</h3>
+          <p className="text-xl max-w-2xl mx-auto" style={{ color: '#FE003D', fontWeight: 500 }}>
             From K R Market to your doorstep - we bring the freshest flowers for every occasion
           </p>
         </div>
@@ -41,9 +41,26 @@ const Services = () => {
             <div 
               key={index} 
               className="text-center p-6 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-2 group"
+              onMouseEnter={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = '#770737';
+                }
+              }}
+              onMouseLeave={(e) => {
+                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
+                if (iconContainer) {
+                  iconContainer.style.background = 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))';
+                }
+              }}
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-100 to-orange-100 rounded-full mb-4 group-hover:from-pink-500 group-hover:to-orange-500 transition-all duration-300">
-                <div className="text-pink-600 group-hover:text-white transition-colors duration-300">
+              <div 
+                className="icon-container inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 transition-all duration-300"
+                style={{ 
+                  background: 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))'
+                }}
+              >
+                <div className="transition-colors duration-300" style={{ color: '#FE003D' }}>
                   {service.icon}
                 </div>
               </div>
