@@ -6,8 +6,23 @@ import ProductCarousel from './ProductCarousel';
 
 const Hero = () => {
   return (
-    <section className="relative py-20" style={{ backgroundColor: '#FDF3F5' }}>
-      <div className="container mx-auto px-12">
+    <section 
+      className="relative py-20"
+      style={{ 
+        backgroundImage: 'url(/images/image5.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="absolute inset-0 bg-[#FDF3F5]/80"></div>
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to bottom, transparent 0%, #FDF3F5 100%)'
+        }}
+      ></div>
+      <div className="container mx-auto px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">

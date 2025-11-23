@@ -52,15 +52,41 @@ const WhatsAppReviews = () => {
   const duplicatedReviews = [...reviews, ...reviews];
 
   return (
-    <section className="py-24 bg-brand-background">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section 
+      className="py-24 relative"
+      style={{ 
+        backgroundImage: 'url(/images/image5.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="absolute inset-0 bg-[#FDF3F5]/80 z-0"></div>
+      
+      {/* Top fade to section above */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-32 pointer-events-none z-10"
+        style={{
+          background: 'linear-gradient(to bottom, #FDF3F5 0%, transparent 100%)'
+        }}
+      ></div>
+      
+      {/* Bottom fade to section below */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10"
+        style={{
+          background: 'linear-gradient(to top, #FDF3F5 0%, transparent 100%)'
+        }}
+      ></div>
+      
+      <div className="container mx-auto px-6 lg:px-12 relative z-20">
         {/* Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-brand-primary">
             What Our
             <span className="text-brand-accent" style={{ fontWeight: 500 }}> Customers Say</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
+          <p className="text-lg max-w-2xl mx-auto mt-4" style={{ color: '#770737' }}>
             Authentic reviews from our valued customers
           </p>
         </div>
@@ -76,26 +102,21 @@ const WhatsAppReviews = () => {
             {duplicatedReviews.map((review, index) => (
               <div 
                 key={`${review.id}-${index}`}
-                className="flex-shrink-0 w-[520px]"
+                className="flex-shrink-0 w-[520px] flex flex-col items-center justify-center"
               >
-                <div className="relative bg-white rounded-[40px] border overflow-hidden h-[260px] flex flex-col" style={{ borderColor: '#FE003D', borderWidth: '2px' }}>
-                  {/* Content */}
-                  <div className="p-8 flex-1 flex flex-col">
-                    {/* Review Text */}
-                    <div className="flex-1 flex items-center justify-center">
-                      <p className="text-foreground/80 leading-relaxed text-base text-center">
-                        "{review.message}"
-                      </p>
-                    </div>
-                    
-                    {/* Author Info */}
-                    <div className="flex items-center justify-center gap-3 mt-auto">
-                      <MessageCircle className="w-5 h-5" style={{ color: '#25D366' }} />
-                      <h3 className="font-bold text-brand-primary text-lg">
-                        {review.name}
-                      </h3>
-                    </div>
-                  </div>
+                {/* Review Text */}
+                <div className="flex-1 flex items-center justify-center mb-6">
+                  <p className="leading-relaxed text-xl text-center" style={{ color: '#770737' }}>
+                    "{review.message}"
+                  </p>
+                </div>
+                
+                {/* Author Info */}
+                <div className="flex items-center justify-center gap-3">
+                  <MessageCircle className="w-6 h-6" style={{ color: '#25D366' }} />
+                  <h3 className="font-bold text-xl" style={{ color: '#FE003D' }}>
+                    {review.name}
+                  </h3>
                 </div>
               </div>
             ))}
