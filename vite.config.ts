@@ -34,6 +34,10 @@ export default defineConfig(({ mode }) => ({
         if (fs.existsSync('public/404.html')) {
           fs.copyFileSync('public/404.html', 'docs/404.html');
         }
+        // Copy favicon.ico to docs directory
+        if (fs.existsSync('public/favicon.ico')) {
+          fs.copyFileSync('public/favicon.ico', 'docs/favicon.ico');
+        }
       }
     }
   ].filter(Boolean),
