@@ -129,7 +129,7 @@ const WhatsAppReviews = () => {
             href="https://wa.me/919742141080"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 md:gap-3 px-6 py-3 md:px-8 md:py-4 rounded-lg text-base md:text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center gap-2 md:gap-3 px-6 py-3 md:px-8 md:py-4 rounded-lg text-base md:text-lg font-medium text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
             style={{ backgroundColor: '#770737' }}
             onMouseEnter={(e) => {
               e.currentTarget.style.color = '#FE003D';
