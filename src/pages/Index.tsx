@@ -6,6 +6,7 @@ import WhatsAppReviews from '../components/WhatsAppReviews';
 import Services from '../components/Services';
 import About from '../components/About';
 import Contact from '../components/Contact';
+import FloatingOrderButton from '../components/FloatingOrderButton';
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <Services />
       <About />
       <Contact />
+      <FloatingOrderButton />
     </>
   );
 };
