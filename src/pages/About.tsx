@@ -19,7 +19,7 @@ const About = () => {
             </Link>
             <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-brand-primary">
               About
-              <span className="text-brand-accent"> Daivam Flowers</span>
+              <span className="text-brand-accent" style={{ fontWeight: 600 }}> Daivam Flowers</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Your trusted partner for fresh, beautiful flowers from the heart of K R Market, Bengaluru
@@ -42,12 +42,18 @@ const About = () => {
               </p>
             </div>
             
-            <div className="relative">
+            <div className="relative overflow-hidden">
               <img 
                 src="./images/image1.png" 
                 alt="Daivam Flowers Story" 
-                className="rounded-2xl shadow-2xl w-full h-96 object-cover"
+                className="w-full"
               />
+              <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(to right, white 0%, transparent 10%, transparent 90%, white 100%), linear-gradient(to bottom, white 0%, transparent 10%, transparent 90%, white 100%)'
+                }}
+              ></div>
             </div>
           </div>
         </div>
