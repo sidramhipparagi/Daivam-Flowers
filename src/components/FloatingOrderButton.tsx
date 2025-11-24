@@ -12,7 +12,7 @@ const FloatingOrderButton = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex items-center justify-center bg-brand-primary hover:bg-brand-primary/90 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out h-14 w-14 hover:w-32 hover:px-4">
+      <div className="flex items-center justify-center bg-brand-primary text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out h-14 w-14 hover:w-32 hover:px-4">
         <ShoppingCart 
           className="h-6 w-6 flex-shrink-0 transition-colors duration-300" 
           style={{ color: isHovered ? '#FE003D' : 'white' }}
