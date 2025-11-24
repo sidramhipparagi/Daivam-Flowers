@@ -26,24 +26,13 @@ const Collection = () => {
         </p>
       </div>
       
-      {/* Hero Section */}
-      <section className="relative bg-brand-background py-16">
+      {/* Back to Home Link */}
+      <section className="relative bg-brand-background py-6">
         <div className="container mx-auto px-12">
-          <div className="text-center space-y-4">
-            <Link to="/" className="inline-flex items-center space-x-2 text-brand-primary hover:text-brand-accent transition-colors mb-4">
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Home</span>
-            </Link>
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
-              Our
-              <span className="text-brand-primary">
-                {" "}Collection
-              </span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Fresh flowers sourced directly from K R Market, Bengaluru
-            </p>
-          </div>
+          <Link to="/" className="inline-flex items-center space-x-2 text-brand-primary hover:text-brand-accent transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            <span>Back to Home</span>
+          </Link>
         </div>
       </section>
 
