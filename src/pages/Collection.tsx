@@ -5,6 +5,7 @@ import { Button } from '../components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { products } from '../data/products';
+import Categories from '../components/Categories';
 
 const Collection = () => {
   // Filter out duplicate products by name, keeping the first occurrence
@@ -45,6 +46,9 @@ const Collection = () => {
           </div>
         </div>
       </section>
+
+      {/* Categories Section */}
+      <Categories />
 
       {/* Collection Grid */}
       <section className="py-20 bg-white">
