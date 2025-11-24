@@ -29,10 +29,12 @@ const Collection = () => {
       {/* Back to Home Link */}
       <section className="relative bg-brand-background py-6">
         <div className="container mx-auto px-12">
-          <Link to="/" className="inline-flex items-center space-x-2 text-brand-primary hover:text-brand-accent transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
-          </Link>
+          <div className="text-center">
+            <Link to="/" className="inline-flex items-center space-x-2 text-brand-primary hover:text-brand-accent transition-colors">
+              <ArrowLeft className="w-4 h-4" />
+              <span>Back to Home</span>
+            </Link>
+          </div>
         </div>
       </section>
 
