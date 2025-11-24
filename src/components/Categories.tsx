@@ -34,7 +34,7 @@ const Categories = () => {
     },
     {
       id: 5,
-      name: "Premium Collection",
+      name: "Premium",
       image: "/images/posters/premium.png",
       route: "/premium",
       color: "from-purple-600 to-pink-500"
