@@ -42,19 +42,19 @@ const Categories = () => {
   ];
 
   return (
-    <section className="py-20 bg-brand-background">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-3 text-brand-primary">
+    <section className="py-10 md:py-20 bg-brand-background">
+      <div className="container mx-auto px-4 md:px-6 lg:px-12">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 text-brand-primary">
             Explore Our
             <span className="text-brand-accent" style={{ fontWeight: 500 }}> Collections</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4">
+          <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto mt-2 md:mt-4">
             Discover our curated selection of premium flowers for every occasion
           </p>
         </div>
         
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-8">
           {categories.map((category) => (
             <Link
               key={category.id}
@@ -74,9 +74,9 @@ const Categories = () => {
                 </div>
                 
                 {/* Content Container */}
-                <div className="relative p-5 bg-brand-primary">
+                <div className="relative p-3 md:p-5 bg-brand-primary">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                  <h3 className={`${category.name === 'Premium Collection' ? 'text-base' : 'text-lg'} font-bold text-center text-white group-hover:text-brand-accent transition-colors duration-300`}>
+                  <h3 className={`${category.name === 'Premium Collection' ? 'text-xs md:text-base' : 'text-sm md:text-lg'} font-bold text-center text-white group-hover:text-brand-accent transition-colors duration-300`}>
                     {category.name}
                   </h3>
                 </div>
