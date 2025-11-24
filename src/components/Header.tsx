@@ -19,17 +19,6 @@ const Header = () => {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
 
-  const scrollToContact = () => {
-    navigate('/');
-    setTimeout(() => {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
-    setIsMenuOpen(false);
-  };
-
   const productCategories = [
     { name: 'Loose Flowers', href: '/loose-flowers' },
     { name: 'Maale', href: '/maale' },
@@ -40,7 +29,7 @@ const Header = () => {
 
   const menuItems = [
     { name: 'About', href: '/about' },
-    { name: 'Order', action: scrollToContact }
+    { name: 'Order', href: '/collection' }
   ];
 
   // Cleanup timeout on unmount
@@ -90,23 +79,13 @@ const Header = () => {
           {!isMobile && (
             <nav className="hidden md:flex items-center space-x-8">
               {menuItems.map((item) => (
-                <div key={item.name}>
-                  {item.href ? (
-                    <Link 
-                      to={item.href}
-                      className="relative text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-600 hover:to-orange-500 font-medium transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-gradient-to-r before:from-pink-600 before:to-orange-500 before:transition-all before:duration-300 hover:before:w-full"
-                    >
-                      {item.name}
-                    </Link>
-                  ) : (
-                    <button 
-                      onClick={item.action}
-                      className="relative text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-600 hover:to-orange-500 font-medium transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-gradient-to-r before:from-pink-600 before:to-orange-500 before:transition-all before:duration-300 hover:before:w-full"
-                    >
-                      {item.name}
-                    </button>
-                  )}
-                </div>
+                <Link 
+                  key={item.name}
+                  to={item.href}
+                  className="relative text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-600 hover:to-orange-500 font-medium transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-gradient-to-r before:from-pink-600 before:to-orange-500 before:transition-all before:duration-300 hover:before:w-full"
+                >
+                  {item.name}
+                </Link>
               ))}
               
               {/* Products Dropdown */}
@@ -190,26 +169,15 @@ const Header = () => {
           <div className="md:hidden mt-4 pb-4 border-t border-white/20">
             <nav className="flex flex-col space-y-4 pt-4">
               {menuItems.map((item) => (
-                <div key={item.name}>
-                  {item.href ? (
-                    <Link 
-                      to={item.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block px-4 py-2 rounded-lg font-medium transition-all duration-300"
-                      style={{ color: '#FE003D' }}
-                    >
-                      {item.name}
-                    </Link>
-                  ) : (
-                    <button 
-                      onClick={item.action}
-                      className="block w-full text-left px-4 py-2 rounded-lg font-medium transition-all duration-300"
-                      style={{ color: '#FE003D' }}
-                    >
-                      {item.name}
-                    </button>
-                  )}
-                </div>
+                <Link 
+                  key={item.name}
+                  to={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block px-4 py-2 rounded-lg font-medium transition-all duration-300"
+                  style={{ color: '#FE003D' }}
+                >
+                  {item.name}
+                </Link>
               ))}
               
               {/* Mobile Products Section */}
