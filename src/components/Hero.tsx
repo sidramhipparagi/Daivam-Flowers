@@ -7,7 +7,7 @@ import ProductCarousel from './ProductCarousel';
 const Hero = () => {
   return (
     <section 
-      className="relative py-20"
+      className="relative py-10 md:py-20"
       style={{ 
         backgroundImage: 'url(/images/image5.png)',
         backgroundSize: 'cover',
@@ -22,17 +22,17 @@ const Hero = () => {
           background: 'linear-gradient(to bottom, transparent 0%, #FDF3F5 100%)'
         }}
       ></div>
-      <div className="container mx-auto px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#770737' }}>
+      <div className="container mx-auto px-4 md:px-12 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
+          <div className="space-y-4 md:space-y-8">
+            <div className="space-y-2 md:space-y-4">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#770737' }}>
                 Fresh Flowers
                 <span style={{ color: '#FE003D', fontWeight: 500 }}>
                   {" "}Delivered
                 </span>
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-base md:text-xl text-gray-600 leading-relaxed">
                 We deliver all kinds of fresh flowers directly from K R Market Bengaluru to your doorstep
               </p>
             </div>

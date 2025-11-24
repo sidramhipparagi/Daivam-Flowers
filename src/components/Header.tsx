@@ -80,10 +80,10 @@ const Header = () => {
       className={`sticky top-0 z-50 transition-transform duration-300 ease-in-out ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}
       style={{ backgroundColor: '#770737' }}
     >
-      <div className="container mx-auto px-12 py-5">
+      <div className="container mx-auto px-4 py-3 md:px-12 md:py-5">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <img src="/logo-red.png" alt="Daivam Flowers Logo" className="h-10" />
+            <img src="/logo-red.png" alt="Daivam Flowers Logo" className="h-8 md:h-10" />
           </Link>
           
           {/* Desktop Navigation */}

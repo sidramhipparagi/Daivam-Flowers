@@ -53,7 +53,7 @@ const WhatsAppReviews = () => {
 
   return (
     <section 
-      className="py-24 relative"
+      className="py-10 md:py-24 relative"
       style={{ 
         backgroundImage: 'url(/images/image5.png)',
         backgroundSize: 'cover',
@@ -79,14 +79,14 @@ const WhatsAppReviews = () => {
         }}
       ></div>
       
-      <div className="container mx-auto px-6 lg:px-12 relative z-20">
+      <div className="container mx-auto px-4 md:px-6 lg:px-12 relative z-20">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-brand-primary">
+        <div className="text-center mb-8 md:mb-20">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4 text-brand-primary">
             What Our
             <span className="text-brand-accent" style={{ fontWeight: 500 }}> Customers Say</span>
           </h2>
-          <p className="text-lg max-w-2xl mx-auto mt-4" style={{ color: '#770737' }}>
+          <p className="text-sm md:text-lg max-w-2xl mx-auto mt-2 md:mt-4" style={{ color: '#770737' }}>
             Authentic reviews from our valued customers
           </p>
         </div>
@@ -102,19 +102,19 @@ const WhatsAppReviews = () => {
             {duplicatedReviews.map((review, index) => (
               <div 
                 key={`${review.id}-${index}`}
-                className="flex-shrink-0 w-[520px] flex flex-col items-center justify-center"
+                className="flex-shrink-0 w-[280px] md:w-[520px] flex flex-col items-center justify-center"
               >
                 {/* Review Text */}
-                <div className="flex-1 flex items-center justify-center mb-6">
-                  <p className="leading-relaxed text-xl text-center" style={{ color: '#770737' }}>
+                <div className="flex-1 flex items-center justify-center mb-3 md:mb-6">
+                  <p className="leading-relaxed text-sm md:text-xl text-center" style={{ color: '#770737' }}>
                     "{review.message}"
                   </p>
                 </div>
                 
                 {/* Author Info */}
-                <div className="flex items-center justify-center gap-3">
-                  <MessageCircle className="w-6 h-6" style={{ color: '#25D366' }} />
-                  <h3 className="font-bold text-xl" style={{ color: '#FE003D' }}>
+                <div className="flex items-center justify-center gap-2 md:gap-3">
+                  <MessageCircle className="w-4 h-4 md:w-6 md:h-6" style={{ color: '#25D366' }} />
+                  <h3 className="font-bold text-base md:text-xl" style={{ color: '#FE003D' }}>
                     {review.name}
                   </h3>
                 </div>
@@ -124,12 +124,12 @@ const WhatsAppReviews = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-8 md:mt-16">
           <a
             href="https://wa.me/919742141080"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-lg text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center gap-2 md:gap-3 px-6 py-3 md:px-8 md:py-4 rounded-lg text-base md:text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
             style={{ backgroundColor: '#770737' }}
             onMouseEnter={(e) => {
               e.currentTarget.style.color = '#FE003D';
