@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getProductById } from '../data/products';
@@ -8,8 +8,10 @@ interface ProductCarouselProps {
 }
 
 const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouselProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(1); // Start at 1 (first real product)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const transitionRef = useRef<NodeJS.Timeout | null>(null);
 
   // Get specific products by their IDs
   const products = productIds
@@ -23,31 +25,85 @@ const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouse
       image: product!.image
     }));
 
+  // Create extended array with clones for seamless loop
+  // [last, ...originals, first]
+  const extendedProducts = [
+    products[products.length - 1], // Clone of last item at start
+    ...products,
+    products[0] // Clone of first item at end
+  ];
+
+  // Handle seamless loop transition
+  useEffect(() => {
+    if (!isTransitioning) return;
+
+    // Check if we're at a clone position
+    if (currentIndex === 0) {
+      // At the clone of the last item (beginning)
+      // Jump to the real last item
+      if (transitionRef.current) clearTimeout(transitionRef.current);
+      transitionRef.current = setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(products.length);
+      }, 500); // Match transition duration
+    } else if (currentIndex === extendedProducts.length - 1) {
+      // At the clone of the first item (end)
+      // Jump to the real first item
+      if (transitionRef.current) clearTimeout(transitionRef.current);
+      transitionRef.current = setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(1);
+      }, 500); // Match transition duration
+    }
+
+    return () => {
+      if (transitionRef.current) clearTimeout(transitionRef.current);
+    };
+  }, [currentIndex, isTransitioning, products.length, extendedProducts.length]);
+
+  // Re-enable transition after instant jump
+  useEffect(() => {
+    if (!isTransitioning) {
+      const timeout = setTimeout(() => {
+        setIsTransitioning(true);
+      }, 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [isTransitioning]);
+
   // Auto-play functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex(prev => (prev + 1) % products.length);
+      setCurrentIndex(prev => prev + 1);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, products.length]);
+  }, [isAutoPlaying]);
 
   const nextSlide = () => {
-    setCurrentIndex(prev => (prev + 1) % products.length);
+    setCurrentIndex(prev => prev + 1);
   };
 
   const prevSlide = () => {
-    setCurrentIndex(prev => (prev - 1 + products.length) % products.length);
+    setCurrentIndex(prev => prev - 1);
   };
 
   const goToSlide = (index: number) => {
-    setCurrentIndex(index);
+    setIsTransitioning(true);
+    setCurrentIndex(index + 1); // +1 because of clone at start
   };
 
   const toggleAutoPlay = () => {
     setIsAutoPlaying(!isAutoPlaying);
+  };
+
+  // Calculate the real product index for indicators
+  const getRealIndex = () => {
+    if (currentIndex === 0) return products.length - 1;
+    if (currentIndex === extendedProducts.length - 1) return 0;
+    return currentIndex - 1;
   };
 
   return (
@@ -55,11 +111,14 @@ const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouse
       <div className="relative h-64 sm:h-80 overflow-hidden group">
         {/* Products container */}
         <div 
-          className="flex transition-transform duration-500 ease-in-out h-full"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          className="flex h-full"
+          style={{ 
+            transform: `translateX(-${currentIndex * 100}%)`,
+            transition: isTransitioning ? 'transform 500ms ease-in-out' : 'none'
+          }}
         >
-          {products.map((product) => (
-            <div key={product.id} className="min-w-full flex items-center justify-center p-2 sm:p-4">
+          {extendedProducts.map((product, index) => (
+            <div key={`${product.id}-${index}`} className="min-w-full flex items-center justify-center p-2 sm:p-4">
               <Link to={`/product/${product.id}`} className="block w-full max-w-[240px] sm:max-w-[280px] h-52 sm:h-72 bg-white rounded-xl overflow-hidden border border-pink-200 transition-all duration-300">
                 <img 
                   src={product.image} 
@@ -116,7 +175,7 @@ const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouse
             key={index}
             onClick={() => goToSlide(index)}
             className={`transition-all duration-300 hover:scale-125 ${
-              index === currentIndex 
+              index === getRealIndex() 
                 ? 'w-4 sm:w-6 h-1 bg-gradient-to-r from-pink-600 to-orange-500 rounded-full' 
                 : 'w-1 h-1 bg-gray-400 hover:bg-gray-600 rounded-full'
             }`}
