@@ -44,7 +44,7 @@ const About = () => {
             
             <div className="relative overflow-hidden">
               <img 
-                src="./images/image1.png" 
+                src="./images/about.png" 
                 alt="Daivam Flowers Story" 
                 className="w-full"
               />
