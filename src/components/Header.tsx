@@ -35,7 +35,7 @@ const Header = () => {
     { name: 'Maale', href: '/maale' },
     { name: 'Daily Elegance', href: '/human-use' },
     { name: 'Hara', href: '/hara' },
-    { name: 'Premium Collection', href: '/premium' }
+    { name: 'Premium', href: '/premium' }
   ];
 
   const menuItems = [
