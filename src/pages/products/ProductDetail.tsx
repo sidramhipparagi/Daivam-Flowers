@@ -13,7 +13,7 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <div className="container mx-auto px-12 py-16 text-center">
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 py-16 text-center">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">Product Not Found</h1>
         <Link to="/collection" className="text-pink-600 hover:text-pink-700">
           Back to Collection
@@ -87,7 +87,7 @@ const ProductDetail = () => {
       
       {/* Hero Section */}
       <section className="relative bg-brand-background py-16">
-        <div className="container mx-auto px-12">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="text-center space-y-4">
             <Link to={getCategoryRoute(primaryCategory)} className="inline-flex items-center space-x-2 text-brand-primary hover:text-brand-accent transition-colors mb-4">
               <ArrowLeft className="w-4 h-4" />
@@ -105,7 +105,7 @@ const ProductDetail = () => {
 
       {/* Product Details */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-12">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Product Image */}
             <div className="relative">
@@ -229,7 +229,7 @@ const ProductDetail = () => {
                 <Card className="border-2 border-gray-100">
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold text-gray-800 mb-4">Perfect For</h3>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {product.usage.map((use, index) => (
                         <div key={index} className={`px-4 py-2 bg-gray-100 rounded-lg text-center`}>
                           <span className="text-sm font-medium text-gray-800">
