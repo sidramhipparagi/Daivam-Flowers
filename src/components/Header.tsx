@@ -150,7 +150,18 @@ const Header = () => {
                     <DropdownMenuItem key={category.name} asChild>
                       <Link 
                         to={category.href}
-                        className="block px-4 py-2 text-gray-700 hover:bg-gradient-to-r hover:from-pink-600 hover:to-orange-500 hover:text-white transition-all duration-300 cursor-pointer"
+                        className="block px-4 py-2 text-gray-700 transition-all duration-300 cursor-pointer focus:!bg-[#770737] focus:!text-[#FE003D]"
+                        style={{
+                          color: '#374151'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = '#770737';
+                          e.currentTarget.style.color = '#FE003D';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = '';
+                          e.currentTarget.style.color = '#374151';
+                        }}
                       >
                         {category.name}
                       </Link>
