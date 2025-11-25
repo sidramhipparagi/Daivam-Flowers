@@ -44,6 +44,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'AfacadFlux';
+  src: url('/AfacadFlux-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     /* Brand Colors - EDIT THESE TO CHANGE SITE-WIDE COLORS */
@@ -156,10 +164,21 @@
     font-size: 18px; /* Increased base font size from 16px to 18px */
   }
 
-  /* Medium font for all headings */
+  /* Bold font for all headings */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'AfacadFlux', sans-serif;
-    font-weight: 500; /* Medium font */
+    font-weight: 700; /* Bold font */
+    line-height: 1.2;
+  }
+
+  /* Ensure emphasized heading segments stay semi-bold even if wrapped in spans */
+  h1 span,
+  h2 span,
+  h3 span,
+  h4 span,
+  h5 span,
+  h6 span {
+    font-weight: 600;
   }
 
   /* Increased heading sizes */
@@ -191,6 +210,12 @@
   input[type="reset"] {
     font-family: 'AfacadFlux', sans-serif;
     font-weight: 500; /* Medium font for all buttons and links */
+  }
+
+  @media (max-width: 640px) {
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.05; /* Tighten wrapped heading lines on small screens */
+    }
   }
 }
 
