@@ -26,9 +26,9 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
           <div className="space-y-4 md:space-y-8">
             <div className="space-y-2 md:space-y-4">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#770737' }}>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.05] md:leading-tight" style={{ color: '#770737' }}>
                 Fresh Flowers
-                <span style={{ color: '#FE003D', fontWeight: 500 }}>
+                <span style={{ color: '#FE003D', fontWeight: 700 }}>
                   {" "}Delivered
                 </span>
               </h2>

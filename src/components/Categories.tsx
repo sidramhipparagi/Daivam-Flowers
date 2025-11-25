@@ -45,9 +45,9 @@ const Categories = () => {
     <section className="py-10 md:py-20 bg-brand-background">
       <div className="container mx-auto px-4 md:px-6 lg:px-12">
         <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 text-brand-primary">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 text-brand-primary leading-[1.05] md:leading-tight">
             Explore Our
-            <span className="text-brand-accent" style={{ fontWeight: 500 }}> Collections</span>
+            <span className="text-brand-accent font-bold"> Collections</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto mt-2 md:mt-4">
             Discover our curated selection of premium flowers for every occasion

@@ -82,9 +82,9 @@ const WhatsAppReviews = () => {
       <div className="container mx-auto px-4 md:px-6 lg:px-12 relative z-20">
         {/* Header */}
         <div className="text-center mb-8 md:mb-20">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4 text-brand-primary">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4 text-brand-primary leading-[1.05] md:leading-tight">
             What Our
-            <span className="text-brand-accent" style={{ fontWeight: 500 }}> Customers Say</span>
+            <span className="text-brand-accent font-bold"> Customers Say</span>
           </h2>
           <p className="text-sm md:text-lg max-w-2xl mx-auto mt-2 md:mt-4" style={{ color: '#770737' }}>
             Authentic reviews from our valued customers

@@ -8,9 +8,9 @@ const About = () => {
       <div className="container mx-auto px-4 md:px-12">
         <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
           <div className="space-y-3 md:space-y-6">
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4 text-brand-primary">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4 text-brand-primary leading-[1.05] md:leading-tight">
               Directly from 
-              <span style={{ color: '#FE003D', fontWeight: 500 }}>
+              <span style={{ color: '#FE003D', fontWeight: 700 }}>
                 {" "}K R Market
               </span>
             </h3>
