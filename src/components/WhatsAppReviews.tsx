@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MessageCircle } from 'lucide-react';
+import { useIsMobile } from '../hooks/use-mobile';
 
 interface Review {
   id: number;
@@ -12,44 +13,58 @@ const reviews: Review[] = [
   {
     id: 1,
     name: "Priya Sharma",
-    message: "Absolutely loved the fresh flowers! The mallige maale was perfect for our pooja. Delivery was on time and flowers were so fresh. Highly recommend!",
+    message: "Absolutely loved the fresh\nflowers! The mallige maale\nwas perfect for our\npooja. Delivery was on\ntime and flowers were\nso fresh. Highly recommend!",
     initial: "P"
   },
   {
     id: 2,
     name: "Rajesh Kumar",
-    message: "Best quality flowers in Bangalore! I've been ordering from them for the past 6 months. Always fresh from KR Market. Great service!",
+    message: "Best quality flowers in\nBangalore! I've been ordering\nfrom them for the\npast 6 months. Always\nfresh from KR Market.\nGreat service!",
     initial: "R"
   },
   {
     id: 3,
     name: "Lakshmi Devi",
-    message: "The hara collection is beautiful. I order daily for temple and they never disappoint. Price is also very reasonable. Thank you!",
+    message: "The hara collection is\nbeautiful. I order daily\nfor temple and they\nnever disappoint. Price is\nalso very reasonable. Thank\nyou!",
     initial: "L"
   },
   {
     id: 4,
     name: "Arun Bhat",
-    message: "Ordered for my sister's wedding. The premium collection was stunning! Everyone asked where we got such beautiful flowers. Will definitely order again!",
+    message: "Ordered for my sister's\nwedding. The premium collection\nwas stunning! Everyone asked\nwhere we got such\nbeautiful flowers. Will definitely\norder again!",
     initial: "A"
   },
   {
     id: 5,
     name: "Meena Iyer",
-    message: "Very happy with the loose flowers quality. Perfect for rangoli and decoration. Fresh and fragrant. Good service!",
+    message: "Very happy with the\nloose flowers quality. Perfect\nfor rangoli and decoration.\nFresh and fragrant. Good\nservice!",
     initial: "M"
   },
   {
     id: 6,
     name: "Suresh Reddy",
-    message: "Excellent quality maale flowers! Used for special occasion and got many compliments. Will order again. Keep up the good work!",
+    message: "Excellent quality maale flowers!\nUsed for special occasion\nand got many compliments.\nWill order again. Keep\nup the good work!",
     initial: "S"
   }
 ];
 
 const WhatsAppReviews = () => {
-  // Duplicate reviews for seamless infinite loop
+  const isMobile = useIsMobile();
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+  
+  // Duplicate reviews for seamless infinite loop (desktop)
   const duplicatedReviews = [...reviews, ...reviews];
+
+  // Mobile: Auto-advance reviews every 5 seconds
+  useEffect(() => {
+    if (!isMobile) return;
+    
+    const interval = setInterval(() => {
+      setCurrentReviewIndex((prev) => (prev + 1) % reviews.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [isMobile]);
 
   return (
     <section 
@@ -81,47 +96,94 @@ const WhatsAppReviews = () => {
       
       <div className="container mx-auto px-4 md:px-6 lg:px-12 relative z-20">
         {/* Header */}
-        <div className="text-center mb-8 md:mb-20">
+        <div className="text-center mb-4 md:mb-20">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4 text-brand-primary leading-[1.05] md:leading-tight">
             What Our
             <span className="text-brand-accent font-bold"> Customers Say</span>
           </h2>
-          <p className="text-sm md:text-lg max-w-2xl mx-auto mt-2 md:mt-4" style={{ color: '#770737' }}>
+          <p className="text-base md:text-xl max-w-2xl mx-auto mt-2 md:mt-4 font-bold" style={{ color: '#770737' }}>
             Authentic reviews from our valued customers
           </p>
         </div>
 
-        {/* Horizontal Scrolling Reviews */}
-        <div className="relative overflow-hidden">
-          <div 
-            className="flex gap-8 pb-8 scroll-container"
-            style={{
-              width: 'max-content'
-            }}
-          >
-            {duplicatedReviews.map((review, index) => (
-              <div 
-                key={`${review.id}-${index}`}
-                className="flex-shrink-0 w-[280px] md:w-[520px] flex flex-col items-center justify-center"
-              >
-                {/* Review Text */}
-                <div className="flex-1 flex items-center justify-center mb-3 md:mb-6">
-                  <p className="leading-relaxed text-sm md:text-xl text-center" style={{ color: '#770737' }}>
-                    "{review.message}"
-                  </p>
+        {/* Reviews Container */}
+        {isMobile ? (
+          /* Mobile: Single review with fade transition */
+          <div className="relative overflow-visible py-2 pb-12">
+            <div className="min-h-[350px] flex items-center justify-center">
+              {reviews.map((review, index) => (
+                <div
+                  key={review.id}
+                  className={`absolute flex flex-col items-center justify-center transition-opacity duration-700 px-4 ${
+                    index === currentReviewIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  style={{ pointerEvents: index === currentReviewIndex ? 'auto' : 'none' }}
+                >
+                  {/* Review Text */}
+                  <div className="mb-4">
+                    <p className="text-xl text-center font-semibold whitespace-pre-line" style={{ color: '#FE003D', lineHeight: '1.1' }}>
+                      "{review.message}"
+                    </p>
+                  </div>
+                  
+                  {/* Author Info */}
+                  <div className="flex items-center justify-center gap-2">
+                    <MessageCircle className="w-4 h-4" style={{ color: '#25D366' }} />
+                    <h3 className="font-bold text-base" style={{ color: '#770737' }}>
+                      {review.name}
+                    </h3>
+                  </div>
                 </div>
-                
-                {/* Author Info */}
-                <div className="flex items-center justify-center gap-2 md:gap-3">
-                  <MessageCircle className="w-4 h-4 md:w-6 md:h-6" style={{ color: '#25D366' }} />
-                  <h3 className="font-bold text-base md:text-xl" style={{ color: '#FE003D' }}>
-                    {review.name}
-                  </h3>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            
+            {/* Dots Indicator */}
+            <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
+              {reviews.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentReviewIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentReviewIndex ? 'bg-[#FE003D] w-6' : 'bg-[#770737]/30'
+                  }`}
+                  aria-label={`Go to review ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          /* Desktop: Horizontal scrolling */
+          <div className="relative overflow-hidden">
+            <div 
+              className="flex gap-8 pb-8 scroll-container"
+              style={{
+                width: 'max-content'
+              }}
+            >
+              {duplicatedReviews.map((review, index) => (
+                <div 
+                  key={`${review.id}-${index}`}
+                  className="flex-shrink-0 w-[600px] lg:w-[700px] flex flex-col items-center justify-center"
+                >
+                  {/* Review Text */}
+                  <div className="flex-1 flex items-center justify-center mb-6">
+                    <p className="text-2xl lg:text-3xl text-center font-semibold whitespace-pre-line" style={{ color: '#FE003D', lineHeight: '1.1' }}>
+                      "{review.message}"
+                    </p>
+                  </div>
+                  
+                  {/* Author Info */}
+                  <div className="flex items-center justify-center gap-3">
+                    <MessageCircle className="w-6 h-6" style={{ color: '#25D366' }} />
+                    <h3 className="font-bold text-xl" style={{ color: '#770737' }}>
+                      {review.name}
+                    </h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* CTA */}
         <div className="text-center mt-8 md:mt-16">

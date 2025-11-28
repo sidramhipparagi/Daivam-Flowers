@@ -1,19 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from './ui/dropdown-menu';
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
-  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const isMobile = useIsMobile();
@@ -29,17 +20,8 @@ const Header = () => {
 
   const menuItems = [
     { name: 'About', href: '/about' },
-    { name: 'Order', href: '/collection' }
+    { name: 'Shop', href: '/collection', isCta: true }
   ];
-
-  // Cleanup timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (dropdownTimeout) {
-        clearTimeout(dropdownTimeout);
-      }
-    };
-  }, [dropdownTimeout]);
 
   // Handle scroll behavior - hide on scroll down, show on scroll up
   useEffect(() => {
@@ -78,77 +60,34 @@ const Header = () => {
           {/* Desktop Navigation */}
           {!isMobile && (
             <nav className="hidden md:flex items-center space-x-8">
-              {menuItems.map((item) => (
-                <Link 
-                  key={item.name}
-                  to={item.href}
-                  className="relative text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-600 hover:to-orange-500 font-medium transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-gradient-to-r before:from-pink-600 before:to-orange-500 before:transition-all before:duration-300 hover:before:w-full"
-                >
-                  {item.name}
-                </Link>
-              ))}
-              
-              {/* Products Dropdown */}
-              <div
-                onMouseEnter={() => {
-                  if (dropdownTimeout) {
-                    clearTimeout(dropdownTimeout);
-                    setDropdownTimeout(null);
-                  }
-                  setIsProductsDropdownOpen(true);
-                }}
-                onMouseLeave={() => {
-                  const timeout = setTimeout(() => {
-                    setIsProductsDropdownOpen(false);
-                  }, 200);
-                  setDropdownTimeout(timeout);
-                }}
-              >
-                <DropdownMenu open={isProductsDropdownOpen} onOpenChange={setIsProductsDropdownOpen}>
-                  <DropdownMenuTrigger className="relative flex items-center space-x-1 font-semibold hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-600 hover:to-orange-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-gradient-to-r before:from-pink-600 before:to-orange-500 before:transition-all before:duration-300 hover:before:w-full outline-none" style={{ color: '#FE000B' }}>
-                    <span>Products</span>
-                    <ChevronDown className="w-4 h-4" style={{ color: '#FE003D' }} />
-                  </DropdownMenuTrigger>
-                <DropdownMenuContent 
-                  className="w-48 bg-white border border-gray-200 shadow-lg z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 duration-300"
-                  onMouseEnter={() => {
-                    if (dropdownTimeout) {
-                      clearTimeout(dropdownTimeout);
-                      setDropdownTimeout(null);
-                    }
-                    setIsProductsDropdownOpen(true);
-                  }}
-                  onMouseLeave={() => {
-                    const timeout = setTimeout(() => {
-                      setIsProductsDropdownOpen(false);
-                    }, 200);
-                    setDropdownTimeout(timeout);
-                  }}
-                >
-                  {productCategories.map((category) => (
-                    <DropdownMenuItem key={category.name} asChild>
-                      <Link 
-                        to={category.href}
-                        className="block px-4 py-2 text-gray-700 transition-all duration-300 cursor-pointer focus:!bg-[#770737] focus:!text-[#FE003D]"
-                        style={{
-                          color: '#374151'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = '#770737';
-                          e.currentTarget.style.color = '#FE003D';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = '';
-                          e.currentTarget.style.color = '#374151';
-                        }}
-                      >
-                        {category.name}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-              </div>
+              {menuItems.map((item) => {
+                const commonUnderline =
+                  "relative before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:bg-[#FE003D] before:transition-transform before:duration-300 before:origin-left";
+                const baseClasses = `${commonUnderline} text-white font-medium transition-colors duration-300 before:scale-x-0 hover:before:scale-x-100 hover:text-[#FE003D]`;
+                const ctaClasses = `${commonUnderline} font-semibold text-[#FE003D] transition-colors duration-300 before:scale-x-0 hover:before:scale-x-100`;
+
+                if (item.isCta) {
+                  return (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={ctaClasses}
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={baseClasses}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
             </nav>
           )}
 

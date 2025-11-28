@@ -14,14 +14,10 @@ const About = () => {
                 {" "}K R Market
               </span>
             </h3>
-            <p className="text-sm md:text-lg text-gray-600 leading-relaxed">
+            <p className="text-base md:text-xl font-medium leading-relaxed text-gray-600">
               Daivam Flowers is your trusted partner for fresh, beautiful flowers in Bengaluru. 
               We source our flowers directly from the famous K R Market, ensuring you get the 
               freshest blooms at the best prices.
-            </p>
-            <p className="text-sm md:text-lg text-gray-600 leading-relaxed">
-              Our traditional flower business has been serving Bengaluru families for years, 
-              bringing the vibrant colors and fragrances of K R Market directly to your homes.
             </p>
             
             <div className="grid sm:grid-cols-2 gap-3 md:gap-4 pt-3 md:pt-6">
@@ -51,8 +47,7 @@ const About = () => {
                   <Star className="w-4 h-4 md:w-6 md:h-6 transition-colors duration-300" style={{ color: '#FE003D' }} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-sm md:text-base text-gray-800">Premium Quality</h4>
-                  <p className="text-xs md:text-sm text-gray-600">Hand-picked fresh flowers</p>
+                <h4 className="font-semibold text-lg md:text-base text-gray-800">Premium Quality</h4>
                 </div>
               </div>
               
@@ -82,8 +77,7 @@ const About = () => {
                   <Clock className="w-4 h-4 md:w-6 md:h-6 transition-colors duration-300" style={{ color: '#FE003D' }} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-sm md:text-base text-gray-800">Quick Delivery</h4>
-                  <p className="text-xs md:text-sm text-gray-600">Order Today Get Delivered Tomorrow Morning</p>
+                  <h4 className="font-semibold text-lg md:text-base text-gray-800">Order Today Get Delivered Tomorrow Morning</h4>
                 </div>
               </div>
             </div>
