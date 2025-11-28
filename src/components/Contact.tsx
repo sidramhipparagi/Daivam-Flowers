@@ -11,7 +11,7 @@ const Contact = () => {
           <p className="text-sm md:text-base font-medium text-white">
             We are currently accepting orders via{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-orange-300 font-semibold">
-              WhatsApp and phone calls
+              WhatsApp and phone calls only
             </span>
             . Sorry for the inconvenience.
           </p>
@@ -90,13 +90,10 @@ const Contact = () => {
           <div className="bg-gray-800 rounded-2xl p-4 md:p-8">
             <h4 className="text-xl md:text-2xl font-bold mb-3 md:mb-6">Contact Information</h4>
             <div className="space-y-2 md:space-y-4">
-              <p className="text-sm md:text-base text-gray-300">
-                We deliver fresh flowers directly from K R Market, Bengaluru to your doorstep.
-              </p>
-              <p className="text-sm md:text-base text-gray-300">
+              <p className="text-base md:text-xl font-medium text-gray-300">
                 For orders and inquiries, please contact us via WhatsApp or phone call.
               </p>
-              <p className="text-sm md:text-base text-gray-300">
+              <p className="text-base md:text-xl font-medium text-gray-300">
                 We strive to provide the freshest and most beautiful flowers for all your occasions.
               </p>
             </div>

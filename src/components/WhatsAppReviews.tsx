@@ -138,13 +138,13 @@ const WhatsAppReviews = () => {
             </div>
             
             {/* Dots Indicator */}
-            <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
+            <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5">
               {reviews.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentReviewIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentReviewIndex ? 'bg-[#FE003D] w-6' : 'bg-[#770737]/30'
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    index === currentReviewIndex ? 'bg-[#FE003D] w-3' : 'bg-[#770737]/30 w-1.5'
                   }`}
                   aria-label={`Go to review ${index + 1}`}
                 />
@@ -191,17 +191,17 @@ const WhatsAppReviews = () => {
             href="https://wa.me/919742141080"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 md:gap-3 px-6 py-3 md:px-8 md:py-4 rounded-lg text-base md:text-lg font-medium text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
-            style={{ backgroundColor: '#770737' }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = '#FE003D';
+            className="inline-flex items-center gap-2 md:gap-3 px-6 py-3 rounded-lg text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
+            style={{ 
+              backgroundColor: '#770737',
+              fontFamily: 'AfacadFlux, sans-serif',
+              fontWeight: 600
             }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = 'white';
-            }}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
           >
             <MessageCircle className="w-5 h-5" />
-            <span>Share Your Experience</span>
+            <span style={{ fontWeight: 600 }}>Share Your Experience</span>
           </a>
         </div>
       </div>

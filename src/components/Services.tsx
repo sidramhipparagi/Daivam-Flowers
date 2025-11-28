@@ -6,23 +6,19 @@ const Services = () => {
   const services = [
     {
       icon: <Home className="w-8 h-8" />,
-      title: "Home Delivery",
-      description: "Fresh flowers delivered directly to your home across Bengaluru"
+      title: "Home Delivery"
     },
     {
       icon: <Heart className="w-8 h-8" />,
-      title: "Wedding Flowers",
-      description: "Beautiful arrangements for your special day with traditional touch"
+      title: "Wedding Flowers"
     },
     {
       icon: <Gift className="w-8 h-8" />,
-      title: "Special Occasions",
-      description: "Perfect flowers for birthdays, anniversaries, and celebrations"
+      title: "Special Occasions"
     },
     {
       icon: <Building className="w-8 h-8" />,
-      title: "Corporate Events",
-      description: "Professional floral arrangements for offices and events"
+      title: "Corporate Events"
     }
   ];
 
@@ -31,7 +27,7 @@ const Services = () => {
       <div className="container mx-auto px-4 md:px-12">
         <div className="text-center mb-6 md:mb-12">
           <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4 text-brand-primary">Our Services</h3>
-          <p className="text-sm md:text-xl max-w-2xl mx-auto" style={{ color: '#FE003D', fontWeight: 500 }}>
+          <p className="text-base md:text-xl max-w-2xl mx-auto mt-2 md:mt-4 font-bold" style={{ color: '#FE003D' }}>
             From K R Market to your doorstep - we bring the freshest flowers for every occasion
           </p>
         </div>

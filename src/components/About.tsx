@@ -14,7 +14,7 @@ const About = () => {
                 {" "}K R Market
               </span>
             </h3>
-            <p className="text-base md:text-xl font-medium leading-relaxed text-gray-600">
+            <p className="text-base md:text-xl font-medium leading-relaxed text-gray-800">
               Daivam Flowers is your trusted partner for fresh, beautiful flowers in Bengaluru. 
               We source our flowers directly from the famous K R Market, ensuring you get the 
               freshest blooms at the best prices.

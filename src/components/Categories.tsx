@@ -49,7 +49,7 @@ const Categories = () => {
             Explore Our
             <span className="text-brand-accent font-bold"> Collections</span>
           </h2>
-          <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto mt-2 md:mt-4">
+          <p className="text-base md:text-xl max-w-2xl mx-auto mt-2 md:mt-4 font-bold" style={{ color: '#770737' }}>
             Discover our curated selection of premium flowers for every occasion
           </p>
         </div>
@@ -74,7 +74,7 @@ const Categories = () => {
                 </div>
                 
                 {/* Content Container */}
-                <div className="relative p-3 md:p-5 bg-brand-primary">
+                <div className="relative p-3 md:p-5" style={{ backgroundColor: '#770737' }}>
                   <div className="absolute top-0 left-0 right-0 h-1 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                   <h3 className={`${category.name === 'Premium Collection' ? 'text-xs md:text-base' : 'text-sm md:text-lg'} font-bold text-center text-white group-hover:text-brand-accent transition-colors duration-300`}>
                     {category.name}

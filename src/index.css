@@ -56,7 +56,7 @@
   :root {
     /* Brand Colors - EDIT THESE TO CHANGE SITE-WIDE COLORS */
     --brand-primary: 327 88% 24%;        /* #770737 - Dark theme color */
-    --brand-accent: 346 100% 50%;         /* #FE003D - Light red accent */
+    --brand-accent: 346 99% 50%;         /* #FE003D - Light red accent */
     --brand-background: 347 60% 97%;     /* #FDF3F5 - Light background */
     --brand-foreground: 0 0% 100%;       /* White text on brand colors */
     
@@ -244,5 +244,11 @@
 
   .scroll-container:hover {
     animation-play-state: paused;
+  }
+
+  /* Floating Order Button Text - Force font size */
+  .floating-order-text {
+    font-size: 24px !important;
+    font-family: 'AfacadFlux', sans-serif !important;
   }
 }

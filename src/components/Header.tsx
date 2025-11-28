@@ -61,10 +61,8 @@ const Header = () => {
           {!isMobile && (
             <nav className="hidden md:flex items-center space-x-8">
               {menuItems.map((item) => {
-                const commonUnderline =
-                  "relative before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:bg-[#FE003D] before:transition-transform before:duration-300 before:origin-left";
-                const baseClasses = `${commonUnderline} text-white font-medium transition-colors duration-300 before:scale-x-0 hover:before:scale-x-100 hover:text-[#FE003D]`;
-                const ctaClasses = `${commonUnderline} font-semibold text-[#FE003D] transition-colors duration-300 before:scale-x-0 hover:before:scale-x-100`;
+                const baseClasses = "relative text-white font-medium text-xl leading-tight transition-colors duration-300 hover:text-[#FE003D]";
+                const ctaClasses = "relative font-semibold text-[#FE003D] text-xl leading-tight transition-colors duration-300";
 
                 if (item.isCta) {
                   return (
@@ -72,8 +70,26 @@ const Header = () => {
                       key={item.name}
                       to={item.href}
                       className={ctaClasses}
+                      style={{
+                        paddingBottom: '4px'
+                      }}
+                      onMouseEnter={(e) => {
+                        const underline = e.currentTarget.querySelector('.nav-underline') as HTMLElement;
+                        if (underline) underline.style.transform = 'scaleX(1)';
+                      }}
+                      onMouseLeave={(e) => {
+                        const underline = e.currentTarget.querySelector('.nav-underline') as HTMLElement;
+                        if (underline) underline.style.transform = 'scaleX(0)';
+                      }}
                     >
                       {item.name}
+                      <span 
+                        className="nav-underline absolute left-0 w-full h-0.5 bg-[#FE003D] transition-transform duration-300 origin-left"
+                        style={{
+                          bottom: '0px',
+                          transform: 'scaleX(0)'
+                        }}
+                      ></span>
                     </Link>
                   );
                 }
@@ -83,8 +99,26 @@ const Header = () => {
                     key={item.name}
                     to={item.href}
                     className={baseClasses}
+                    style={{
+                      paddingBottom: '4px'
+                    }}
+                    onMouseEnter={(e) => {
+                      const underline = e.currentTarget.querySelector('.nav-underline') as HTMLElement;
+                      if (underline) underline.style.transform = 'scaleX(1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      const underline = e.currentTarget.querySelector('.nav-underline') as HTMLElement;
+                      if (underline) underline.style.transform = 'scaleX(0)';
+                    }}
                   >
                     {item.name}
+                    <span 
+                      className="nav-underline absolute left-0 w-full h-0.5 bg-[#FE003D] transition-transform duration-300 origin-left"
+                      style={{
+                        bottom: '0px',
+                        transform: 'scaleX(0)'
+                      }}
+                    ></span>
                   </Link>
                 );
               })}

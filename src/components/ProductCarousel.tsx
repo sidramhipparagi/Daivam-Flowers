@@ -107,8 +107,8 @@ const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouse
   };
 
   return (
-    <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto">
-      <div className="relative h-64 sm:h-80 overflow-hidden group">
+    <div className="w-full max-w-[200px] sm:max-w-[240px] md:max-w-[280px] mx-auto">
+      <div className="relative overflow-hidden group" style={{ minHeight: '280px' }}>
         {/* Products container */}
         <div 
           className="flex h-full"
@@ -118,19 +118,24 @@ const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouse
           }}
         >
           {extendedProducts.map((product, index) => (
-            <div key={`${product.id}-${index}`} className="min-w-full flex items-center justify-center p-2 sm:p-4">
-              <Link to={`/product/${product.id}`} className="block w-full max-w-[240px] sm:max-w-[280px] h-52 sm:h-72 bg-white rounded-xl overflow-hidden border border-pink-200 transition-all duration-300">
-                <img 
-                  src={product.image} 
-                  alt={product.name}
-                  className="w-full h-32 sm:h-48 object-cover"
-                />
-                <div className="px-2 sm:px-4 pt-2 sm:pt-3 pb-0 text-center">
-                  <h3 className="font-semibold text-gray-800 text-sm sm:text-lg truncate mb-0">
+            <div key={`${product.id}-${index}`} className="min-w-full flex items-center justify-center p-1 sm:p-2">
+              <Link to={`/product/${product.id}`} className="block w-full bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 group">
+                {/* Image Container - matching categories aspect-square */}
+                <div className="aspect-square overflow-hidden relative">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                
+                {/* Content Container - matching categories padding */}
+                <div className="relative p-2 md:p-3" style={{ backgroundColor: '#770737' }}>
+                  <h3 className="text-xs md:text-sm font-bold text-center text-white truncate">
                     {product.name}
                   </h3>
-                  <div className="flex flex-col items-center">
-                    <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500 text-base sm:text-xl">
+                  <div className="flex flex-col items-center mt-1">
+                    <span className="font-bold text-white text-sm md:text-base">
                       {product.salePrice || product.price}
                     </span>
                   </div>
@@ -169,16 +174,17 @@ const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouse
       </div>
 
       {/* Carousel indicators - moved outside the product container */}
-      <div className="flex justify-center items-center mt-4 space-x-1 sm:space-x-2">
+      <div className="flex justify-center items-center mt-4 gap-1.5">
         {products.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`transition-all duration-300 hover:scale-125 ${
+            className={`h-1.5 rounded-full transition-all duration-300 ${
               index === getRealIndex() 
-                ? 'w-4 sm:w-6 h-1 bg-gradient-to-r from-pink-600 to-orange-500 rounded-full' 
-                : 'w-1 h-1 bg-gray-400 hover:bg-gray-600 rounded-full'
+                ? 'bg-[#FE003D] w-3' 
+                : 'bg-[#770737]/30 w-1.5'
             }`}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>

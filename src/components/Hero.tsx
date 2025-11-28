@@ -22,7 +22,7 @@ const Hero = () => {
         }}
       ></div>
       <div className="container mx-auto px-4 md:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-start">
           <div className="space-y-4 md:space-y-8">
             <div className="space-y-2 md:space-y-4">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.05] md:leading-tight text-center md:text-left" style={{ color: '#FE003D' }}>
@@ -48,7 +48,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
                 to="/collection"
-                className="px-8 py-4 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
+                className="px-6 py-3 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
                 style={{ backgroundColor: '#770737' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
                 onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
