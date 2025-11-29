@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Clock, Shield, Sparkles } from 'lucide-react';
+import { Truck, Sparkles } from 'lucide-react';
 import ProductCarousel from './ProductCarousel';
 
 const Hero = () => {
@@ -74,25 +74,6 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="group flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '200ms' }}>
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
-                  <Clock className="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
-                </div>
-                <div>
-                  <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>Order Anytime</p>
-                  <p className="text-[10px] md:text-xs text-gray-600">24/7 service</p>
-                </div>
-              </div>
-
-              <div className="group flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '300ms' }}>
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
-                  <Shield className="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
-                </div>
-                <div>
-                  <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>Quality Assured</p>
-                  <p className="text-[10px] md:text-xs text-gray-600">Premium flowers</p>
-                </div>
-              </div>
             </div>
           </div>
           
