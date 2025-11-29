@@ -41,9 +41,9 @@ const Hero = () => {
 
             {/* Feature Highlights with Icons */}
             <div className="grid grid-cols-2 gap-3 md:gap-4 mt-6">
-              <div className="flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 flex items-center justify-center">
-                  <Truck className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#FE003D' }} />
+              <div className="group flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
+                  <Truck className="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
                 </div>
                 <div>
                   <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>Fast Delivery</p>
@@ -51,9 +51,9 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '100ms' }}>
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#FE003D' }} />
+              <div className="group flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '100ms' }}>
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
+                  <Sparkles className="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
                 </div>
                 <div>
                   <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>100% Fresh</p>
@@ -61,9 +61,9 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '200ms' }}>
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 flex items-center justify-center">
-                  <Clock className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#FE003D' }} />
+              <div className="group flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '200ms' }}>
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
+                  <Clock className="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
                 </div>
                 <div>
                   <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>Order Anytime</p>
@@ -71,9 +71,9 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '300ms' }}>
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 flex items-center justify-center">
-                  <Shield className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#FE003D' }} />
+              <div className="group flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '300ms' }}>
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
+                  <Shield className="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
                 </div>
                 <div>
                   <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>Quality Assured</p>
