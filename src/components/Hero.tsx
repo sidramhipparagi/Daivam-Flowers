@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Truck, Clock, Shield, Sparkles } from 'lucide-react';
 import ProductCarousel from './ProductCarousel';
 
 const Hero = () => {
@@ -23,7 +24,7 @@ const Hero = () => {
       ></div>
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-start">
-          <div className="space-y-4 md:space-y-8">
+          <div className="space-y-4 md:space-y-8 animate-fade-in">
             <div className="space-y-2 md:space-y-4">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.05] md:leading-tight text-center md:text-left" style={{ color: '#FE003D' }}>
                 Fresh Flowers
@@ -37,15 +38,58 @@ const Hero = () => {
                 </p>
               </div>
             </div>
+
+            {/* Feature Highlights with Icons */}
+            <div className="grid grid-cols-2 gap-3 md:gap-4 mt-6">
+              <div className="flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 flex items-center justify-center">
+                  <Truck className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#FE003D' }} />
+                </div>
+                <div>
+                  <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>Fast Delivery</p>
+                  <p className="text-[10px] md:text-xs text-gray-600">Next morning</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '100ms' }}>
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#FE003D' }} />
+                </div>
+                <div>
+                  <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>100% Fresh</p>
+                  <p className="text-[10px] md:text-xs text-gray-600">From K R Market</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '200ms' }}>
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 flex items-center justify-center">
+                  <Clock className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#FE003D' }} />
+                </div>
+                <div>
+                  <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>Order Anytime</p>
+                  <p className="text-[10px] md:text-xs text-gray-600">24/7 service</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '300ms' }}>
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 flex items-center justify-center">
+                  <Shield className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#FE003D' }} />
+                </div>
+                <div>
+                  <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>Quality Assured</p>
+                  <p className="text-[10px] md:text-xs text-gray-600">Premium flowers</p>
+                </div>
+              </div>
+            </div>
           </div>
           
-          <div className="relative flex flex-col items-center space-y-6">
+          <div className="relative flex flex-col items-center space-y-6 animate-fade-in" style={{ animationDelay: '400ms' }}>
             <ProductCarousel />
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
                 to="/collection"
-                className="px-6 py-3 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
+                className="px-6 py-3 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg text-center hover:shadow-xl"
                 style={{ backgroundColor: '#770737' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
                 onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
