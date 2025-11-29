@@ -28,7 +28,13 @@ const Hero = () => {
             <div className="space-y-2 md:space-y-4">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.05] md:leading-tight text-center md:text-left" style={{ color: '#FE003D' }}>
                 Fresh Flowers
-                <span style={{ color: '#FE003D', fontWeight: 700 }}>
+                <span style={{ 
+                  background: 'linear-gradient(135deg, #FE003D 0%, #FF6B8A 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  fontWeight: 700 
+                }}>
                   {" "}Delivered
                 </span>
               </h2>
