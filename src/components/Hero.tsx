@@ -53,27 +53,34 @@ const Hero = () => {
             </div>
 
             {/* Feature Highlights with Icons */}
-            <div className="grid grid-cols-2 gap-3 md:gap-4 mt-6">
-              <div className="group flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
-                  <Truck className="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
-                </div>
-                <div>
-                  <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>Fast Delivery</p>
-                  <p className="text-[10px] md:text-xs text-gray-600">Next morning</p>
-                </div>
+            <div className="flex gap-3 mt-6 justify-center md:justify-start">
+              <div className="group flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out h-14 w-14 hover:w-40" style={{ backgroundColor: '#770737' }}>
+                <Truck className="h-6 w-6 flex-shrink-0 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
+                <span 
+                  className="overflow-hidden max-w-0 group-hover:max-w-xs group-hover:ml-2 whitespace-nowrap font-semibold text-sm"
+                  style={{ 
+                    color: '#FE003D',
+                    transition: 'all 0.3s ease-in-out',
+                    display: 'inline-block'
+                  }}
+                >
+                  Fast Delivery
+                </span>
               </div>
 
-              <div className="group flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '100ms' }}>
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
-                  <Sparkles className="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
-                </div>
-                <div>
-                  <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>100% Fresh</p>
-                  <p className="text-[10px] md:text-xs text-gray-600">From K R Market</p>
-                </div>
+              <div className="group flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out h-14 w-14 hover:w-40" style={{ backgroundColor: '#770737' }}>
+                <Sparkles className="h-6 w-6 flex-shrink-0 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
+                <span 
+                  className="overflow-hidden max-w-0 group-hover:max-w-xs group-hover:ml-2 whitespace-nowrap font-semibold text-sm"
+                  style={{ 
+                    color: '#FE003D',
+                    transition: 'all 0.3s ease-in-out',
+                    display: 'inline-block'
+                  }}
+                >
+                  100% Fresh
+                </span>
               </div>
-
             </div>
           </div>
           
