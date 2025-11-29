@@ -26,8 +26,15 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-start">
           <div className="space-y-4 md:space-y-8 animate-fade-in">
             <div className="space-y-2 md:space-y-4">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.05] md:leading-tight text-center md:text-left" style={{ color: '#FE003D' }}>
-                Fresh Flowers
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.05] md:leading-tight text-center md:text-left">
+                <span style={{ 
+                  background: 'linear-gradient(135deg, #770737 0%, #FE003D 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}>
+                  Fresh Flowers
+                </span>
                 <span style={{ 
                   background: 'linear-gradient(135deg, #FE003D 0%, #FF6B8A 100%)',
                   WebkitBackgroundClip: 'text',
