@@ -1,11 +1,21 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, Sparkles } from 'lucide-react';
 import ProductCarousel from './ProductCarousel';
+import FeatureDialog from './FeatureDialog';
 
 const Hero = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedFeature, setSelectedFeature] = useState<'delivery' | 'fresh' | null>(null);
+
+  const handleFeatureClick = (feature: 'delivery' | 'fresh') => {
+    setSelectedFeature(feature);
+    setDialogOpen(true);
+  };
+
   return (
+    <>
     <section 
       className="relative py-10 md:py-20"
       style={{ 
@@ -54,7 +64,11 @@ const Hero = () => {
 
             {/* Feature Highlights with Icons */}
             <div className="flex gap-3 mt-6 justify-center md:justify-start">
-              <div className="group flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out h-14 w-14 hover:w-40" style={{ backgroundColor: '#770737' }}>
+              <button 
+                onClick={() => handleFeatureClick('delivery')}
+                className="group flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out h-14 w-14 hover:w-40 cursor-pointer" 
+                style={{ backgroundColor: '#770737' }}
+              >
                 <Truck className="h-6 w-6 flex-shrink-0 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
                 <span 
                   className="overflow-hidden max-w-0 group-hover:max-w-xs group-hover:ml-2 whitespace-nowrap font-semibold text-sm"
@@ -66,9 +80,13 @@ const Hero = () => {
                 >
                   Fast Delivery
                 </span>
-              </div>
+              </button>
 
-              <div className="group flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out h-14 w-14 hover:w-40" style={{ backgroundColor: '#770737' }}>
+              <button 
+                onClick={() => handleFeatureClick('fresh')}
+                className="group flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out h-14 w-14 hover:w-40 cursor-pointer" 
+                style={{ backgroundColor: '#770737' }}
+              >
                 <Sparkles className="h-6 w-6 flex-shrink-0 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
                 <span 
                   className="overflow-hidden max-w-0 group-hover:max-w-xs group-hover:ml-2 whitespace-nowrap font-semibold text-sm"
@@ -80,7 +98,7 @@ const Hero = () => {
                 >
                   100% Fresh
                 </span>
-              </div>
+              </button>
             </div>
           </div>
           
@@ -101,7 +119,14 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      <FeatureDialog 
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        feature={selectedFeature}
+      />
     </section>
+    </>
   );
 };
 
