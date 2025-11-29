@@ -41,26 +41,11 @@ const Services = () => {
             <div 
               key={index} 
               className="text-center p-3 md:p-6 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-2 group"
-              onMouseEnter={(e) => {
-                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
-                if (iconContainer) {
-                  iconContainer.style.background = '#770737';
-                }
-              }}
-              onMouseLeave={(e) => {
-                const iconContainer = e.currentTarget.querySelector('.icon-container') as HTMLElement;
-                if (iconContainer) {
-                  iconContainer.style.background = 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))';
-                }
-              }}
             >
               <div 
-                className="icon-container inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full mb-2 md:mb-4 transition-all duration-300"
-                style={{ 
-                  background: 'linear-gradient(to bottom right, rgb(255, 228, 230), rgb(255, 237, 213))'
-                }}
+                className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full mb-2 md:mb-4 transition-all duration-300 bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737]"
               >
-                <div className="transition-colors duration-300" style={{ color: '#FE003D' }}>
+                <div className="transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }}>
                   {service.icon}
                 </div>
               </div>
