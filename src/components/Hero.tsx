@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Sparkles } from 'lucide-react';
+import { Truck, Clock, Shield, Sparkles } from 'lucide-react';
 import ProductCarousel from './ProductCarousel';
 
 const Hero = () => {
@@ -53,24 +53,44 @@ const Hero = () => {
             </div>
 
             {/* Feature Highlights with Icons */}
-            <div className="grid grid-cols-2 gap-4 md:gap-6 mt-6">
-              <div className="group flex items-center gap-3 md:gap-4 p-4 md:p-5 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
-                  <Truck className="w-6 h-6 md:w-7 md:h-7 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
+            <div className="grid grid-cols-2 gap-3 md:gap-4 mt-6">
+              <div className="group flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
+                  <Truck className="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
                 </div>
                 <div>
-                  <p className="text-sm md:text-base font-semibold" style={{ color: '#770737' }}>Fast Delivery</p>
-                  <p className="text-xs md:text-sm text-gray-600">Next morning</p>
+                  <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>Fast Delivery</p>
+                  <p className="text-[10px] md:text-xs text-gray-600">Next morning</p>
                 </div>
               </div>
 
-              <div className="group flex items-center gap-3 md:gap-4 p-4 md:p-5 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '100ms' }}>
-                <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
-                  <Sparkles className="w-6 h-6 md:w-7 md:h-7 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
+              <div className="group flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '100ms' }}>
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
+                  <Sparkles className="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
                 </div>
                 <div>
-                  <p className="text-sm md:text-base font-semibold" style={{ color: '#770737' }}>100% Fresh</p>
-                  <p className="text-xs md:text-sm text-gray-600">From K R Market</p>
+                  <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>100% Fresh</p>
+                  <p className="text-[10px] md:text-xs text-gray-600">From K R Market</p>
+                </div>
+              </div>
+
+              <div className="group flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '200ms' }}>
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
+                  <Clock className="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
+                </div>
+                <div>
+                  <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>Order Anytime</p>
+                  <p className="text-[10px] md:text-xs text-gray-600">24/7 service</p>
+                </div>
+              </div>
+
+              <div className="group flex items-center gap-2 md:gap-3 p-3 md:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: '300ms' }}>
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#FE003D]/10 to-[#770737]/10 group-hover:bg-[#770737] flex items-center justify-center transition-all duration-300">
+                  <Shield className="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
+                </div>
+                <div>
+                  <p className="text-xs md:text-sm font-semibold" style={{ color: '#770737' }}>Quality Assured</p>
+                  <p className="text-[10px] md:text-xs text-gray-600">Premium flowers</p>
                 </div>
               </div>
             </div>
