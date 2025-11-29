@@ -33,9 +33,6 @@ const Hero = () => {
               </h2>
               <div className="space-y-4 md:space-y-5">
                 <p className="text-xl text-center md:text-left md:text-2xl lg:text-3xl font-semibold" style={{ color: '#770737', lineHeight: '1.1' }}>
-                  We deliver all kinds of fresh flowers directly from K R Market Bengaluru to your doorstep
-                </p>
-                <p className="text-xl text-center md:text-left md:text-2xl lg:text-3xl font-semibold" style={{ color: '#770737', lineHeight: '1.1' }}>
                   Order Today Get Delivered Tomorrow Morning
                 </p>
               </div>
