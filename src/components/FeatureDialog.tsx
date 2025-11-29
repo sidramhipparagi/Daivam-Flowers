@@ -49,17 +49,17 @@ const FeatureDialog = ({ open, onOpenChange, feature }: FeatureDialogProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="relative rounded-lg overflow-hidden">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl p-0">
+        <div className="grid md:grid-cols-2 gap-0 h-full">
+          <div className="relative overflow-hidden rounded-l-3xl">
             <img 
               src={content.image} 
               alt={content.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover min-h-[400px]"
             />
           </div>
           
-          <div className="flex flex-col">
+          <div className="flex flex-col p-6">
             <DialogHeader>
               <DialogTitle className="text-2xl md:text-3xl font-bold" style={{ color: '#770737' }}>
                 {content.title}
