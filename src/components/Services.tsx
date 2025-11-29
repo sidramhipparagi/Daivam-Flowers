@@ -6,19 +6,23 @@ const Services = () => {
   const services = [
     {
       icon: <Home className="w-8 h-8" />,
-      title: "Home Delivery"
+      title: "Home Delivery",
+      description: "Fresh flowers delivered to your doorstep"
     },
     {
       icon: <Heart className="w-8 h-8" />,
-      title: "Wedding Flowers"
+      title: "Wedding Flowers",
+      description: "Beautiful arrangements for your special day"
     },
     {
       icon: <Gift className="w-8 h-8" />,
-      title: "Special Occasions"
+      title: "Special Occasions",
+      description: "Perfect blooms for every celebration"
     },
     {
       icon: <Building className="w-8 h-8" />,
-      title: "Corporate Events"
+      title: "Corporate Events",
+      description: "Professional floral solutions for businesses"
     }
   ];
 
