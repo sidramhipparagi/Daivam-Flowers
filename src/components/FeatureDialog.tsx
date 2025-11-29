@@ -5,7 +5,9 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogClose,
 } from "@/components/ui/dialog";
+import { X } from 'lucide-react';
 import fastDeliveryPainting from '@/assets/fast-delivery-painting.jpg';
 import freshFlowersPainting from '@/assets/fresh-flowers-painting.jpg';
 
@@ -49,9 +51,12 @@ const FeatureDialog = ({ open, onOpenChange, feature }: FeatureDialogProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden rounded-[2rem] p-0 border-0">
+      <DialogContent 
+        className="max-w-4xl max-h-[90vh] overflow-hidden !rounded-[1.5rem] p-0 border-0 [&>button]:hidden"
+        style={{ borderRadius: '1.5rem' }}
+      >
         <div className="grid md:grid-cols-2 gap-0 min-h-[500px]">
-          <div className="relative overflow-hidden rounded-l-[2rem]">
+          <div className="relative overflow-hidden rounded-l-[1.5rem]" style={{ borderTopLeftRadius: '1.5rem', borderBottomLeftRadius: '1.5rem' }}>
             <img 
               src={content.image} 
               alt={content.title}
@@ -59,7 +64,11 @@ const FeatureDialog = ({ open, onOpenChange, feature }: FeatureDialogProps) => {
             />
           </div>
           
-          <div className="flex flex-col p-6">
+          <div className="flex flex-col p-6 rounded-r-[1.5rem] relative" style={{ borderTopRightRadius: '1.5rem', borderBottomRightRadius: '1.5rem' }}>
+            <DialogClose className="absolute right-6 top-6 z-50 opacity-70 hover:opacity-100 transition-opacity focus:outline-none cursor-pointer" style={{ backgroundColor: 'transparent', border: 'none', padding: 0, boxShadow: 'none' }}>
+              <X className="h-10 w-10" style={{ color: '#770737' }} />
+              <span className="sr-only">Close</span>
+            </DialogClose>
             <DialogHeader>
               <DialogTitle className="text-2xl md:text-3xl font-bold" style={{ color: '#770737' }}>
                 {content.title}

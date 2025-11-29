@@ -66,13 +66,13 @@ const Header = () => {
 
                 if (item.isCta) {
                   return (
-                    <Link
-                      key={item.name}
-                      to={item.href}
+                <Link 
+                  key={item.name}
+                  to={item.href}
                       className={ctaClasses}
                       style={{
                         paddingBottom: '4px'
-                      }}
+                }}
                       onMouseEnter={(e) => {
                         const underline = e.currentTarget.querySelector('.nav-underline') as HTMLElement;
                         if (underline) underline.style.transform = 'scaleX(1)';
@@ -80,8 +80,8 @@ const Header = () => {
                       onMouseLeave={(e) => {
                         const underline = e.currentTarget.querySelector('.nav-underline') as HTMLElement;
                         if (underline) underline.style.transform = 'scaleX(0)';
-                      }}
-                    >
+                  }}
+                >
                       {item.name}
                       <span 
                         className="nav-underline absolute left-0 w-full h-0.5 bg-[#FE003D] transition-transform duration-300 origin-left"
@@ -101,16 +101,16 @@ const Header = () => {
                     className={baseClasses}
                     style={{
                       paddingBottom: '4px'
-                    }}
-                    onMouseEnter={(e) => {
+                        }}
+                        onMouseEnter={(e) => {
                       const underline = e.currentTarget.querySelector('.nav-underline') as HTMLElement;
                       if (underline) underline.style.transform = 'scaleX(1)';
-                    }}
-                    onMouseLeave={(e) => {
+                        }}
+                        onMouseLeave={(e) => {
                       const underline = e.currentTarget.querySelector('.nav-underline') as HTMLElement;
                       if (underline) underline.style.transform = 'scaleX(0)';
-                    }}
-                  >
+                        }}
+                      >
                     {item.name}
                     <span 
                       className="nav-underline absolute left-0 w-full h-0.5 bg-[#FE003D] transition-transform duration-300 origin-left"
@@ -119,7 +119,7 @@ const Header = () => {
                         transform: 'scaleX(0)'
                       }}
                     ></span>
-                  </Link>
+                      </Link>
                 );
               })}
             </nav>
