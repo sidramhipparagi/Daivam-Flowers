@@ -108,7 +108,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
                 to="/collection"
-                className="px-6 py-3 rounded-lg font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg text-center hover:shadow-xl"
+                className="group flex items-center justify-center rounded-full px-6 py-3 font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 style={{ backgroundColor: '#770737' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
                 onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
