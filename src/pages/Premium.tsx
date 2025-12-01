@@ -15,8 +15,8 @@ const Premium = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-brand-background py-16">
-        <div className="container mx-auto px-12">
+      <section className="relative bg-brand-background py-12 md:py-16">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="text-center space-y-4">
             <Link to="/" className="inline-flex items-center space-x-2 text-brand-primary hover:text-brand-accent transition-colors mb-4">
               <ArrowLeft className="w-4 h-4" />
@@ -41,8 +41,8 @@ const Premium = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-12">
+      <section className="py-12 md:py-20 bg-white">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {premiumFlowers.map((flower) => (
               <Link key={flower.id} to={`/product/${flower.id}`}>
@@ -106,8 +106,8 @@ const Premium = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="py-16 bg-brand-background">
-        <div className="container mx-auto px-12">
+      <section className="py-12 md:py-16 bg-brand-background">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <Card className="max-w-2xl mx-auto border-2 border-brand-primary/20 bg-white/80 backdrop-blur-sm">
             <CardContent className="p-8 text-center">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Ready to Create Something Special?</h2>

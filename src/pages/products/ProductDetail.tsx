@@ -104,28 +104,28 @@ const ProductDetail = () => {
       </section>
 
       {/* Product Details */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start max-w-7xl mx-auto">
             {/* Product Image */}
             <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 shadow-lg">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 md:p-8 shadow-lg">
                 <img 
                   src={product.image} 
                   alt={product.name}
-                  className="w-full h-96 object-contain rounded-lg mx-auto"
+                  className="w-full h-64 md:h-96 object-contain rounded-lg mx-auto"
                 />
               </div>
             </div>
 
             {/* Product Information */}
-            <div className="space-y-8 mx-auto w-full max-w-md lg:max-w-none">
+            <div className="space-y-6 md:space-y-8 mx-auto w-full max-w-md lg:max-w-none">
               <div>
                 <div className="mb-6">
-                  <div className="flex flex-col lg:flex-row items-center justify-between mb-4">
+                  <div className="flex flex-col items-center lg:items-start mb-4">
                     <div className="text-center lg:text-left w-full">
-                      <span className="text-lg text-gray-600">Price:</span>
-                      <div className="flex items-center justify-center lg:justify-start space-x-3">
+                      <span className="text-base md:text-lg text-gray-600">Price:</span>
+                      <div className="flex items-center justify-center lg:justify-start space-x-3 flex-wrap">
                         {product.salePrice && (
                           <span className="text-2xl font-bold text-gray-400 line-through">
                             {product.price}
@@ -147,7 +147,7 @@ const ProductDetail = () => {
                   {!product.isEnquiryOnly && (
                     <>
                       <div className="mb-6 text-center lg:text-left">
-                        <label className="block text-lg font-semibold text-gray-800 mb-3">Quantity</label>
+                        <label className="block text-base md:text-lg font-semibold text-gray-800 mb-3">Quantity</label>
                         <div className="flex items-center justify-center lg:justify-start space-x-4">
                           <button
                             onClick={decreaseQuantity}
@@ -167,8 +167,8 @@ const ProductDetail = () => {
 
                       {/* Total Price */}
                       <div className="mb-6 text-center lg:text-left">
-                        <span className="text-lg text-gray-600">Total Price:</span>
-                        <span className="block text-4xl font-bold text-brand-primary">
+                        <span className="text-base md:text-lg text-gray-600">Total Price:</span>
+                        <span className="block text-3xl md:text-4xl font-bold text-brand-primary">
                           ₹{calculateTotalPrice().toLocaleString()}
                         </span>
                       </div>
@@ -200,8 +200,8 @@ const ProductDetail = () => {
                   </a>
                 </div>
                 
-                <div className="prose max-w-none">
-                  <p className="text-gray-700 text-lg leading-relaxed">
+                <div className="prose max-w-none text-center lg:text-left">
+                  <p className="text-gray-700 text-base md:text-lg leading-relaxed">
                     {product.detailedDescription || product.description}
                   </p>
                 </div>
