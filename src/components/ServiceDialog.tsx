@@ -97,9 +97,10 @@ const ServiceDialog = ({ open, onOpenChange, service }: ServiceDialogProps) => {
       `}</style>
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent 
-          className="max-w-4xl max-h-[95vh] md:max-h-[90vh] overflow-y-auto !rounded-[2rem] p-0 border-0 [&>button]:hidden w-[95vw] md:w-auto"
+          className="max-w-4xl max-h-[95vh] md:max-h-[90vh] overflow-hidden !rounded-[2rem] p-4 md:p-6 border-0 [&>button]:hidden w-[90vw] sm:w-[85vw] md:w-auto mx-auto"
           style={{ borderRadius: '2rem' }}
         >
+          <div className="overflow-y-auto max-h-[calc(95vh-2rem)] md:max-h-[calc(90vh-3rem)] rounded-[1.5rem]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 min-h-fit md:min-h-[500px]">
             {/* Image Section */}
             <div className="relative overflow-hidden h-56 sm:h-64 md:h-auto service-dialog-image">
@@ -143,6 +144,7 @@ const ServiceDialog = ({ open, onOpenChange, service }: ServiceDialogProps) => {
             </div>
           </div>
         </div>
+          </div>
       </DialogContent>
     </Dialog>
     </>
