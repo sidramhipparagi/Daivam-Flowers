@@ -54,29 +54,29 @@ const FeatureDialog = ({ open, onOpenChange, feature }: FeatureDialogProps) => {
       <style>{`
         @media (min-width: 768px) {
           .feature-dialog-image {
-            border-radius: 1.5rem 0 0 1.5rem !important;
+            border-radius: 2rem 0 0 2rem !important;
           }
           .feature-dialog-content {
-            border-radius: 0 1.5rem 1.5rem 0 !important;
+            border-radius: 0 2rem 2rem 0 !important;
           }
         }
         @media (max-width: 767px) {
           .feature-dialog-image {
-            border-radius: 1.5rem 1.5rem 0 0 !important;
+            border-radius: 2rem 2rem 0 0 !important;
           }
           .feature-dialog-content {
-            border-radius: 0 0 1.5rem 1.5rem !important;
+            border-radius: 0 0 2rem 2rem !important;
           }
         }
       `}</style>
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent 
-          className="max-w-4xl max-h-[95vh] md:max-h-[90vh] overflow-y-auto !rounded-[1.5rem] p-0 border-0 [&>button]:hidden mx-4 md:mx-auto"
-          style={{ borderRadius: '1.5rem' }}
+          className="max-w-4xl max-h-[95vh] md:max-h-[90vh] overflow-y-auto !rounded-[2rem] p-0 border-0 [&>button]:hidden w-[95vw] md:w-auto"
+          style={{ borderRadius: '2rem' }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 min-h-[400px] md:min-h-[500px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 min-h-fit md:min-h-[500px]">
             {/* Image Section */}
-            <div className="relative overflow-hidden h-64 md:h-auto feature-dialog-image">
+            <div className="relative overflow-hidden h-56 sm:h-64 md:h-auto feature-dialog-image">
               <img 
                 src={content.image} 
                 alt={content.title}
@@ -86,7 +86,7 @@ const FeatureDialog = ({ open, onOpenChange, feature }: FeatureDialogProps) => {
             
             {/* Content Section */}
             <div 
-              className="flex flex-col p-4 md:p-6 lg:p-8 relative feature-dialog-content"
+              className="flex flex-col p-6 md:p-6 lg:p-8 relative feature-dialog-content"
               style={{ backgroundColor: '#FDF3F5' }}
             >
             <DialogClose className="absolute right-4 top-4 md:right-6 md:top-6 z-50 opacity-70 hover:opacity-100 transition-opacity focus:outline-none cursor-pointer" style={{ backgroundColor: 'transparent', border: 'none', padding: 0, boxShadow: 'none' }}>
