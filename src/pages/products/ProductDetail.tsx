@@ -106,26 +106,26 @@ const ProductDetail = () => {
       {/* Product Details */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-7xl mx-auto">
             {/* Product Image */}
-            <div className="relative">
+            <div className="relative mx-auto w-full max-w-md lg:max-w-none">
               <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 shadow-lg">
                 <img 
                   src={product.image} 
                   alt={product.name}
-                  className="w-full h-96 object-contain rounded-lg"
+                  className="w-full h-96 object-contain rounded-lg mx-auto"
                 />
               </div>
             </div>
 
             {/* Product Information */}
-            <div className="space-y-8">
+            <div className="space-y-8 mx-auto w-full max-w-md lg:max-w-none">
               <div>
                 <div className="mb-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div>
+                  <div className="flex flex-col lg:flex-row items-center justify-between mb-4">
+                    <div className="text-center lg:text-left w-full">
                       <span className="text-lg text-gray-600">Price:</span>
-                      <div className="flex items-center space-x-3">
+                      <div className="flex items-center justify-center lg:justify-start space-x-3">
                         {product.salePrice && (
                           <span className="text-2xl font-bold text-gray-400 line-through">
                             {product.price}
@@ -146,9 +146,9 @@ const ProductDetail = () => {
                   {/* Quantity Selector - Only show for non-enquiry products */}
                   {!product.isEnquiryOnly && (
                     <>
-                      <div className="mb-6">
+                      <div className="mb-6 text-center lg:text-left">
                         <label className="block text-lg font-semibold text-gray-800 mb-3">Quantity</label>
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center justify-center lg:justify-start space-x-4">
                           <button
                             onClick={decreaseQuantity}
                             className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors"
@@ -166,7 +166,7 @@ const ProductDetail = () => {
                       </div>
 
                       {/* Total Price */}
-                      <div className="mb-6">
+                      <div className="mb-6 text-center lg:text-left">
                         <span className="text-lg text-gray-600">Total Price:</span>
                         <span className="block text-4xl font-bold text-brand-primary">
                           ₹{calculateTotalPrice().toLocaleString()}
