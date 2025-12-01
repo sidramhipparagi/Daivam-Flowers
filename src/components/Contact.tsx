@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Phone, Mail, Clock, Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { Phone, Mail, Clock, Instagram, Facebook, MessageCircle, ArrowUpRight } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -10,9 +10,14 @@ const Contact = () => {
         <div className="bg-gradient-to-r from-pink-500/20 to-orange-500/20 border-l-4 border-pink-400 p-3 md:p-4 rounded-lg mb-6 md:mb-8 text-center backdrop-blur-sm">
           <p className="text-sm md:text-base font-medium text-white">
             We are currently accepting orders via{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-orange-300 font-semibold">
+            <a
+              href="https://wa.me/919742141080?text=Hi, I would like to order flowers..."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-orange-300 font-semibold hover:brightness-110 transition"
+            >
               WhatsApp and phone calls only
-            </span>
+            </a>
             . Sorry for the inconvenience.
           </p>
         </div>
@@ -35,10 +40,10 @@ const Contact = () => {
                   <h4 className="font-semibold text-base md:text-lg">Call Us</h4>
                   <a 
                     href="tel:+919742141080"
-                    className="transition-colors hover:opacity-80"
-                    style={{ color: '#FE003D' }}
+                    className="inline-flex items-center gap-2 text-white hover:text-gray-200 transition-colors"
                   >
-                    +91 97421 41080
+                    <span>+91 97421 41080</span>
+                    <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
                   </a>
                 </div>
               </div>
@@ -53,9 +58,10 @@ const Contact = () => {
                     href="https://wa.me/919742141080?text=Hi, I would like to place an order for flowers"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-green-300 hover:text-green-200 transition-colors"
+                    className="inline-flex items-center gap-2 text-white hover:text-gray-200 transition-colors"
                   >
-                    +91 97421 41080
+                    <span>+91 97421 41080</span>
+                    <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
                   </a>
                 </div>
               </div>
@@ -68,10 +74,10 @@ const Contact = () => {
                   <h4 className="font-semibold text-base md:text-lg">Email Us</h4>
                   <a 
                     href="mailto:info@daivam.in"
-                    className="transition-colors hover:opacity-80"
-                    style={{ color: '#FE003D' }}
+                    className="inline-flex items-center gap-2 text-white hover:text-gray-200 transition-colors"
                   >
-                    info@daivam.in
+                    <span>info@daivam.in</span>
+                    <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
                   </a>
                 </div>
               </div>

@@ -13,37 +13,37 @@ const reviews: Review[] = [
   {
     id: 1,
     name: "Priya Sharma",
-    message: "Absolutely loved the fresh\nflowers! The mallige maale\nwas perfect for our\npooja. Delivery was on\ntime and flowers were\nso fresh. Highly recommend!",
+    message: "The flowers were perfect for our\npooja. Delivery was on\ntime and flowers were\nso fresh. Highly recommend!",
     initial: "P"
   },
   {
     id: 2,
     name: "Rajesh Kumar",
-    message: "Best quality flowers in\nBangalore! I've been ordering\nfrom them for the\npast 6 months. Always\nfresh from KR Market.\nGreat service!",
+    message: "Best quality flowers in\nBangalore! I've been ordering\nfrom them for the\npast 6 months. Always fresh!",
     initial: "R"
   },
   {
     id: 3,
     name: "Lakshmi Devi",
-    message: "The hara collection is\nbeautiful. I order daily\nfor temple and they\nnever disappoint. Price is\nalso very reasonable. Thank\nyou!",
+    message: "The maale collection is\nbeautiful. I order daily\nfor temple. Price is\nalso very reasonable!",
     initial: "L"
   },
   {
     id: 4,
     name: "Arun Bhat",
-    message: "Ordered for my sister's\nwedding. The premium collection\nwas stunning! Everyone asked\nwhere we got such\nbeautiful flowers. Will definitely\norder again!",
+    message: "Ordered for my sister's\nwedding. The premium collection\nwas stunning!\nWill definitely order again!",
     initial: "A"
   },
   {
     id: 5,
     name: "Meena Iyer",
-    message: "Very happy with the\nloose flowers quality. Perfect\nfor rangoli and decoration.\nFresh and fragrant. Good\nservice!",
+    message: "Very happy with the\nloose flowers quality. Perfect\nfor pooja & decoration.\nFresh and fragrant!",
     initial: "M"
   },
   {
     id: 6,
     name: "Suresh Reddy",
-    message: "Excellent quality maale flowers!\nUsed for special occasion\nand got many compliments.\nWill order again. Keep\nup the good work!",
+    message: "Ordered for special occasion\nand got many compliments.\nWill order again.\n Keep up the good work!",
     initial: "S"
   }
 ];
@@ -113,7 +113,7 @@ const WhatsAppReviews = () => {
       } else {
         setCurrentReviewIndex((prev) => prev + 1);
       }
-    }, 5000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [isMobile, isPaused]);
@@ -196,8 +196,8 @@ const WhatsAppReviews = () => {
         <div className="relative">
           {/* Mobile: Single review with fade transition */}
           {isMobile ? (
-            <div className="relative overflow-visible py-2 pb-12">
-              <div className="min-h-[350px] flex items-center justify-center">
+            <div className="relative overflow-visible py-2 pb-8">
+              <div className="min-h-[300px] flex items-center justify-center">
                 {reviews.map((review, index) => (
                   <div
                     key={review.id}
@@ -271,7 +271,7 @@ const WhatsAppReviews = () => {
             </div>
           ) : (
             /* Desktop: Infinite loop slider */
-            <div className="relative overflow-hidden min-h-[400px]">
+            <div className="relative overflow-hidden min-h-[340px]">
               <div className="w-full overflow-hidden">
                 <div 
                   className="flex"
