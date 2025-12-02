@@ -18,12 +18,6 @@ const Hero = () => {
     <>
     <section 
       className="relative py-10 md:py-20"
-      style={{ 
-        backgroundImage: 'url(/images/image5.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
     >
       <div className="absolute inset-0 bg-[#FDF3F5]/80"></div>
       <div 

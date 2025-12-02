@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { useIsMobile } from '../hooks/use-mobile';
 
 interface Review {
@@ -50,117 +50,15 @@ const reviews: Review[] = [
 
 const WhatsAppReviews = () => {
   const isMobile = useIsMobile();
-  const [currentReviewIndex, setCurrentReviewIndex] = useState(isMobile ? 0 : 1); // Start at 1 for desktop (first real review)
-  const [isTransitioning, setIsTransitioning] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
-  const transitionRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // Duplicate reviews multiple times for seamless infinite scroll
+  const duplicatedReviews = [...reviews, ...reviews, ...reviews];
 
-  // Create extended array with clones for seamless loop (desktop only)
-  // [last, ...originals, first]
-  const extendedReviews = isMobile 
-    ? reviews 
-    : [
-        reviews[reviews.length - 1], // Clone of last item at start
-        ...reviews,
-        reviews[0] // Clone of first item at end
-      ];
-
-  // Handle seamless loop transition (desktop only)
-  useEffect(() => {
-    if (isMobile || !isTransitioning) return;
-
-    // Check if we're at a clone position
-    if (currentReviewIndex === 0) {
-      // At the clone of the last item (beginning)
-      // Jump to the real last item
-      if (transitionRef.current) clearTimeout(transitionRef.current);
-      transitionRef.current = setTimeout(() => {
-        setIsTransitioning(false);
-        setCurrentReviewIndex(reviews.length);
-      }, 700); // Match transition duration
-    } else if (currentReviewIndex === extendedReviews.length - 1) {
-      // At the clone of the first item (end)
-      // Jump to the real first item
-      if (transitionRef.current) clearTimeout(transitionRef.current);
-      transitionRef.current = setTimeout(() => {
-        setIsTransitioning(false);
-        setCurrentReviewIndex(1);
-      }, 700); // Match transition duration
-    }
-
-    return () => {
-      if (transitionRef.current) clearTimeout(transitionRef.current);
-    };
-  }, [currentReviewIndex, isTransitioning, isMobile, extendedReviews.length]);
-
-  // Re-enable transition after instant jump (desktop only)
-  useEffect(() => {
-    if (isMobile || isTransitioning) return;
-    
-    const timeout = setTimeout(() => {
-      setIsTransitioning(true);
-    }, 50);
-    return () => clearTimeout(timeout);
-  }, [isTransitioning, isMobile]);
-
-  // Auto-play functionality - 5 second delay
-  useEffect(() => {
-    if (isPaused) return;
-
-    const interval = setInterval(() => {
-      if (isMobile) {
-        setCurrentReviewIndex((prev) => (prev + 1) % reviews.length);
-      } else {
-        setCurrentReviewIndex((prev) => prev + 1);
-      }
-    }, 7000);
-
-    return () => clearInterval(interval);
-  }, [isMobile, isPaused]);
-
-  // Navigation functions
-  const goToNext = () => {
-    if (isMobile) {
-      setCurrentReviewIndex((prev) => (prev + 1) % reviews.length);
-    } else {
-      setCurrentReviewIndex((prev) => prev + 1);
-    }
-  };
-
-  const goToPrev = () => {
-    if (isMobile) {
-      setCurrentReviewIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
-    } else {
-      setCurrentReviewIndex((prev) => prev - 1);
-    }
-  };
-
-  const goToSlide = (index: number) => {
-    if (isMobile) {
-      setCurrentReviewIndex(index);
-    } else {
-      setIsTransitioning(true);
-      setCurrentReviewIndex(index + 1); // +1 because of clone at start
-    }
-  };
-
-  // Calculate the real review index for indicators
-  const getRealIndex = () => {
-    if (isMobile) return currentReviewIndex;
-    if (currentReviewIndex === 0) return reviews.length - 1;
-    if (currentReviewIndex === extendedReviews.length - 1) return 0;
-    return currentReviewIndex - 1;
-  };
 
   return (
     <section 
       className="py-10 md:py-24 relative"
-      style={{ 
-        backgroundImage: 'url(/images/image5.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
     >
       <div className="absolute inset-0 bg-[#FDF3F5]/80 z-0"></div>
       
@@ -193,162 +91,139 @@ const WhatsAppReviews = () => {
         </div>
 
         {/* Reviews Container */}
-        <div className="relative">
-          {/* Mobile: Single review with fade transition */}
+        <div 
+          className="relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Mobile: Continuous infinite scroll */}
           {isMobile ? (
-            <div className="relative overflow-visible py-2 pb-8">
-              <div className="min-h-[300px] flex items-center justify-center">
-                {reviews.map((review, index) => (
-                  <div
-                    key={review.id}
-                    className={`absolute flex flex-col items-center justify-center transition-opacity duration-700 px-4 ${
-                      index === currentReviewIndex ? 'opacity-100' : 'opacity-0'
-                    }`}
-                    style={{ pointerEvents: index === currentReviewIndex ? 'auto' : 'none' }}
-                  >
-                    {/* Review Text */}
-                    <div 
-                      className="mb-4 cursor-pointer"
-                      onClick={() => setIsPaused(prev => !prev)}
-                    >
-                      <p 
-                        className="text-xl text-center font-semibold whitespace-pre-line" 
-                        style={{ 
-                          color: '#FE003D', 
-                          lineHeight: '1.1',
-                          textShadow: `
-                            0 0 6px rgba(254, 0, 61, 0.25),
-                            0 0 12px rgba(254, 0, 61, 0.15),
-                            0 2px 3px rgba(254, 0, 61, 0.2)
-                          `
-                        }}
-                      >
-                        "{review.message}"
-                      </p>
-                    </div>
-                    
-                    {/* Author Info */}
-                    <div className="flex items-center justify-center gap-2">
-                      <MessageCircle className="w-4 h-4" style={{ color: '#25D366' }} />
-                      <h3 className="font-bold text-base" style={{ color: '#770737' }}>
-                        {review.name}
-                      </h3>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              {/* Navigation Buttons - Mobile */}
-              <button
-                onClick={goToPrev}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                aria-label="Previous review"
-              >
-                <ChevronLeft className="w-5 h-5" style={{ color: '#770737' }} />
-              </button>
-
-              <button
-                onClick={goToNext}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                aria-label="Next review"
-              >
-                <ChevronRight className="w-5 h-5" style={{ color: '#770737' }} />
-              </button>
-              
-              {/* Dots Indicator */}
-              <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5">
-                {reviews.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      index === getRealIndex() ? 'bg-[#FE003D] w-3' : 'bg-[#770737]/30 w-1.5'
-                    }`}
-                    aria-label={`Go to review ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          ) : (
-            /* Desktop: Infinite loop slider */
-            <div className="relative overflow-hidden min-h-[340px]">
+            <div 
+              className="relative overflow-hidden min-h-[300px]"
+              onClick={() => setIsPaused(prev => !prev)}
+            >
               <div className="w-full overflow-hidden">
                 <div 
-                  className="flex"
+                  className="flex gap-4"
                   style={{
-                    transform: `translateX(-${currentReviewIndex * 100}%)`,
-                    transition: isTransitioning ? 'transform 700ms ease-in-out' : 'none'
+                    animation: 'scrollReviewsMobile 60s linear infinite',
+                    animationPlayState: isPaused ? 'paused' : 'running',
+                    width: `${duplicatedReviews.length * 90 + (duplicatedReviews.length - 1) * 16}vw`
                   }}
                 >
-                  {extendedReviews.map((review, index) => (
+                  {duplicatedReviews.map((review, index) => (
                     <div 
                       key={`${review.id}-${index}`}
-                      className="flex-shrink-0 flex flex-col items-center justify-center w-full"
+                      className="flex-shrink-0 flex flex-col items-center justify-center"
+                      style={{ width: '90vw', minWidth: '90vw' }}
                     >
-                      {/* Review Text */}
-                      <div 
-                        className="flex-1 flex items-center justify-center mb-6 px-4"
-                        onMouseEnter={() => setIsPaused(true)}
-                        onMouseLeave={() => setIsPaused(false)}
-                      >
-                        <p 
-                          className="text-2xl lg:text-3xl text-center font-semibold whitespace-pre-line max-w-[600px] lg:max-w-[700px]" 
+                      {/* Review Container */}
+                      <div className="flex items-center justify-center mb-6 w-full">
+                        <div 
+                          className="rounded-2xl px-3 py-4 flex flex-col h-[200px] md:h-[240px] w-full"
                           style={{ 
-                            color: '#FE003D', 
-                            lineHeight: '1.1',
-                            textShadow: `
-                              0 0 6px rgba(254, 0, 61, 0.25),
-                              0 0 12px rgba(254, 0, 61, 0.15),
-                              0 2px 3px rgba(254, 0, 61, 0.2)
-                            `
+                            backgroundColor: '#FFFEFE'
                           }}
                         >
-                          "{review.message}"
-                        </p>
-                      </div>
-                      
-                      {/* Author Info */}
-                      <div className="flex items-center justify-center gap-3">
-                        <MessageCircle className="w-6 h-6" style={{ color: '#25D366' }} />
-                        <h3 className="font-bold text-xl" style={{ color: '#770737' }}>
-                          {review.name}
-                        </h3>
+                          {/* Review Text */}
+                          <div className="flex-1 flex items-center justify-center">
+                            <p 
+                              className="text-base text-center font-semibold whitespace-pre-line" 
+                              style={{ 
+                                color: '#1F2937', 
+                                lineHeight: '1.1'
+                              }}
+                            >
+                              "{review.message}"
+                            </p>
+                          </div>
+                          
+                          {/* Author Info */}
+                          <div className="flex items-center justify-center gap-2 mt-3 md:mt-4">
+                            <MessageCircle className="w-4 h-4" style={{ color: '#25D366' }} />
+                            <h3 className="font-bold text-base" style={{ color: '#FE003D' }}>
+                              {review.name}
+                            </h3>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-
-              {/* Navigation Buttons - Desktop */}
-              <button
-                onClick={goToPrev}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 bg-white/90 hover:bg-white"
-                aria-label="Previous review"
-              >
-                <ChevronLeft className="w-6 h-6" style={{ color: '#770737' }} />
-              </button>
-
-              <button
-                onClick={goToNext}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 bg-white/90 hover:bg-white"
-                aria-label="Next review"
-              >
-                <ChevronRight className="w-6 h-6" style={{ color: '#770737' }} />
-              </button>
-
-              {/* Dots Indicator - Desktop */}
-              <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5">
-                {reviews.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      index === getRealIndex() ? 'bg-[#FE003D] w-3' : 'bg-[#770737]/30 w-1.5'
-                    }`}
-                    aria-label={`Go to review ${index + 1}`}
-                  />
-                ))}
+              <style>{`
+                @keyframes scrollReviewsMobile {
+                  0% {
+                    transform: translateX(-${reviews.length * 90}vw);
+                  }
+                  100% {
+                    transform: translateX(0);
+                  }
+                }
+              `}</style>
+            </div>
+          ) : (
+            /* Desktop: Continuous infinite scroll */
+            <div className="relative overflow-hidden min-h-[340px]">
+              <div className="w-full overflow-hidden">
+                <div 
+                  className="flex gap-4"
+                  style={{
+                    animation: 'scrollReviews 75s linear infinite',
+                    animationPlayState: isPaused ? 'paused' : 'running',
+                    width: `${duplicatedReviews.length * 500 + (duplicatedReviews.length - 1) * 16}px`
+                  }}
+                >
+                  {duplicatedReviews.map((review, index) => (
+                    <div 
+                      key={`${review.id}-${index}`}
+                      className="flex-shrink-0 flex flex-col items-center justify-center"
+                      style={{ width: '500px', minWidth: '500px' }}
+                    >
+                      {/* Review Container */}
+                      <div className="flex items-center justify-center mb-6 w-full">
+                        <div 
+                          className="rounded-2xl px-3 py-5 lg:px-4 lg:py-7 flex flex-col h-[280px] lg:h-[320px] w-full"
+                          style={{ 
+                            backgroundColor: '#FFFEFE'
+                          }}
+                        >
+                          {/* Review Text */}
+                          <div className="flex-1 flex items-center justify-center">
+                            <p 
+                              className="text-xl text-center font-semibold whitespace-pre-line" 
+                              style={{ 
+                                color: '#1F2937', 
+                                lineHeight: '1.1'
+                              }}
+                            >
+                              "{review.message}"
+                            </p>
+                          </div>
+                          
+                          {/* Author Info */}
+                          <div className="flex items-center justify-center gap-3 mt-4 lg:mt-5">
+                            <MessageCircle className="w-6 h-6" style={{ color: '#25D366' }} />
+                            <h3 className="font-bold text-xl" style={{ color: '#FE003D' }}>
+                              {review.name}
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
+              <style>{`
+                @keyframes scrollReviews {
+                  0% {
+                    transform: translateX(-${reviews.length * 500}px);
+                  }
+                  100% {
+                    transform: translateX(0);
+                  }
+                }
+              `}</style>
             </div>
           )}
         </div>
