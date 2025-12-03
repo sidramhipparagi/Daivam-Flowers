@@ -5,8 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  // Header is now always visible; no hide-on-scroll behavior
   const isMobile = useIsMobile();
   const navigate = useNavigate();
 
@@ -23,33 +22,10 @@ const Header = () => {
     { name: 'Shop', href: '/collection', isCta: true, icon: ShoppingBag }
   ];
 
-  // Handle scroll behavior - hide on scroll down, show on scroll up
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Show header at the top of the page
-      if (currentScrollY < 10) {
-        setIsHeaderVisible(true);
-      } else if (currentScrollY > lastScrollY) {
-        // Scrolling down - hide header
-        setIsHeaderVisible(false);
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up - show header quickly
-        setIsHeaderVisible(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
-
   return (
     <header 
-      className={`sticky top-0 z-50 transition-transform duration-300 ease-in-out ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}
-      style={{ backgroundColor: '#770737' }}
+      className="sticky top-0 z-50"
+      style={{ backgroundColor: '#FDF5F7' }}
     >
       <div className="container mx-auto px-4 py-3 md:px-12 md:py-5">
         <div className="flex items-center justify-between">
@@ -61,7 +37,8 @@ const Header = () => {
           {!isMobile && (
             <nav className="hidden md:flex items-center space-x-6">
               {menuItems.map((item) => {
-                const baseClasses = "relative text-white transition-colors duration-300 hover:text-[#FE003D]";
+                // Default nav icon color matches brand purple; About icon uses theme red (#fe003d)
+                const baseClasses = "relative text-[#770737] transition-colors duration-300 hover:text-[#fe003d]";
                 const ctaClasses = "relative text-[#FE003D] transition-colors duration-300";
 
                 const Icon = item.icon;
@@ -87,7 +64,10 @@ const Header = () => {
                     to={item.href}
                     className={`${baseClasses} group flex flex-col items-center`}
                   >
-                    <Icon className="w-6 h-6" />
+                    <Icon
+                      className="w-6 h-6"
+                      style={{ color: item.name === 'About' ? '#fe003d' : '#770737' }}
+                    />
                     <span className="pointer-events-none absolute top-full mt-2 px-2 py-1 rounded-md text-xs bg-white text-[#770737] shadow-lg opacity-0 group-hover:opacity-100 transform -translate-y-1 group-hover:translate-y-0 transition-all whitespace-nowrap">
                       {item.name}
                     </span>
