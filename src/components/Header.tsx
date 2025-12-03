@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Search, X } from 'lucide-react';
+import { Search, X, Info, ShoppingBag } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
 const Header = () => {
@@ -19,8 +19,8 @@ const Header = () => {
   ];
 
   const menuItems = [
-    { name: 'About', href: '/about' },
-    { name: 'Shop', href: '/collection', isCta: true }
+    { name: 'About', href: '/about', icon: Info },
+    { name: 'Shop', href: '/collection', isCta: true, icon: ShoppingBag }
   ];
 
   // Handle scroll behavior - hide on scroll down, show on scroll up
@@ -59,37 +59,24 @@ const Header = () => {
           
           {/* Desktop Navigation */}
           {!isMobile && (
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-6">
               {menuItems.map((item) => {
-                const baseClasses = "relative text-white font-medium text-xl leading-tight transition-colors duration-300 hover:text-[#FE003D]";
-                const ctaClasses = "relative font-semibold text-[#FE003D] text-xl leading-tight transition-colors duration-300";
+                const baseClasses = "relative text-white transition-colors duration-300 hover:text-[#FE003D]";
+                const ctaClasses = "relative text-[#FE003D] transition-colors duration-300";
+
+                const Icon = item.icon;
 
                 if (item.isCta) {
                   return (
-                <Link 
-                  key={item.name}
-                  to={item.href}
-                      className={ctaClasses}
-                      style={{
-                        paddingBottom: '4px'
-                }}
-                      onMouseEnter={(e) => {
-                        const underline = e.currentTarget.querySelector('.nav-underline') as HTMLElement;
-                        if (underline) underline.style.transform = 'scaleX(1)';
-                      }}
-                      onMouseLeave={(e) => {
-                        const underline = e.currentTarget.querySelector('.nav-underline') as HTMLElement;
-                        if (underline) underline.style.transform = 'scaleX(0)';
-                  }}
-                >
-                      {item.name}
-                      <span 
-                        className="nav-underline absolute left-0 w-full h-0.5 bg-[#FE003D] transition-transform duration-300 origin-left"
-                        style={{
-                          bottom: '0px',
-                          transform: 'scaleX(0)'
-                        }}
-                      ></span>
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`${ctaClasses} group flex flex-col items-center`}
+                    >
+                      <Icon className="w-6 h-6" />
+                      <span className="pointer-events-none absolute top-full mt-2 px-2 py-1 rounded-md text-xs bg-white text-[#770737] shadow-lg opacity-0 group-hover:opacity-100 transform -translate-y-1 group-hover:translate-y-0 transition-all whitespace-nowrap">
+                        {item.name}
+                      </span>
                     </Link>
                   );
                 }
@@ -98,28 +85,13 @@ const Header = () => {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={baseClasses}
-                    style={{
-                      paddingBottom: '4px'
-                        }}
-                        onMouseEnter={(e) => {
-                      const underline = e.currentTarget.querySelector('.nav-underline') as HTMLElement;
-                      if (underline) underline.style.transform = 'scaleX(1)';
-                        }}
-                        onMouseLeave={(e) => {
-                      const underline = e.currentTarget.querySelector('.nav-underline') as HTMLElement;
-                      if (underline) underline.style.transform = 'scaleX(0)';
-                        }}
-                      >
-                    {item.name}
-                    <span 
-                      className="nav-underline absolute left-0 w-full h-0.5 bg-[#FE003D] transition-transform duration-300 origin-left"
-                      style={{
-                        bottom: '0px',
-                        transform: 'scaleX(0)'
-                      }}
-                    ></span>
-                      </Link>
+                    className={`${baseClasses} group flex flex-col items-center`}
+                  >
+                    <Icon className="w-6 h-6" />
+                    <span className="pointer-events-none absolute top-full mt-2 px-2 py-1 rounded-md text-xs bg-white text-[#770737] shadow-lg opacity-0 group-hover:opacity-100 transform -translate-y-1 group-hover:translate-y-0 transition-all whitespace-nowrap">
+                      {item.name}
+                    </span>
+                  </Link>
                 );
               })}
             </nav>
