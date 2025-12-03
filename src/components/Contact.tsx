@@ -7,7 +7,7 @@ const Contact = () => {
     <section id="contact" className="py-10 md:py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-4 md:px-12">
         {/* Notification Message */}
-        <div className="bg-gradient-to-r from-pink-500/20 to-orange-500/20 border-l-4 border-pink-400 p-3 md:p-4 rounded-lg mb-6 md:mb-8 text-center backdrop-blur-sm">
+        <div className="mb-6 md:mb-8 text-center">
           <p className="text-sm md:text-base font-medium text-white">
             We are currently accepting orders via{' '}
             <a
