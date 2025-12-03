@@ -77,19 +77,28 @@ const Header = () => {
             </nav>
           )}
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Buttons */}
           {isMobile && (
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-md transition-colors"
-              style={{ color: '#FE003D' }}
-            >
-              {isMenuOpen ? (
-                <X className="w-5 h-5" style={{ color: '#FE003D' }} />
-              ) : (
-                <Search className="w-5 h-5" style={{ color: '#FE003D' }} />
-              )}
-            </button>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden p-2 rounded-md transition-colors"
+                style={{ color: '#FE003D' }}
+              >
+                {isMenuOpen ? (
+                  <X className="w-5 h-5" style={{ color: '#FE003D' }} />
+                ) : (
+                  <Search className="w-5 h-5" style={{ color: '#FE003D' }} />
+                )}
+              </button>
+              <Link
+                to="/collection"
+                className="md:hidden p-2 rounded-md transition-colors"
+                style={{ color: '#FE003D' }}
+              >
+                <ShoppingBag className="w-5 h-5" style={{ color: '#FE003D' }} />
+              </Link>
+            </div>
           )}
         </div>
 
