@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
 const Header = () => {
@@ -54,7 +54,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3 md:px-12 md:py-5">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <img src="/logo-red.png" alt="Daivam Flowers Logo" className="h-8 md:h-10" />
+            <img src="/logo-red.png" alt="Daivam Flowers Logo" className="h-7 md:h-10" />
           </Link>
           
           {/* Desktop Navigation */}
@@ -132,7 +132,11 @@ const Header = () => {
               className="md:hidden p-2 rounded-md transition-colors"
               style={{ color: '#FE003D' }}
             >
-              {isMenuOpen ? <X className="w-6 h-6" style={{ color: '#FE003D' }} /> : <Menu className="w-6 h-6" style={{ color: '#FE003D' }} />}
+              {isMenuOpen ? (
+                <X className="w-5 h-5" style={{ color: '#FE003D' }} />
+              ) : (
+                <Search className="w-5 h-5" style={{ color: '#FE003D' }} />
+              )}
             </button>
           )}
         </div>

@@ -92,18 +92,6 @@ const Contact = () => {
               </a>
             </div>
           </div>
-          
-          <div className="bg-gray-800 rounded-2xl p-4 md:p-8">
-            <h4 className="text-xl md:text-2xl font-bold mb-3 md:mb-6">Contact Information</h4>
-            <div className="space-y-2 md:space-y-4">
-              <p className="text-base md:text-xl font-medium text-gray-300">
-                For orders and inquiries, please contact us via WhatsApp or phone call.
-              </p>
-              <p className="text-base md:text-xl font-medium text-gray-300">
-                We strive to provide the freshest and most beautiful flowers for all your occasions.
-              </p>
-            </div>
-          </div>
         </div>
         
         <div className="border-t border-gray-800 mt-8 md:mt-16 pt-6 md:pt-8 text-center">
