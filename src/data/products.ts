@@ -826,6 +826,18 @@ export const products: Product[] = [
     features: ["Bright yellow and orange", "Vibrant energy", "Positive appeal", "Celebration ready"],
     usage: ["Vibrant occasions", "Positive ceremonies", "Sunny celebrations", "Energetic events"]
   },
+  {
+    id: 69,
+    name: "Nandi Vattu",
+    price: "₹40/1 piece",
+    salePrice: "₹35/1 piece",
+    image: "/images/Products/nandi-vattu.png",
+    description: "Freshly packed jasmine buds ideal for garlands and hair adornment.",
+    category: ["human-use"],
+    detailedDescription: "Premium jasmine buds carefully selected and packed fresh daily, perfect for creating beautiful garlands and elegant hair adornments.",
+    features: ["Fresh daily packing", "Premium jasmine", "Garland suitable", "Hair friendly"],
+    usage: ["Garland making", "Hair adornment", "Personal decoration", "Traditional styling"]
+  },
 ];
 
 export const getAllProducts = (): Product[] => {

@@ -7,7 +7,7 @@ interface ProductCarouselProps {
   productIds?: number[];
 }
 
-const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouselProps) => {
+const ProductCarousel = ({ productIds = [10, 69, 3, 37, 28, 23] }: ProductCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(1); // Start at 1 (first real product)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(true);
@@ -113,8 +113,8 @@ const ProductCarousel = ({ productIds = [37, 2, 3, 28, 23, 10] }: ProductCarouse
       <div className="relative">
         {/* "Fresh Flowers Delivered" text overlay & CTA - mobile only, fixed position */}
         <div className="pointer-events-none absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-30 sm:hidden px-4">
-          <div className="flex flex-col items-center gap-3">
-            <h2 className="text-2xl font-bold text-center text-white drop-shadow-lg leading-tight">
+          <div className="flex flex-col items-center gap-4">
+            <h2 className="text-3xl font-extrabold text-center text-white drop-shadow-lg leading-tight">
               Fresh Flowers{" "}
               <span className="font-bold">Delivered</span>
             </h2>
