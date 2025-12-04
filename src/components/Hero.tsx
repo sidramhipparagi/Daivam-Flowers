@@ -17,7 +17,7 @@ const Hero = () => {
   return (
     <>
     <section 
-      className="relative py-10 md:py-20"
+      className="relative py-4 md:py-20"
     >
       <div className="absolute inset-0 bg-[#FDF3F5]/80"></div>
       <div 
@@ -26,11 +26,12 @@ const Hero = () => {
           background: 'linear-gradient(to bottom, transparent 0%, #FDF3F5 100%)'
         }}
       ></div>
-      <div className="container mx-auto px-4 md:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-start">
-          <div className="space-y-4 md:space-y-8 animate-fade-in">
+      <div className="container mx-auto md:px-12 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-4 md:gap-12 items-start">
+          {/* Mobile: Carousel first, Desktop: Text first */}
+          <div className="order-2 lg:order-1 space-y-4 md:space-y-8 animate-fade-in px-4">
             <div className="space-y-2 md:space-y-4">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.05] md:leading-tight text-center md:text-left">
+              <h2 className="hidden sm:block text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.05] md:leading-tight text-center md:text-left">
                 <span style={{ 
                   background: 'linear-gradient(135deg, #770737 0%, #FE003D 100%)',
                   WebkitBackgroundClip: 'text',
@@ -96,10 +97,11 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="relative flex flex-col items-center space-y-6 animate-fade-in" style={{ animationDelay: '400ms' }}>
+          {/* Mobile: Carousel first, Desktop: Carousel second */}
+          <div className="order-1 lg:order-2 relative flex flex-col items-center lg:space-y-6 animate-fade-in -mx-4 lg:mx-0" style={{ animationDelay: '400ms' }}>
             <ProductCarousel />
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="hidden sm:flex gap-4 px-4 mt-4 lg:mt-0">
               <Link 
                 to="/collection"
                 className="group flex items-center justify-center rounded-full px-6 py-3 font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"

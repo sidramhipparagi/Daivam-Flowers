@@ -85,9 +85,6 @@ const WhatsAppReviews = () => {
             What Our
             <span className="text-brand-accent font-bold"> Customers Say</span>
           </h2>
-          <p className="text-base md:text-xl max-w-2xl mx-auto mt-2 md:mt-4 font-bold" style={{ color: '#770737' }}>
-            Authentic reviews from our valued customers
-          </p>
         </div>
 
         {/* Reviews Container */}

@@ -26,9 +26,6 @@ const Contact = () => {
           <div className="space-y-4 md:space-y-8">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold mb-2 md:mb-4">Get in Touch</h3>
-              <p className="text-base md:text-xl text-gray-300">
-                Ready to brighten your day with fresh flowers? Contact us for orders and inquiries.
-              </p>
             </div>
             
             <div className="space-y-3 md:space-y-6">
@@ -98,9 +95,6 @@ const Contact = () => {
           <div className="flex items-center justify-center space-x-2 mb-3 md:mb-4">
             <img src="/logo-red.png" alt="Daivam Flowers Logo" className="h-10 md:h-12" />
           </div>
-          <p className="text-sm md:text-base text-gray-400">
-            Fresh flowers delivered with love from K R Market, Bengaluru
-          </p>
           <p className="text-gray-500 text-sm mt-2">
             © 2025 Daivam Flowers. All rights reserved.
           </p>

@@ -49,9 +49,6 @@ const Categories = () => {
             Explore Our
             <span className="text-brand-accent font-bold"> Collections</span>
           </h2>
-          <p className="text-base md:text-xl max-w-2xl mx-auto mt-2 md:mt-4 font-bold" style={{ color: '#770737' }}>
-            Discover our curated selection of premium flowers for every occasion
-          </p>
         </div>
         
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-8">
