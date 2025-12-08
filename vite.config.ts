@@ -7,7 +7,7 @@ import fs from 'fs';
 export default defineConfig(({ mode }) => ({
   base: '/',
   build: {
-    outDir: "docs",
+    outDir: "dist",
     assetsDir: "assets",
     rollupOptions: {
       output: {
@@ -26,17 +26,17 @@ export default defineConfig(({ mode }) => ({
     {
       name: 'copy-files',
       writeBundle() {
-        // Copy CNAME file to docs directory
+        // Copy CNAME file to dist directory
         if (fs.existsSync('CNAME')) {
-          fs.copyFileSync('CNAME', 'docs/CNAME');
+          fs.copyFileSync('CNAME', 'dist/CNAME');
         }
         // Copy 404.html for GitHub Pages client-side routing
         if (fs.existsSync('public/404.html')) {
-          fs.copyFileSync('public/404.html', 'docs/404.html');
+          fs.copyFileSync('public/404.html', 'dist/404.html');
         }
-        // Copy favicon.ico to docs directory
+        // Copy favicon.ico to dist directory
         if (fs.existsSync('public/favicon.ico')) {
-          fs.copyFileSync('public/favicon.ico', 'docs/favicon.ico');
+          fs.copyFileSync('public/favicon.ico', 'dist/favicon.ico');
         }
       }
     }
