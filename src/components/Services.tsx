@@ -43,8 +43,8 @@ const Services = () => {
     <section className="py-6 md:py-16" style={{ backgroundColor: '#FDF3F5' }}>
       <div className="container mx-auto px-4 md:px-12">
         {/* Mobile Header */}
-        <div className="flex items-center justify-between mb-4 md:hidden">
-          <h3 className="text-lg font-bold" style={{ color: '#770737' }}>
+        <div className="flex items-center justify-between mb-5 md:hidden">
+          <h3 className="text-xl font-bold" style={{ color: '#770737' }}>
             Our Services
           </h3>
         </div>
@@ -56,24 +56,24 @@ const Services = () => {
 
         {/* Mobile: Horizontal Scroll */}
         <div className="md:hidden">
-          <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          <div className="flex gap-4 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
                 <button
                   key={index}
                   onClick={() => handleServiceClick(service.id)}
-                  className="flex-shrink-0 w-[80px]"
+                  className="flex-shrink-0 w-[100px]"
                 >
-                  <div className="flex flex-col items-center gap-2">
+                  <div className="flex flex-col items-center gap-3">
                     <div 
-                      className="w-[80px] h-20 rounded-xl overflow-hidden shadow-sm flex items-center justify-center"
+                      className="w-[100px] h-28 rounded-xl overflow-hidden shadow-sm flex items-center justify-center"
                       style={{ backgroundColor: '#fff' }}
                     >
-                      <IconComponent className="w-8 h-8" style={{ color: '#FE003D' }} />
+                      <IconComponent className="w-10 h-10" style={{ color: '#FE003D' }} />
                     </div>
                     <span 
-                      className="text-[10px] font-semibold text-center leading-tight"
+                      className="text-xs font-semibold text-center leading-tight"
                       style={{ color: '#770737' }}
                     >
                       {service.title}
