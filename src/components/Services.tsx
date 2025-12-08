@@ -75,8 +75,8 @@ const Services = () => {
                 >
                   <div className="flex flex-col items-center gap-2">
                     <div 
-                      className="w-[80px] h-20 rounded-xl overflow-hidden border-2 shadow-sm flex items-center justify-center"
-                      style={{ borderColor: '#770737', backgroundColor: '#fff' }}
+                      className="w-[80px] h-20 rounded-xl overflow-hidden shadow-sm flex items-center justify-center"
+                      style={{ backgroundColor: '#fff' }}
                     >
                       <IconComponent className="w-8 h-8" style={{ color: '#FE003D' }} />
                     </div>

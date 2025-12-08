@@ -92,8 +92,7 @@ const WhatsAppReviews = () => {
               {reviews.map((review) => (
                 <div
                   key={review.id}
-                  className="flex-shrink-0 w-[200px] bg-white rounded-xl p-4 border-2 shadow-sm"
-                  style={{ borderColor: '#770737' }}
+                  className="flex-shrink-0 w-[200px] bg-white rounded-xl p-4 shadow-sm"
                 >
                   <div className="flex items-center gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (

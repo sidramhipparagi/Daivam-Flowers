@@ -74,8 +74,7 @@ const Categories = () => {
               >
                 <div className="flex flex-col items-center gap-2">
                   <div 
-                    className="w-[72px] h-20 rounded-xl overflow-hidden border-2 shadow-sm"
-                    style={{ borderColor: '#770737' }}
+                    className="w-[72px] h-20 rounded-xl overflow-hidden shadow-sm"
                   >
                     <img 
                       src={category.image} 
