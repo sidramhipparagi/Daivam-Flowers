@@ -1,10 +1,9 @@
 
-
-# Welcome to My Project
+# Daivam Flowers - 24/7 Pooja & Temple Flowers
 
 ## Overview
 
-This is a modern web application built with cutting-edge technologies focused on performance, developer experience, and clean UI/UX.
+Daivam Flowers is a modern e-commerce web application for ordering pooja, temple, and devotional flowers in Bengaluru. Open 24/7, we deliver fresh flowers, garlands, maale, hara, and pooja items directly from K R Market to your home. Built with cutting-edge technologies focused on performance, user experience, and beautiful UI.
 
 ## Project Setup
 
@@ -54,14 +53,39 @@ This project is built with:
 
 ## Deployment
 
-You can deploy this project using any modern platform like:
+This project is configured for GitHub Pages deployment using the `gh-pages` branch.
+
+### Deploy to GitHub Pages
+
+1. **Build and deploy in one command:**
+
+   ```bash
+   npm run deploy
+   ```
+
+   This command will:
+   - Build the project to the `dist/` folder
+   - Deploy the `dist/` folder to the `gh-pages` branch
+   - GitHub Pages will automatically serve your site
+
+2. **Configure GitHub Pages Settings (First time only):**
+   - Go to your repository on GitHub
+   - Navigate to **Settings** → **Pages**
+   - Under "Source", select **Deploy from a branch**
+   - Select the **gh-pages** branch and **/ (root)** folder
+   - Click **Save**
+
+Your site will be live at: `https://<your-username>.github.io/<repository-name>/`
+
+### Alternative Deployment Options
+
+You can also deploy this project using other platforms:
 
 * **Vercel**
 * **Netlify**
 * **Render**
-* **GitHub Pages**
 
-Just build the project using:
+For these platforms, just build the project using:
 
 ```bash
 npm run build
