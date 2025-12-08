@@ -3,6 +3,8 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 
+// Categories component with mobile view updates
+
 const Categories = () => {
   const location = useLocation();
   const isCollectionPage = location.pathname === '/collection';
