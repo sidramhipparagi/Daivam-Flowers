@@ -1,9 +1,11 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 
 const Categories = () => {
+  const location = useLocation();
+  const isCollectionPage = location.pathname === '/collection';
   const categories = [
     {
       id: 1,
@@ -45,14 +47,16 @@ const Categories = () => {
           <h2 className="text-lg font-bold" style={{ color: '#770737' }}>
             Shop by Category
           </h2>
-          <Link 
-            to="/collection" 
-            className="text-sm font-medium flex items-center gap-1"
-            style={{ color: '#FE003D' }}
-          >
-            View All
-            <ChevronRight className="w-4 h-4" />
-          </Link>
+          {!isCollectionPage && (
+            <Link 
+              to="/collection" 
+              className="text-sm font-medium flex items-center gap-1"
+              style={{ color: '#FE003D' }}
+            >
+              View All
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          )}
         </div>
 
         {/* Desktop Header */}

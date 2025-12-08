@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Home, Heart, Gift, Building, ChevronRight } from 'lucide-react';
+import { Home, Heart, Gift, Building } from 'lucide-react';
 import ServiceDialog from './ServiceDialog';
 
 const Services = () => {
@@ -47,14 +47,6 @@ const Services = () => {
           <h3 className="text-lg font-bold" style={{ color: '#770737' }}>
             Our Services
           </h3>
-          <button 
-            onClick={() => handleServiceClick('home-delivery')}
-            className="text-sm font-medium flex items-center gap-1"
-            style={{ color: '#FE003D' }}
-          >
-            Learn More
-            <ChevronRight className="w-4 h-4" />
-          </button>
         </div>
 
         {/* Desktop Header */}
