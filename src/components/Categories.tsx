@@ -70,11 +70,11 @@ const Categories = () => {
               <Link
                 key={category.id}
                 to={category.route}
-                className="flex-shrink-0 w-20"
+                className="flex-shrink-0 w-[72px]"
               >
                 <div className="flex flex-col items-center gap-2">
                   <div 
-                    className="w-16 h-16 rounded-full overflow-hidden border-2 shadow-sm"
+                    className="w-[72px] h-20 rounded-xl overflow-hidden border-2 shadow-sm"
                     style={{ borderColor: '#770737' }}
                   >
                     <img 
@@ -84,7 +84,7 @@ const Categories = () => {
                     />
                   </div>
                   <span 
-                    className="text-xs font-medium text-center leading-tight"
+                    className="text-[10px] font-semibold text-center leading-tight"
                     style={{ color: '#770737' }}
                   >
                     {category.name}
