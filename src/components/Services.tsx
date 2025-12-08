@@ -1,7 +1,8 @@
-
 import React, { useState } from 'react';
 import { Home, Heart, Gift, Building } from 'lucide-react';
 import ServiceDialog from './ServiceDialog';
+
+// Services component with mobile view updates
 
 const Services = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
