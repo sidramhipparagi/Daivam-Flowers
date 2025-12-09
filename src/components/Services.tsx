@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Home, Heart, Gift, Building } from 'lucide-react';
 import ServiceDialog from './ServiceDialog';
+import homeDeliveryIllustration from '@/assets/illustrations/home-delivery.png';
+import weddingIllustration from '@/assets/illustrations/wedding.png';
+import specialEventsIllustration from '@/assets/illustrations/special-events.png';
+import corporateIllustration from '@/assets/illustrations/corporate.png';
 
 // Services component with mobile view updates
 
@@ -18,25 +22,29 @@ const Services = () => {
       icon: Home,
       title: "Home Delivery",
       id: 'home-delivery' as const,
-      image: "/images/homedelivery.png"
+      image: "/images/homedelivery.png",
+      illustration: homeDeliveryIllustration
     },
     {
       icon: Heart,
       title: "Wedding",
       id: 'wedding' as const,
-      image: "/images/wedding.png"
+      image: "/images/wedding.png",
+      illustration: weddingIllustration
     },
     {
       icon: Gift,
       title: "Special Events",
       id: 'special-occasions' as const,
-      image: "/images/special.png"
+      image: "/images/special.png",
+      illustration: specialEventsIllustration
     },
     {
       icon: Building,
       title: "Corporate",
       id: 'corporate' as const,
-      image: "/images/corporate.png"
+      image: "/images/corporate.png",
+      illustration: corporateIllustration
     }
   ];
 
@@ -68,10 +76,17 @@ const Services = () => {
                 >
                   <div className="flex flex-col items-center gap-3">
                     <div 
-                      className="w-[100px] h-28 rounded-xl overflow-hidden shadow-sm flex items-center justify-center"
+                      className="w-[100px] h-28 rounded-xl overflow-hidden shadow-sm relative"
                       style={{ backgroundColor: '#fff' }}
                     >
-                      <IconComponent className="w-10 h-10" strokeWidth={1.5} style={{ color: '#FE003D' }} />
+                      <img 
+                        src={service.illustration} 
+                        alt={service.title}
+                        className="absolute inset-0 w-full h-full object-cover opacity-40"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <IconComponent className="w-10 h-10" strokeWidth={1.5} style={{ color: '#FE003D' }} />
+                      </div>
                     </div>
                     <span 
                       className="text-xs font-semibold text-center leading-tight"
