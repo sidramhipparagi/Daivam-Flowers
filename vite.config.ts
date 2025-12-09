@@ -6,7 +6,6 @@ import fs from 'fs';
 
 export default defineConfig(({ mode }) => ({
   base: '/',
-  publicDir: 'public',
   build: {
     outDir: "dist",
     assetsDir: "assets",

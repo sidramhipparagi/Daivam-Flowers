@@ -92,26 +92,28 @@ const WhatsAppReviews = () => {
               {reviews.map((review) => (
                 <div
                   key={review.id}
-                  className="flex-shrink-0 w-[100px]"
+                  className="flex-shrink-0 w-[200px] bg-white rounded-xl p-4 shadow-sm"
                 >
-                  <div className="flex flex-col items-center gap-3">
+                  <div className="flex items-center gap-1 mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 fill-current" style={{ color: '#FE003D' }} />
+                    ))}
+                  </div>
+                  <p 
+                    className="text-xs leading-relaxed mb-3 line-clamp-3"
+                    style={{ color: '#1F2937' }}
+                  >
+                    "{review.message}"
+                  </p>
+                  <div className="flex items-center gap-2">
                     <div 
-                      className="w-[100px] h-28 rounded-xl overflow-hidden shadow-sm bg-white flex flex-col items-center justify-center p-2"
+                      className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white"
+                      style={{ backgroundColor: '#770737' }}
                     >
-                      <div className="flex items-center gap-0.5 mb-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-2 h-2 fill-current" style={{ color: '#FE003D' }} />
-                        ))}
-                      </div>
-                      <p 
-                        className="text-[10px] leading-tight text-center line-clamp-3"
-                        style={{ color: '#1F2937' }}
-                      >
-                        "{review.message}"
-                      </p>
+                      {review.initial}
                     </div>
                     <span 
-                      className="text-xs font-semibold text-center leading-tight"
+                      className="text-xs font-semibold"
                       style={{ color: '#770737' }}
                     >
                       {review.name}
