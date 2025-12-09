@@ -154,7 +154,7 @@ const ProductCarousel = ({ productIds = [10, 69, 3, 37, 28, 23] }: ProductCarous
           </div>
         </div>
 
-        <div className="relative overflow-hidden group" style={{ minHeight: '280px' }}>
+        <div className="relative overflow-hidden group min-h-[200px] sm:min-h-[280px]">
           {/* Products container */}
           <div 
             className="flex h-full"
@@ -165,9 +165,9 @@ const ProductCarousel = ({ productIds = [10, 69, 3, 37, 28, 23] }: ProductCarous
           >
             {extendedProducts.map((product, index) => (
               <div key={`${product.id}-${index}`} className="min-w-full flex items-center justify-center sm:p-2">
-                <Link to={`/product/${product.id}`} className="block w-full bg-white sm:rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-2xl sm:hover:-translate-y-2 group">
-                  {/* Image Container - matching categories aspect-square */}
-                  <div className="aspect-square overflow-hidden relative">
+                <Link to={`/product/${product.id}`} className="block w-full bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-2xl sm:hover:-translate-y-2 group">
+                  {/* Image Container - shorter height on mobile, square on desktop */}
+                  <div className="aspect-[4/3] sm:aspect-square overflow-hidden relative rounded-xl sm:rounded-2xl">
                   <img 
                     src={product.image} 
                     alt={product.name}

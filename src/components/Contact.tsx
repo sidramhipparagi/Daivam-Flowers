@@ -93,7 +93,7 @@ const Contact = () => {
         
         <div className="border-t border-gray-800 mt-8 md:mt-16 pt-6 md:pt-8 text-center">
           <div className="flex items-center justify-center space-x-2 mb-3 md:mb-4">
-            <img src="/logo-red.png" alt="Daivam Flowers Logo" className="h-10 md:h-12" />
+            <img src="/logo-red.png" alt="Daivam Flowers Logo" className="h-7 md:h-10" />
           </div>
           <p className="text-gray-500 text-sm mt-2">
             © 2025 Daivam Flowers. All rights reserved.

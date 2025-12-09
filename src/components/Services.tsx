@@ -67,7 +67,6 @@ const Services = () => {
         <div className="md:hidden">
           <div className="flex gap-4 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             {services.map((service, index) => {
-              const IconComponent = service.icon;
               return (
                 <button
                   key={index}
@@ -82,11 +81,8 @@ const Services = () => {
                       <img 
                         src={service.illustration} 
                         alt={service.title}
-                        className="absolute inset-0 w-full h-full object-cover opacity-40"
+                        className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <IconComponent className="w-10 h-10" strokeWidth={1.5} style={{ color: '#FE003D' }} />
-                      </div>
                     </div>
                     <span 
                       className="text-xs font-semibold text-center leading-tight"
