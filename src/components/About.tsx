@@ -48,7 +48,7 @@ const About = () => {
                     className="w-[100px] h-28 rounded-xl overflow-hidden shadow-sm flex items-center justify-center"
                     style={{ backgroundColor: '#fff' }}
                   >
-                    <Star className="w-10 h-10" style={{ color: '#FE003D' }} />
+                    <Star className="w-10 h-10" strokeWidth={1.5} style={{ color: '#FE003D' }} />
                   </div>
                   <span 
                     className="text-xs font-semibold text-center leading-tight"
@@ -81,7 +81,7 @@ const About = () => {
                     className="w-[100px] h-28 rounded-xl overflow-hidden shadow-sm flex items-center justify-center"
                     style={{ backgroundColor: '#fff' }}
                   >
-                    <Clock className="w-10 h-10" style={{ color: '#FE003D' }} />
+                    <Clock className="w-10 h-10" strokeWidth={1.5} style={{ color: '#FE003D' }} />
                   </div>
                   <span 
                     className="text-xs font-semibold text-center leading-tight px-1"
