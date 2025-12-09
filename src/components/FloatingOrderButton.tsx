@@ -17,11 +17,11 @@ const FloatingOrderButton = () => {
       style={{ fontWeight: 'normal' }} // Override link default
     >
       <div 
-        className={`flex items-center justify-center rounded-full transition-all duration-300 ease-in-out ${isMobile ? 'h-10 w-10 shadow-md' : 'h-14 w-14 shadow-lg hover:shadow-xl hover:w-32 hover:px-4'}`}
+        className={`flex items-center justify-center rounded-full transition-all duration-500 ease-out ${isMobile ? 'h-10 w-10 shadow-md' : 'h-14 w-14 shadow-lg hover:shadow-xl hover:w-32 hover:px-4'}`}
         style={{ backgroundColor: isMobile ? '#FDF3F5' : '#770737' }}
       >
         <ShoppingCart 
-          className={`flex-shrink-0 transition-colors duration-300 ${isMobile ? 'h-5 w-5' : 'h-6 w-6'}`}
+          className={`flex-shrink-0 transition-colors duration-500 ease-out ${isMobile ? 'h-5 w-5' : 'h-6 w-6'}`}
           style={{ color: isMobile || isHovered ? '#FE003D' : 'white' }}
         />
         {!isMobile && (
@@ -31,7 +31,7 @@ const FloatingOrderButton = () => {
               color: isHovered ? '#FE003D' : 'white',
               fontWeight: isHovered ? 700 : 500,
               lineHeight: '1.2',
-              transition: 'all 0.3s ease-in-out',
+              transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
               display: 'inline-block'
             }}
           >

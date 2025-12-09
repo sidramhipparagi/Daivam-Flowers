@@ -61,15 +61,15 @@ const Hero = () => {
             <div className="flex gap-3 mt-6 justify-center md:justify-start">
               <button 
                 onClick={() => handleFeatureClick('delivery')}
-                className="group flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out h-14 w-14 hover:w-40 cursor-pointer" 
+                className="group flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transition-all duration-500 ease-out h-14 w-14 hover:w-40 cursor-pointer" 
                 style={{ backgroundColor: '#770737' }}
               >
-                <Truck className="h-6 w-6 flex-shrink-0 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
+                <Truck className="h-6 w-6 flex-shrink-0 transition-colors duration-500 ease-out group-hover:text-white" style={{ color: '#FE003D' }} />
                 <span 
                   className="overflow-hidden max-w-0 group-hover:max-w-xs group-hover:ml-2 whitespace-nowrap font-semibold text-sm"
                   style={{ 
                     color: '#FE003D',
-                    transition: 'all 0.3s ease-in-out',
+                    transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                     display: 'inline-block'
                   }}
                 >
@@ -79,15 +79,15 @@ const Hero = () => {
 
               <button 
                 onClick={() => handleFeatureClick('fresh')}
-                className="group flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out h-14 w-14 hover:w-40 cursor-pointer" 
+                className="group flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transition-all duration-500 ease-out h-14 w-14 hover:w-40 cursor-pointer" 
                 style={{ backgroundColor: '#770737' }}
               >
-                <Sparkles className="h-6 w-6 flex-shrink-0 transition-colors duration-300 group-hover:text-white" style={{ color: '#FE003D' }} />
+                <Sparkles className="h-6 w-6 flex-shrink-0 transition-colors duration-500 ease-out group-hover:text-white" style={{ color: '#FE003D' }} />
                 <span 
                   className="overflow-hidden max-w-0 group-hover:max-w-xs group-hover:ml-2 whitespace-nowrap font-semibold text-sm"
                   style={{ 
                     color: '#FE003D',
-                    transition: 'all 0.3s ease-in-out',
+                    transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                     display: 'inline-block'
                   }}
                 >
@@ -104,10 +104,8 @@ const Hero = () => {
             <div className="hidden sm:flex gap-4 px-4 mt-4 lg:mt-0">
               <Link 
                 to="/collection"
-                className="group flex items-center justify-center rounded-full px-6 py-3 font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="group flex items-center justify-center rounded-full px-6 py-3 font-semibold text-lg text-white hover:text-[#FE003D] transition-all duration-500 ease-out transform hover:scale-105 shadow-lg hover:shadow-xl"
                 style={{ backgroundColor: '#770737' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#FE003D'}
-                onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
               >
                 View Collection
               </Link>
