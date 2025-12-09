@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { Clock, Star } from 'lucide-react';
+import premiumQualityIllustration from '@/assets/illustrations/premium-quality.png';
+import fastDeliveryIllustration from '@/assets/illustrations/fast-delivery.png';
 
 const About = () => {
   return (
@@ -45,10 +47,17 @@ const About = () => {
                 {/* Mobile card */}
                 <div className="md:hidden flex flex-col items-center gap-2">
                   <div 
-                    className="w-[100px] h-28 rounded-xl overflow-hidden shadow-sm flex items-center justify-center"
+                    className="w-[100px] h-28 rounded-xl overflow-hidden shadow-sm relative"
                     style={{ backgroundColor: '#fff' }}
                   >
-                    <Star className="w-10 h-10" strokeWidth={1.5} style={{ color: '#FE003D' }} />
+                    <img 
+                      src={premiumQualityIllustration} 
+                      alt="Premium Quality"
+                      className="absolute inset-0 w-full h-full object-cover opacity-40"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Star className="w-10 h-10" strokeWidth={1.5} style={{ color: '#FE003D' }} />
+                    </div>
                   </div>
                   <span 
                     className="text-xs font-semibold text-center leading-tight"
@@ -78,10 +87,17 @@ const About = () => {
                 {/* Mobile card */}
                 <div className="md:hidden flex flex-col items-center gap-2">
                   <div 
-                    className="w-[100px] h-28 rounded-xl overflow-hidden shadow-sm flex items-center justify-center"
+                    className="w-[100px] h-28 rounded-xl overflow-hidden shadow-sm relative"
                     style={{ backgroundColor: '#fff' }}
                   >
-                    <Clock className="w-10 h-10" strokeWidth={1.5} style={{ color: '#FE003D' }} />
+                    <img 
+                      src={fastDeliveryIllustration} 
+                      alt="Fast Delivery"
+                      className="absolute inset-0 w-full h-full object-cover opacity-40"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Clock className="w-10 h-10" strokeWidth={1.5} style={{ color: '#FE003D' }} />
+                    </div>
                   </div>
                   <span 
                     className="text-xs font-semibold text-center leading-tight px-1"
