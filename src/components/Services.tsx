@@ -71,7 +71,7 @@ const Services = () => {
                       className="w-[100px] h-28 rounded-xl overflow-hidden shadow-sm flex items-center justify-center"
                       style={{ backgroundColor: '#fff' }}
                     >
-                      <IconComponent className="w-10 h-10" style={{ color: '#FE003D' }} />
+                      <IconComponent className="w-10 h-10" strokeWidth={1.5} style={{ color: '#FE003D' }} />
                     </div>
                     <span 
                       className="text-xs font-semibold text-center leading-tight"
